@@ -1,6 +1,4 @@
-package Bases;
-
-public class Panel_Inicio extends Main {
+public class Panel_Inicio {
 
     public void registro(){
 
