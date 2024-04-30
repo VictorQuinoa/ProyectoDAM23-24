@@ -21,7 +21,7 @@ public class Panel_Inicio {
         base_paneles.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         base_paneles.setBounds(600, 400, 600,600);
         base_paneles.setVisible(true);
-
+        base_paneles.setResizable(false);
 
     }
 
