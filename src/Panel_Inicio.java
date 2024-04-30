@@ -4,12 +4,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.Image;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -75,6 +71,34 @@ public class Panel_Inicio {
         inicios_de_sesion = new JPanel();
         inicios_de_sesion.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+        nombre = new JLabel("Nombre de usuario");
+        contraseña = new JLabel("Contraseña");
+        insertar_nombre = new JTextField(10);
+        insertar_contraseña = new JTextField(10);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.insets = new Insets(10,10,10,10);
+        gbc.anchor = GridBagConstraints.CENTER;
+       // gbc.fill = GridBagConstraints.BOTH;
+
+        gbc.weightx = 0;
+        gbc.weighty = 0;
+        inicios_de_sesion.add(nombre,gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        inicios_de_sesion.add(insertar_nombre,gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        inicios_de_sesion.add(contraseña,gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        inicios_de_sesion.add(insertar_contraseña,gbc);
+        base_paneles.add(inicios_de_sesion);
 
     }
 
