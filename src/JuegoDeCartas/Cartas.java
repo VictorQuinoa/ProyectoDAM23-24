@@ -4,11 +4,6 @@ public class Cartas {
     private String palo;
     private String valor;
 
-    /**
-     * Constructor de la clase Cartas
-     * @param palo
-     * @param valor
-     */
     public Cartas(String palo, String valor) {
         this.palo = palo;
         this.valor = valor;
