@@ -5,6 +5,8 @@ import java.util.Collections;
 
 public class Baraja {
     private ArrayList<Cartas> cartas;
+    private int indiceCartaActual;
+
 
     public Baraja() {
         this.cartas = new ArrayList<Cartas>();
