@@ -1,4 +1,4 @@
-public class Poker {
+public class Poker extends Main {
     public void reparto(){
 
     }

@@ -1,4 +1,4 @@
-public class BlackJack {
+public class BlackJack extends Main {
 
     private int carta;
 

@@ -1,4 +1,4 @@
-public class Panel_Inicio {
+public class Panel_Inicio extends Main {
 
     public void registro(){
 

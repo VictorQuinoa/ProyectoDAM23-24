@@ -1,3 +1,3 @@
-public class ManosPoker {
+public class ManosPoker extends Poker {
 
 }

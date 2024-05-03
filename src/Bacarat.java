@@ -1,4 +1,4 @@
-public class Bacarat {
+public class Bacarat extends Main {
 
     private int cartas;
 

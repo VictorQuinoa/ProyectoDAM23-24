@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Economia {
+public class Economia extends Poker {
 
     private static HashMap<String , Integer > ficha = new HashMap<String, Integer>();
     private int pago = 0;
@@ -19,8 +19,10 @@ public class Economia {
         ficha.put("Pastel",5000);
     }
 
-    public void cambio(){
+   public void pagoFicha(String color) {
+       pago = ficha.get(color);
+   }
 
-    }
+
 
 }
