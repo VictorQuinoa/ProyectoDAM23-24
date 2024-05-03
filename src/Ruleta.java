@@ -1,13 +1,33 @@
-public class Ruleta {
+import javax.swing.*;
+
+public class Ruleta{
 
     private int numero;
+    String[] colores = {"Rojo","Azul"};
+    String[] paridad = {"Par","Impar"};
+    String[] valores = {"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15",
+            "16","17","18","19","20","21","22","23","24","25","26","27","28","29","30",
+            "31","32","33","34","35","36"};
 
-
-    public void apuesta(){
-
+    public void girarRuleta(){
+        this.numero = (int) (Math.random() * 37);
+        System.out.println("El numero ganador es: " + this.numero);
     }
 
-    public void giro(){
-
+    public void apuestaNumero(int numero){
+        if (this.numero == numero){
+            JOptionPane.showMessageDialog(null, "Felicidades, has ganado");
+        }else{
+            JOptionPane.showMessageDialog(null, "Lo siento, has perdido");
+        }
     }
+
+    public void apuestaColor(String color){
+        if
+    }
+
+
+
+
+
 }
