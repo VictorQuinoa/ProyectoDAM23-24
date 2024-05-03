@@ -27,5 +27,11 @@ public class Cartas {
     public void setValor(String value) {
         this.valor = value;
     }
+    public int getValorNumerico() {
+        return valorNumerico;
+    }
 
+    public void setValorNumerico(int valorNumerico) {
+        this.valorNumerico = valorNumerico;
+    }
 }
