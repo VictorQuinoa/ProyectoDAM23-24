@@ -13,14 +13,17 @@ public class Baraja {
         String[] palos = {"Corazones", "Diamantes", "Treboles", "Picas"};
         String[] valores = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
         int[] valoresNumericos = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1};
-
         for (String palo : palos) {
-            for (String valor : valores) {
-                this.cartas.add(new Cartas(palo, valor));
+            for (int i = 0; i < valores.length; i++) {
+                cartas.add(new Cartas(palo, valores[i], valoresNumericos[i]));
             }
         }
-        Collections.shuffle(this.cartas);
+        indiceCartaActual = 0;
     }
+
+
+
+
 
     public Cartas dealCard() {
         return this.cartas.remove(this.cartas.size() - 1);
