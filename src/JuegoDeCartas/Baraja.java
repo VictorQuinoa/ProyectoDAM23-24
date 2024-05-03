@@ -21,10 +21,13 @@ public class Baraja {
         indiceCartaActual = 0;
     }
 
+    public void barajar() {
+        Collections.shuffle(cartas);
+    }
 
-
-
-
+    public Cartas tomarCarta() {
+        return cartas.get(indiceCartaActual++);
+    }
     public Cartas dealCard() {
         return this.cartas.remove(this.cartas.size() - 1);
     }
