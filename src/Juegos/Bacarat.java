@@ -1,6 +1,8 @@
-public class BlackJack extends Main {
+package Juegos;
 
-    private int carta;
+public class Bacarat  {
+
+    private int cartas;
 
     public void reparto(){
 
@@ -13,6 +15,4 @@ public class BlackJack extends Main {
     public void opciones(){
 
     }
-
-
 }

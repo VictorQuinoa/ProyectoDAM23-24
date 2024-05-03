@@ -1,4 +1,6 @@
-public class Poker extends Main {
+package Juegos;
+
+public class Poker {
     public void reparto(){
 
     }

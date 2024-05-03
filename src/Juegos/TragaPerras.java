@@ -1,4 +1,6 @@
-public class TragaPerras extends Main {
+package Juegos;
+
+public class TragaPerras {
 
     public void apuesta(){
 

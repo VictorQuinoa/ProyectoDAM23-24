@@ -1,3 +1,5 @@
+package JuegoDeCartas;
+
 public class Cartas {
     private String palo;
     private String valor;

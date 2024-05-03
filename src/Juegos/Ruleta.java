@@ -1,3 +1,5 @@
+package Juegos;
+
 import javax.swing.*;
 
 public class Ruleta{
