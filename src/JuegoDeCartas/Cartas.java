@@ -5,9 +5,11 @@ public class Cartas {
     private String valor;
     private int valorNumerico;
 
-    public Cartas(String palo, String valor) {
+    public Cartas(String palo, String valor,int valorNumerico) {
         this.palo = palo;
         this.valor = valor;
+        this.valorNumerico=valorNumerico;
+
     }
 
     public String getPalo() {
