@@ -3,6 +3,7 @@ package JuegoDeCartas;
 public class Cartas {
     private String palo;
     private String valor;
+    private int valorNumerico;
 
     public Cartas(String palo, String valor) {
         this.palo = palo;
