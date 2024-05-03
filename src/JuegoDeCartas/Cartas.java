@@ -34,4 +34,12 @@ public class Cartas {
     public void setValorNumerico(int valorNumerico) {
         this.valorNumerico = valorNumerico;
     }
+    @Override
+    public String toString() {
+        return "Cartas{" +
+                "palo='" + palo + '\'' +
+                ", valor='" + valor + '\'' +
+                ", valorNumerico=" + valorNumerico +
+                '}';
+    }
 }
