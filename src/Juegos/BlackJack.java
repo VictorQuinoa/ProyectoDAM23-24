@@ -1,6 +1,6 @@
 package Juegos;
 
-public class BlackJack {
+public class    BlackJack {
 
     private int carta;
 
