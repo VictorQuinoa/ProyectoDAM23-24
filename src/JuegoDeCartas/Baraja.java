@@ -7,7 +7,9 @@ public class Baraja {
     private ArrayList<Cartas> cartas;
     private int indiceCartaActual;
 
-
+    /**
+     * Constructor de la clase Baraja
+     */
     public Baraja() {
         this.cartas = new ArrayList<Cartas>();
         String[] palos = {"Corazones", "Diamantes", "Treboles", "Picas"};
