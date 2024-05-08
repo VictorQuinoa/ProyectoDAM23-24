@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BlackJack {
+    /**
+     * Método para jugar al Blackjack
+     * @param scanner Scanner para leer la entrada del usuario
+     */
     public static void jugarBlackjack(Scanner scanner){
         Baraja baraja = new Baraja();
         baraja.barajar();
