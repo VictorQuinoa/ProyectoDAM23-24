@@ -92,6 +92,11 @@ public class ManosPoker {
         return esPar(mano) && esTrio(mano);
     }
 
+    /**
+     *
+     * @param mano
+     * @return
+     */
     public static boolean esPoker(List<Cartas> mano) {
         Map<String, Integer> conteo = new HashMap<>();
         for (Cartas carta : mano) {
@@ -112,7 +117,7 @@ public class ManosPoker {
     public static boolean esEscaleraReal(List<Cartas> mano) {
         List<Integer> valores = new ArrayList<>();
         for (Cartas carta : mano) {
-            valores.add(Integer.valueOf(carta.getValor()));
+            valores.add(Integer.valueOf((carta.getValor())));
         }
         Collections.sort(valores);
         return valores.get(0) == 10 && esEscaleraColor(mano);
