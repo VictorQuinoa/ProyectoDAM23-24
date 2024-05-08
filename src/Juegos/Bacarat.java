@@ -15,6 +15,11 @@ public class Bacarat {
         this.cartaBanca = this.baraja.dealCard();
     }
 
+    /**
+     * Devuelve el valor de una carta en el juego de Bacarat.
+     * @param carta Carta a evaluar
+     * @return Valor de la carta
+     */
     private int valorCarta(Cartas carta) {
         String valor = carta.getValor();
         switch (valor) {
