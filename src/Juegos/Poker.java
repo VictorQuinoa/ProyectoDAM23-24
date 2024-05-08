@@ -39,9 +39,60 @@ public class Poker {
         // Aquí puedes implementar la lógica de la apuesta de la computadora
         apuestaComputadora = 0;
     }
+    public void subirApuesta() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese la cantidad a subir: ");
+        int subida = scanner.nextInt();
+        apuestaJugador += subida;
+        // Aquí puedes implementar la lógica de la subida de la computadora
+        apuestaComputadora = 0;
+    }
 
+    public void igualarApuesta() {
+        apuestaComputadora = apuestaJugador;
+        // Aquí puedes implementar la lógica de la igualación de la computadora
+    }
+
+    public void retirarse() {
+        // Asegurarse de que el jugador no se haya retirado antes de permitirle tomar una opción
+        if (!jugadorRetirado) {
+            opciones();
+            else{
+
+            }
+            jugadorRetirado = true;
+
+        }
+    }
+
+    public void verMano() {
+        manos();
+    }
+
+    public void pasar() {
+        // Aquí puedes implementar la lógica de la computadora para pasar
+    }
     public void opciones() {
-        // Aquí puedes implementar las opciones que el jugador puede tomar durante el juego
+
+        int opcion = 0;
+
+        switch (opcion) {
+            case 1:
+                subirApuesta();
+                break;
+            case 2:
+                igualarApuesta();
+                break;
+            case 3:
+                retirarse();
+                break;
+            case 4;
+                verMano();
+            case 5;
+                pasar();
+            default:
+                System.out.println("Opción inválida");
+        }
     }
 
     public void manos() {
@@ -67,6 +118,7 @@ public class Poker {
             System.out.println("Tienes un Par!");
         } else if (ManosPoker.esCartaAlta(manoJugador)) {
             System.out.println("Tienes una Carta Alta!");
+
         }
     }
 }
