@@ -35,6 +35,10 @@ public class TragaPerras {
         System.out.println("Saldo actual: " + saldo);
     }
 
+    /**
+     * Metodo para jugar a la TragaPerras
+     * @param tragaperras vuelta a empezar
+     */
     public void jugar(TragaPerras tragaperras) {
         Scanner scanner = new Scanner(System.in);
 
