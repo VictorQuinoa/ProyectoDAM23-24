@@ -25,6 +25,10 @@ public class Baraja {
         Collections.shuffle(cartas);
     }
 
+    /**
+     * Metodo que toma una carta de la baraja
+     * @return Carta
+     */
     public Cartas tomarCarta() {
         return cartas.get(indiceCartaActual++);
     }
