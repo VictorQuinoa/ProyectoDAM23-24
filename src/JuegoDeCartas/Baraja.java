@@ -32,6 +32,10 @@ public class Baraja {
     public Cartas tomarCarta() {
         return cartas.get(indiceCartaActual++);
     }
+    /**
+     * Metodo que da una carta de la baraja
+     * @return Carta
+     */
     public Cartas dealCard() {
         return this.cartas.remove(this.cartas.size() - 1);
     }
