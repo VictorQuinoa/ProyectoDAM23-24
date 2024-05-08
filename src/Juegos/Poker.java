@@ -55,23 +55,28 @@ public class Poker {
 
     public void retirarse() {
         // Asegurarse de que el jugador no se haya retirado antes de permitirle tomar una opción
-        if (!jugadorRetirado) {
+        boolean jugadorRetirado=false;
+        if (jugadorRetirado= false) {
             opciones();
-            else{
-
+        }else{
+               System.out.println("El jugador ya se ha retirado");
             }
-            jugadorRetirado = true;
+
 
         }
-    }
+
 
     public void verMano() {
-        manos();
+        System.out.println("Tu mano: " + manoJugador);
     }
 
+
     public void pasar() {
-        // Aquí puedes implementar la lógica de la computadora para pasar
+
+
+
     }
+
     public void opciones() {
 
         int opcion = 0;
