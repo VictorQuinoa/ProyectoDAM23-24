@@ -53,7 +53,7 @@ public class Poker {
         System.out.println("Ingrese la cantidad a subir: ");
         int subida = scanner.nextInt();
         apuestaJugador += subida;
-        // Aquí puedes implementar la lógica de la subida de la computadora
+
         apuestaComputadora = 0;
     }
 
@@ -99,8 +99,10 @@ public class Poker {
 
         switch (opcion) {
             case 1:
+
                 subirApuesta();
                 break;
+
             case 2:
                 igualarApuesta();
                 break;
