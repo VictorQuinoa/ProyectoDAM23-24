@@ -11,6 +11,10 @@ public class TragaPerras {
         saldo = 1000;
     }
 
+    /**
+     * Metodo para girar la Tragaperras
+     * @param apuesta valor de la apuesta insertada
+     */
     public void girar(int apuesta) {
         this.apuesta = apuesta;
         if (this.apuesta > saldo) {
