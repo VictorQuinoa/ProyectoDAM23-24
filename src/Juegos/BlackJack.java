@@ -82,6 +82,11 @@ public class BlackJack {
 
     }
 
+    /**
+     * Método para calcular el valor total de la mano
+     * @param mano Lista de cartas
+     * @return Valor total de la mano
+     */
     // Método para calcular el valor total de la mano
     private static int valorMano(List<Cartas> mano) {
         int total = 0;
