@@ -34,6 +34,10 @@ public class Bacarat {
         }
     }
 
+    /**
+     * Juega una partida de Bacarat y devuelve el resultado.
+     * @return Resultado de la partida
+     */
     public String jugar() {
         repartirCartas();
         int valorJugador = valorCarta(this.cartaJugador);
