@@ -41,7 +41,6 @@ public class Panel_Inicio {
     private Dimension size_foto;
     private Dimension size_base_frame;
     private Dimension size_Fondo;
-    private Dimension size
 
     public Panel_Inicio(){
 
@@ -82,6 +81,14 @@ public class Panel_Inicio {
         Fondo.setBackground(new java.awt.Color(255, 255, 255));
         Fondo.setPreferredSize(size_Fondo);
         Fondo.setLayout(new AbsoluteLayout());
-}
+
+        panel_foto.setPreferredSize(size_panel_foto);
+
+        foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("imagen/maxresdefault.jpg")));
+        foto.setAlignmentY(0.0F);
+        foto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        foto.setPreferredSize(size_foto);
+
+    }
     }
 
