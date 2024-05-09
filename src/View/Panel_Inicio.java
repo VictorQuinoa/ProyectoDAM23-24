@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import java.awt.Dimension;
+import javax.swing.GroupLayout;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -79,7 +80,8 @@ public class Panel_Inicio {
         base.setSize(new java.awt.Dimension(780, 280));
 
         Fondo.setBackground(new java.awt.Color(255, 255, 255));
-        Fondo.setPreferredSize(size_Fondo);
+        // Fondo.setPreferredSize(size_Fondo);
+        //el AbsoluteLayout te permite pegar los paneles entre sí, es decir, que no quede un hueco entre ambos
         Fondo.setLayout(new AbsoluteLayout());
 
         panel_foto.setPreferredSize(size_panel_foto);
@@ -87,7 +89,16 @@ public class Panel_Inicio {
         foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("imagen/maxresdefault.jpg")));
         foto.setAlignmentY(0.0F);
         foto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        foto.setPreferredSize(size_foto);
+       // foto.setPreferredSize(size_foto);
+
+        GroupLayout panel_fotoLayout = new GroupLayout(panel_foto);
+        panel_foto.setLayout(panel_fotoLayout);
+        panel_fotoLayout.setHorizontalGroup(
+                panel_fotoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_fotoLayout.createSequentialGroup()
+                                .addComponent(foto, GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                                .addContainerGap())
+        );
 
     }
     }
