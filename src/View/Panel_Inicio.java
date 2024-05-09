@@ -6,6 +6,9 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import java.awt.Dimension;
+import java.awt.Color;
+import java.awt.Font;
+
 //librerias externas para poder usar esos Layouts
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
@@ -37,7 +40,8 @@ public class Panel_Inicio {
     private Dimension size_panel_foto;
     private Dimension size_foto;
     private Dimension size_base_frame;
-
+    private Dimension size_Fondo;
+    private Dimension size
 
     public Panel_Inicio(){
 
@@ -64,6 +68,8 @@ public class Panel_Inicio {
         simbolo_cerrar = new JLabel();
         size_panel_foto = new Dimension(1200,618);
         size_foto = new Dimension(800,200);
+        size_Fondo = new Dimension(1200,618);
+
 
         base.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         base.setAlwaysOnTop(true);
@@ -73,6 +79,9 @@ public class Panel_Inicio {
         base.setVisible(true);
         base.setSize(new java.awt.Dimension(780, 280));
 
+        Fondo.setBackground(new java.awt.Color(255, 255, 255));
+        Fondo.setPreferredSize(size_Fondo);
+        Fondo.setLayout(new AbsoluteLayout());
 }
     }
 
