@@ -21,17 +21,7 @@ public class Bacarat {
      * @return Valor de la carta
      */
     private int valorCarta(Cartas carta) {
-        String valor = carta.getValor();
-        switch (valor) {
-            case "Ace":
-                return 1;
-            case "Jack":
-            case "Queen":
-            case "King":
-                return 10;
-            default:
-                return Integer.parseInt(valor);
-        }
+        return carta.getValorNumerico();
     }
 
     /**
