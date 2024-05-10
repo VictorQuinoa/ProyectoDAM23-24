@@ -1,4 +1,4 @@
-
+package Bases;
 
 public class Apuestas {
 
@@ -38,5 +38,9 @@ public class Apuestas {
             apuesta = apuestaCrupier;
         }
         this.apuesta = apuesta;
+    }
+
+    public void pasarApuesta() {
+
     }
 }

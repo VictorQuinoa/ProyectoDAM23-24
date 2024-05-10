@@ -1,3 +1,5 @@
+package Bases;
+
 import java.util.HashMap;
 
 public class Usuario extends Panel_Inicio {

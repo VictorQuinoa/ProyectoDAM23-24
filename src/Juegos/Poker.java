@@ -2,7 +2,7 @@ package Juegos;
 
 import JuegoDeCartas.Cartas;
 import JuegoDeCartas.ManosPoker;
-
+import Bases.Apuestas;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,6 +17,8 @@ public class Poker {
     private int apuestaJugador;
     private int apuestaComputadora;
     private int ronda;
+    private boolean jugadorRetirado = false;
+    Apuestas apuesta = new Apuestas();
 
     public Poker() {
         this.baraja = new ArrayList<>();
@@ -44,7 +46,7 @@ public class Poker {
             case 2:
                 Collections.shuffle(baraja);
                 for (int j = 0; j < 3; j++) {
-                    manoMesa.add(baraja.remove(baraja.size()-1));
+                    manoMesa.add(baraja.remove(baraja.size() - 1));
 
                 }
                 System.out.println(manoJugador);
@@ -52,14 +54,14 @@ public class Poker {
                 break;
             case 3:
                 for (int k = 0; k < 1; k++) {
-                    manoMesa.add(baraja.remove(baraja.size()-1));
+                    manoMesa.add(baraja.remove(baraja.size() - 1));
                 }
                 System.out.println(manoJugador);
                 System.out.println(manoMesa);
                 break;
             case 4:
                 for (int a = 0; a < 1; a++) {
-                manoMesa.add(baraja.remove(baraja.size()-1));
+                    manoMesa.add(baraja.remove(baraja.size() - 1));
                 }
                 System.out.println(manoJugador);
                 System.out.println(manoMesa);
@@ -71,24 +73,20 @@ public class Poker {
 
     }
 
-
-    }
-
 //Método para retirase de la ronda
 
     public void retirarse() {
         // Asegurarse de que el jugador no se haya retirado antes de permitirle tomar una opción
-        boolean jugadorRetirado=false;
-        if (jugadorRetirado= false) {
+        boolean jugadorRetirado = false;
+
+        if (jugadorRetirado = false) {
             opciones();
-        }else{
-               System.out.println("El jugador ya se ha retirado");
-            }
-
-
+        } else {
+            System.out.println("El jugador ya se ha retirado");
         }
 
 
+    }
 
 
 //Switch que da el paso a las diferentes opciones segun la elección del usuario
@@ -99,24 +97,22 @@ public class Poker {
 
         switch (opcion) {
             case 1:
-
-                subirApuesta();
+                terminarRonda();
                 break;
-
             case 2:
-                igualarApuesta();
-                break;
+                apuesta.subirApuesta();
             case 3:
-                retirarse();
-                break;
+                apuesta.igualarApuesta();
             case 4:
-                pasar();
-                break;
+                apuesta.pasarApuesta();
+            case 5:
+                retirarse();
             default:
                 System.out.println("Opción inválida");
         }
     }
-//Metodo con las manos posibles
+
+    //Metodo con las manos posibles
     public void manos() {
         System.out.println("Tu mano: " + manoJugador);
         System.out.println("Mano de la computadora: " + manoComputadora);
@@ -143,4 +139,24 @@ public class Poker {
 
         }
     }
+
+    private void terminarRonda() {
+        // Limpia las manos de los jugadores y la mesa
+        manoJugador.clear();
+        manoComputadora.clear();
+        manoMesa.clear();
+        // Resetea las apuestas
+        apuestaJugador = 0;
+        apuestaComputadora = 0;
+        // Resetea el estado de retirado del jugador
+        jugadorRetirado = false;
+        System.out.println("La ronda ha terminado");
+    }
+
+    private void empezarRonda() {
+        reparto();
+        opciones();
+    }
 }
+
+

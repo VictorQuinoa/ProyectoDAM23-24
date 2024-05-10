@@ -1,3 +1,5 @@
+package Bases;
+
 import Juegos.Poker;
 
 import java.util.HashMap;
