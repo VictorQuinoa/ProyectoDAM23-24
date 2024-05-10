@@ -9,7 +9,9 @@ public class Economia extends Poker {
     private static HashMap<String , Integer > ficha = new HashMap<String, Integer>();
     private int pago = 0;
 
-
+    /**
+     * Metodo que asigna un valor a cada ficha
+     */
     public void nombreFicha(){
         ficha.put("Negra",1);
         ficha.put("Roja",5);
@@ -22,6 +24,10 @@ public class Economia extends Poker {
         ficha.put("Pastel",5000);
     }
 
+    /**
+     * Metodo que asigna un valor a cada ficha
+     * @param color
+     */
    public void pagoFicha(String color) {
        pago = ficha.get(color);
    }

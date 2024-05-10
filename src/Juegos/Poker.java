@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Poker {
+
     private List<Cartas> baraja;
     private List<Cartas> manoJugador;
     private List<Cartas> manoComputadora;
@@ -32,7 +33,9 @@ public class Poker {
 
     //Método de reparto y baraja de cartas
 
-
+    /**
+     * Método que reparte las cartas a los jugadores y la mesa
+     */
     public void reparto() {
         switch (ronda) {
             case 1:
@@ -73,7 +76,9 @@ public class Poker {
 
     }
 
-//Método para retirase de la ronda
+    /**
+     * Método que permite al jugador retirarse de la partida
+     */
 
     public void retirarse() {
         // Asegurarse de que el jugador no se haya retirado antes de permitirle tomar una opción
@@ -85,11 +90,11 @@ public class Poker {
             System.out.println("El jugador ya se ha retirado");
         }
 
-
     }
 
-
-//Switch que da el paso a las diferentes opciones segun la elección del usuario
+    /**
+     * Método que permite al jugador tomar una decisión
+     */
 
     public void opciones() {
 
@@ -112,7 +117,9 @@ public class Poker {
         }
     }
 
-    //Metodo con las manos posibles
+    /**
+     * Método que muestra las manos de los jugadores y la mesa
+     */
     public void manos() {
         System.out.println("Tu mano: " + manoJugador);
         System.out.println("Mano de la computadora: " + manoComputadora);
@@ -140,6 +147,9 @@ public class Poker {
         }
     }
 
+    /**
+     * Método que termina la ronda
+     */
     private void terminarRonda() {
         // Limpia las manos de los jugadores y la mesa
         manoJugador.clear();
@@ -153,6 +163,9 @@ public class Poker {
         System.out.println("La ronda ha terminado");
     }
 
+    /**
+     * Método que inicia una nueva ronda
+     */
     private void empezarRonda() {
         reparto();
         opciones();
