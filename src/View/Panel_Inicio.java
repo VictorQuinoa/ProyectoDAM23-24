@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.LayoutStyle;
+
 
 //librerias externas para poder usar esos Layouts
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -121,7 +123,76 @@ public class Panel_Inicio {
         //Añado el panel de la foto al fondo
         Fondo.add(panel_foto, new AbsoluteConstraints(0, 20, 740, 130));
 
+        //Pongo este background para asegurar que se pone el fondo correctamente
+        inicios_de_sesion.setBackground(new Color(255, 255, 255));
+
+        //Modifico la fuente para una más elegante
+        nombre.setFont(new Font("DejaVu Math TeX Gyre", 2, 18));
+        //Para que se parezca a un placeholder de HTML
+        nombre.setText("Nombre de usuario");
+
+        contraseña.setFont(new Font("DejaVu Math TeX Gyre", 2, 18));
+        //Para que se parezca a un placeholder de HTML
+        contraseña.setText("Contraseña");
+
+        insertar_contraseña.setFont(new Font("DejaVu Math TeX Gyre", 2, 18)); // NOI18N
+        insertar_contraseña.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        insertar_nombre.setFont(new Font("Cantarell Thin", 2, 13)); // NOI18N
+        insertar_nombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
+
+        //Un JSeparator para darle un toque bonito
+        linea_nombre.setForeground(new Color(0, 0, 0));
+
+        linea_contraseña.setForeground(new Color(0, 0, 0));
+
+        //Hago otro GroupLayout para volver a organizar vertical y horizontalmente
+        javax.swing.GroupLayout inicios_de_sesionLayout = new GroupLayout(inicios_de_sesion);
+        inicios_de_sesion.setLayout(inicios_de_sesionLayout);
+        inicios_de_sesionLayout.setHorizontalGroup(
+                //El mismo alineamiento que en el panel de la foto
+                inicios_de_sesionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(inicios_de_sesionLayout.createSequentialGroup()
+                                //El Gap para separar entre sí todos los elementos
+                                .addGap(15, 15, 15)
+                                .addGroup(inicios_de_sesionLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        //añado los componentes
+                                        .addComponent(linea_contraseña)
+                                        .addComponent(nombre, GroupLayout.Alignment.LEADING)
+                                        .addComponent(contraseña, GroupLayout.Alignment.LEADING)
+                                        .addComponent(insertar_contraseña, GroupLayout.Alignment.LEADING)
+                                        .addComponent(insertar_nombre, GroupLayout.Alignment.LEADING)
+                                        .addComponent(linea_nombre, GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                //Un espacio adicional para separar del panel que voy a hacer debajo
+                                .addContainerGap(430, Short.MAX_VALUE))
+        );
+        inicios_de_sesionLayout.setVerticalGroup(
+                inicios_de_sesionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, inicios_de_sesionLayout.createSequentialGroup()
+                                //Un espacio necesario para que se vea bien
+                                .addContainerGap(19, Short.MAX_VALUE)
+                                .addComponent(nombre)
+                                //El LayoutStyle lo utilizo para definir como se deben colocar los objetos entre sí. El RELATED se utiliza para añadir un pequeño espacio en blanco entre sí
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(insertar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(linea_nombre, GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)
+                                .addComponent(contraseña)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(insertar_contraseña, GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(linea_contraseña, GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14))
+        );
+
+        Fondo.add(inicios_de_sesion, new AbsoluteConstraints(0, 220, 710, 160));
+
+        //Para asegurarme de que tiene el background
+        panel_botones.setBackground(new java.awt.Color(255, 255, 255));
+
 
     }
+
     }
 
