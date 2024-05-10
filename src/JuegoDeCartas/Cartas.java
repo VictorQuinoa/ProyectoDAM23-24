@@ -41,6 +41,10 @@ public class Cartas {
     public void setValor(String value) {
         this.valor = value;
     }
+    /**
+     * Metodo que devuelve el valor numerico de la carta
+     * @return valorNumerico
+     */
     public int getValorNumerico() {
         return valorNumerico;
     }
