@@ -71,32 +71,7 @@ public class Poker {
 
     }
 
-//Método para apuesta inicial
 
-    public void apuesta() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese su apuesta: ");
-        apuestaJugador = scanner.nextInt();
-        // Aquí puedes implementar la lógica de la apuesta de la computadora
-        apuestaComputadora = 0;
-    }
-
-//Método para subir la apuesta entre rondas
-
-    public void subirApuesta() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese la cantidad a subir: ");
-        int subida = scanner.nextInt();
-        apuestaJugador += subida;
-
-        apuestaComputadora = 0;
-    }
-
-//Método para igualar la ultima apuesta
-
-    public void igualarApuesta() {
-        apuestaComputadora = apuestaJugador;
-        // Aquí puedes implementar la lógica de la igualación de la computadora
     }
 
 //Método para retirase de la ronda
@@ -114,12 +89,7 @@ public class Poker {
         }
 
 
-//Método para pasar de apostar.
-    public void pasar() {
 
-
-
-    }
 
 //Switch que da el paso a las diferentes opciones segun la elección del usuario
 
