@@ -19,7 +19,10 @@ public class Cartas {
     public String getPalo() {
         return palo;
     }
-
+    /**
+     * Metodo que asigna el palo de la carta
+     * @param suit palo
+     */
     public void setPalo(String suit) {
         this.palo = suit;
     }
