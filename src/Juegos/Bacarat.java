@@ -10,6 +10,9 @@ public class Bacarat {
         this.baraja = new Baraja();
     }
 
+    /**
+     * Metodo para repartir cartas
+     */
     public void repartirCartas() {
         try{
             this.cartaJugador = this.baraja.dealCard();
