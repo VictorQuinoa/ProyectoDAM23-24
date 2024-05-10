@@ -27,6 +27,10 @@ public class Cartas {
         this.palo = suit;
     }
 
+    /**
+     * Metodo que devuelve el valor de la carta
+     * @return valor
+     */
     public String getValor() {
         return valor;
     }
