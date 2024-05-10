@@ -34,7 +34,10 @@ public class Cartas {
     public String getValor() {
         return valor;
     }
-
+    /**
+     * Metodo que asigna el valor de la carta
+     * @param value valor
+     */
     public void setValor(String value) {
         this.valor = value;
     }
