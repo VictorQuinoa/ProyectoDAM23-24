@@ -96,7 +96,7 @@ public class Panel_Inicio {
         GroupLayout panel_fotoLayout = new GroupLayout(panel_foto);
         //se utiliza para poder controlar mejor los componentes de dentro
         panel_foto.setLayout(panel_fotoLayout);
-        //para colocar horizontalmente los componentes
+        //para definir como colocar horizontalmente los componentes
         panel_fotoLayout.setHorizontalGroup(
                 //Alignment.LEADING especifica que los elementos se pongan de izquierda a derecha
                 panel_fotoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -107,7 +107,19 @@ public class Panel_Inicio {
                                 //Se utiliza para dejar un espacio en blanco si se pusieran más componentes
                                 .addContainerGap())
         );
+        //para definir como se colocan verticalmente los componentes
+        panel_fotoLayout.setVerticalGroup(
+                //Para alinear en paralelo al eje vertical
+                panel_fotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        //Creación de un grupo de componentes
+                        .addGroup(panel_fotoLayout.createSequentialGroup()
+                                .addComponent(foto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                //Espacio entre componentes
+                                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
+        //Añado el panel de la foto al fondo
+        Fondo.add(panel_foto, new AbsoluteConstraints(0, 20, 740, 130));
 
 
     }
