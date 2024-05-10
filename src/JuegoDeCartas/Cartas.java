@@ -55,6 +55,10 @@ public class Cartas {
     public void setValorNumerico(int valorNumerico) {
         this.valorNumerico = valorNumerico;
     }
+    /**
+     * Metodo que devuelve la carta
+     * @return carta
+     */
     @Override
     public String toString() {
         return "Cartas{" +
