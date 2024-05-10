@@ -15,7 +15,7 @@ public class Main {
 //        BlackJack.jugarBlackjack(scanner);
 //        System.out.println("Gracias por jugar al Blackjack. ¡Hasta luego!");
         TragaPerras tragaperras = new TragaPerras();
-        tragaperras.jugar(tragaperras);
+        tragaperras.jugarTragaperras(tragaperras);
     }
 
 }
