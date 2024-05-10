@@ -10,6 +10,10 @@ import javax.swing.GroupLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.LayoutStyle;
+import java.awt.Cursor;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 
 
 //librerias externas para poder usar esos Layouts
@@ -191,7 +195,155 @@ public class Panel_Inicio {
         //Para asegurarme de que tiene el background
         panel_botones.setBackground(new java.awt.Color(255, 255, 255));
 
+        inicio_sesion.setFont(new Font("DejaVu Math TeX Gyre", 2, 12)); // NOI18N
+        //Para poner el alineamiento horizontal en Center
+        inicio_sesion.setHorizontalAlignment(SwingConstants.CENTER);
+        //Para poner el texto de "Iniciar sesión"
+        inicio_sesion.setText("Iniciar sesión");
+        inicio_sesion.setBorder(new javax.swing.border.LineBorder(new Color(0, 0, 0), 1, true));
+        inicio_sesion.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        //Listener para añadir dealles
+        inicio_sesion.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                inicio_sesionMouseEntered(evt);
+            }
+            public void mouseExited(MouseEvent evt) {
+                inicio_sesionMouseExited(evt);
+            }
+        });
+        //Otro grupo de Componentes para organizarlos de manera eficiente
+        GroupLayout panel_boton_inicio_sesionLayout = new GroupLayout(panel_boton_inicio_sesion);
+        panel_boton_inicio_sesion.setLayout(panel_boton_inicio_sesionLayout);
+        panel_boton_inicio_sesionLayout.setHorizontalGroup(
+                panel_boton_inicio_sesionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_boton_inicio_sesionLayout.createSequentialGroup()
+                                .addComponent(inicio_sesion, GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panel_boton_inicio_sesionLayout.setVerticalGroup(
+                panel_boton_inicio_sesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(inicio_sesion, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
 
+        panel_boton_registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panel_boton_registrarseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panel_boton_registrarseMouseExited(evt);
+            }
+        });
+
+        registrarse.setFont(new Font("DejaVu Math TeX Gyre", 2, 12)); // NOI18N
+        registrarse.setHorizontalAlignment(SwingConstants.CENTER);
+        registrarse.setText("Registrarse");
+        registrarse.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        registrarse.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        registrarse.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        GroupLayout panel_boton_registrarseLayout = new GroupLayout(panel_boton_registrarse);
+        panel_boton_registrarse.setLayout(panel_boton_registrarseLayout);
+        panel_boton_registrarseLayout.setHorizontalGroup(
+                panel_boton_registrarseLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(registrarse, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
+        );
+        panel_boton_registrarseLayout.setVerticalGroup(
+                panel_boton_registrarseLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, panel_boton_registrarseLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(registrarse, GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        panel_olvido_contraseña.setBackground(new Color(255, 255, 255));
+        //Listener del cursor. Pongo estos eventos para darle un toque más realista al texto al pasar el cursor
+        panel_olvido_contraseña.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panel_olvido_contraseñaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panel_olvido_contraseñaMouseExited(evt);
+            }
+        });
+
+        olvido_contraseña.setFont(new Font("DejaVu Math TeX Gyre", 2, 8)); // NOI18N
+        olvido_contraseña.setForeground(new Color(0, 204, 255));
+        olvido_contraseña.setHorizontalAlignment(SwingConstants.CENTER);
+        olvido_contraseña.setText("He olvidado mi contraseña");
+        olvido_contraseña.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        //Organización horizontal del panel
+        GroupLayout panel_olvido_contraseñaLayout = new GroupLayout(panel_olvido_contraseña);
+        panel_olvido_contraseña.setLayout(panel_olvido_contraseñaLayout);
+        panel_olvido_contraseñaLayout.setHorizontalGroup(
+                panel_olvido_contraseñaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_olvido_contraseñaLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(olvido_contraseña, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        //Organización vertical del panel
+        panel_olvido_contraseñaLayout.setVerticalGroup(
+                panel_olvido_contraseñaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, panel_olvido_contraseñaLayout.createSequentialGroup()
+                                .addComponent(olvido_contraseña, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        //Más organización del panel
+        GroupLayout panel_botonesLayout = new GroupLayout(panel_botones);
+        panel_botones.setLayout(panel_botonesLayout);
+        panel_botonesLayout.setHorizontalGroup(
+                panel_botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_botonesLayout.createSequentialGroup()
+                                .addGap(192, 192, 192)
+                                .addGroup(panel_botonesLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(panel_botonesLayout.createSequentialGroup()
+                                                .addComponent(panel_boton_inicio_sesion, GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(67, 67, 67)
+                                                .addComponent(panel_boton_registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(GroupLayout.Alignment.TRAILING, panel_botonesLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(panel_olvido_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(85, 85, 85)))
+                                .addContainerGap(239, Short.MAX_VALUE))
+        );
+        panel_botonesLayout.setVerticalGroup(
+                panel_botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_botonesLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(panel_botonesLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(panel_boton_inicio_sesion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(panel_boton_registrarse, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                .addComponent(panel_olvido_contraseña, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+        );
+
+        Fondo.add(panel_botones, new AbsoluteConstraints(0, 390, 740, 160));
+    }
+/*
+Aquí están los Listener que se utilizar para detalles, entre otras cossas
+ */
+    private void inicio_sesionMouseEntered(java.awt.event.MouseEvent evt) {
+        panel_boton_inicio_sesion.setBackground(new Color(164,164,164));
+    }
+
+    private void panel_boton_registrarseMouseEntered(MouseEvent evt) {
+        panel_boton_registrarse.setBackground(new Color(164,164,164));
+    }
+    private void panel_olvido_contraseñaMouseEntered(MouseEvent evt) {
+        olvido_contraseña.setForeground(new Color(54,255,237));
+    }
+
+    private void panel_olvido_contraseñaMouseExited(MouseEvent evt) {
+        olvido_contraseña.setForeground(new Color(0,204,255));
+    }
+    private void inicio_sesionMouseExited(MouseEvent evt) {
+        panel_boton_inicio_sesion.setBackground(new Color(242,242,242));
+    }
+
+    private void panel_boton_registrarseMouseExited(MouseEvent evt) {
+        panel_boton_registrarse.setBackground(new Color(242,242,242));
     }
 
     }
