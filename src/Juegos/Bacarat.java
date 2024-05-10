@@ -11,8 +11,13 @@ public class Bacarat {
     }
 
     public void repartirCartas() {
-        this.cartaJugador = this.baraja.dealCard();
-        this.cartaBanca = this.baraja.dealCard();
+        try{
+            this.cartaJugador = this.baraja.dealCard();
+            this.cartaBanca = this.baraja.dealCard();
+        } catch (Exception e){
+            System.out.println("Error al repartir cartas");
+        }
+
     }
 
     /**
