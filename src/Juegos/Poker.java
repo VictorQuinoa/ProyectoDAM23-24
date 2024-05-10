@@ -12,15 +12,17 @@ public class Poker {
     private List<Cartas> baraja;
     private List<Cartas> manoJugador;
     private List<Cartas> manoComputadora;
+    private List<Cartas> manoMesa;
     private int bote;
     private int apuestaJugador;
     private int apuestaComputadora;
-
+    private int ronda;
 
     public Poker() {
         this.baraja = new ArrayList<>();
         this.manoJugador = new ArrayList<>();
         this.manoComputadora = new ArrayList<>();
+        this.manoMesa = new ArrayList<>();
         this.apuestaJugador = 0;
         this.apuestaComputadora = 0;
         // Aquí deberías inicializar tu baraja de cartas
@@ -28,12 +30,45 @@ public class Poker {
 
     //Método de reparto y baraja de cartas
 
+
     public void reparto() {
-        Collections.shuffle(baraja);
-        for (int i = 0; i < 5; i++) {
-            manoJugador.add(baraja.remove(baraja.size() - 1));
-            manoComputadora.add(baraja.remove(baraja.size() - 1));
+        switch (ronda) {
+            case 1:
+                Collections.shuffle(baraja);
+                for (int i = 0; i < 2; i++) {
+                    manoJugador.add(baraja.remove(baraja.size() - 1));
+                    manoComputadora.add(baraja.remove(baraja.size() - 1));
+                }
+                System.out.println(manoJugador);
+                break;
+            case 2:
+                Collections.shuffle(baraja);
+                for (int j = 0; j < 3; j++) {
+                    manoMesa.add(baraja.remove(baraja.size()-1));
+
+                }
+                System.out.println(manoJugador);
+                System.out.println(manoMesa);
+                break;
+            case 3:
+                for (int k = 0; k < 1; k++) {
+                    manoMesa.add(baraja.remove(baraja.size()-1));
+                }
+                System.out.println(manoJugador);
+                System.out.println(manoMesa);
+                break;
+            case 4:
+                for (int a = 0; a < 1; a++) {
+                manoMesa.add(baraja.remove(baraja.size()-1));
+                }
+                System.out.println(manoJugador);
+                System.out.println(manoMesa);
+
+                break;
+            default:
+                System.out.println("Ronda inválida");
         }
+
     }
 
 //Método para apuesta inicial
@@ -78,11 +113,6 @@ public class Poker {
 
         }
 
-//Método para ver tu propia mano
-
-    public void verMano() {
-        System.out.println("Tu mano: " + manoJugador);
-    }
 
 //Método para pasar de apostar.
     public void pasar() {
@@ -110,9 +140,6 @@ public class Poker {
                 retirarse();
                 break;
             case 4:
-                verMano();
-                break;
-            case 5:
                 pasar();
                 break;
             default:
