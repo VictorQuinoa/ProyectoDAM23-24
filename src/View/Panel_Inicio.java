@@ -14,6 +14,8 @@ import java.awt.Font;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
+
+
 public class Panel_Inicio {
 
     private JFrame base;
@@ -80,7 +82,6 @@ public class Panel_Inicio {
         base.setSize(new java.awt.Dimension(780, 280));
 
         Fondo.setBackground(new java.awt.Color(255, 255, 255));
-        // Fondo.setPreferredSize(size_Fondo);
         //el AbsoluteLayout te permite pegar los paneles entre sí, es decir, que no quede un hueco entre ambos
         Fondo.setLayout(new AbsoluteLayout());
 
@@ -89,16 +90,25 @@ public class Panel_Inicio {
         foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("imagen/maxresdefault.jpg")));
         foto.setAlignmentY(0.0F);
         foto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-       // foto.setPreferredSize(size_foto);
 
+
+        //GroupLayout lo utilizo para definir la disposición del panel
         GroupLayout panel_fotoLayout = new GroupLayout(panel_foto);
+        //se utiliza para poder controlar mejor los componentes de dentro
         panel_foto.setLayout(panel_fotoLayout);
+        //para colocar horizontalmente los componentes
         panel_fotoLayout.setHorizontalGroup(
+                //Alignment.LEADING especifica que los elementos se pongan de izquierda a derecha
                 panel_fotoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+
                         .addGroup(panel_fotoLayout.createSequentialGroup()
+                                //añade el elemento foto con el tamaño máximo de 734 y configurado para que se ponga en un tamaño determinado
                                 .addComponent(foto, GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                                //Se utiliza para dejar un espacio en blanco si se pusieran más componentes
                                 .addContainerGap())
         );
+
+
 
     }
     }
