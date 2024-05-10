@@ -40,16 +40,21 @@ public class Bacarat {
      * @return Resultado de la partida
      */
     public String jugar() {
-        repartirCartas();
-        int valorJugador = valorCarta(this.cartaJugador);
-        int valorBanca = valorCarta(this.cartaBanca);
+        try{
+            repartirCartas();
+            int valorJugador = valorCarta(this.cartaJugador);
+            int valorBanca = valorCarta(this.cartaBanca);
 
-        if (valorJugador > valorBanca) {
-            return "El jugador gana con " + valorJugador + " contra " + valorBanca;
-        } else if (valorJugador < valorBanca) {
-            return "La banca gana con " + valorBanca + " contra " + valorJugador;
-        } else {
-            return "Es un empate con " + valorJugador;
+            if (valorJugador > valorBanca) {
+                return "El jugador gana con " + valorJugador + " contra " + valorBanca;
+            } else if (valorJugador < valorBanca) {
+                return "La banca gana con " + valorBanca + " contra " + valorJugador;
+            } else {
+                return "Es un empate con " + valorJugador;
+            }
+        } catch (Exception e){
+            System.out.println("Error al jugar" + e.getMessage());
+            return "";
         }
     }
 }
