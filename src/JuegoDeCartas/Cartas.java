@@ -48,7 +48,10 @@ public class Cartas {
     public int getValorNumerico() {
         return valorNumerico;
     }
-
+    /**
+     * Metodo que asigna el valor numerico de la carta
+     * @param valorNumerico valor numerico
+     */
     public void setValorNumerico(int valorNumerico) {
         this.valorNumerico = valorNumerico;
     }
