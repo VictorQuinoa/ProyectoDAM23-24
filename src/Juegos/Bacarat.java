@@ -26,7 +26,13 @@ public class Bacarat {
      * @return Valor de la carta
      */
     private int valorCarta(Cartas carta) {
-        return carta.getValorNumerico();
+        try{
+            return carta.getValorNumerico();
+
+        } catch (Exception e){
+            System.out.println("Error al obtener el valor de la carta" + e.getMessage());
+            return 0;
+        }
     }
 
     /**
