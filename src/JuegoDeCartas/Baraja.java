@@ -3,6 +3,10 @@ package JuegoDeCartas;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Clase que representa una baraja de cartas
+
+ */
 public class Baraja {
     private ArrayList<Cartas> cartas;
     private int indiceCartaActual;
@@ -23,6 +27,9 @@ public class Baraja {
         indiceCartaActual = 0;
     }
 
+    /**
+     * Metodo que baraja las cartas
+     */
     public void barajar() {
         Collections.shuffle(cartas);
     }
