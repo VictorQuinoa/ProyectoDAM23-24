@@ -12,6 +12,10 @@ public class Cartas {
 
     }
 
+    /**
+     * Metodo que devuelve el palo de la carta
+     * @return palo
+     */
     public String getPalo() {
         return palo;
     }
