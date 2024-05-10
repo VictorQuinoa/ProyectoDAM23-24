@@ -87,21 +87,25 @@ public class BlackJack {
      * @param mano Lista de cartas
      * @return Valor total de la mano
      */
-    // Método para calcular el valor total de la mano
     private static int valorMano(List<Cartas> mano) {
-        int total = 0;
-        int ases = 0;
-        for (Cartas carta : mano) {
-            if (carta.getValorNumerico() == 1) {
-                ases++;
+        try{
+            int total = 0;
+            int ases = 0;
+            for (Cartas carta : mano) {
+                if (carta.getValorNumerico() == 1) {
+                    ases++;
+                }
+                total += carta.getValorNumerico();
             }
-            total += carta.getValorNumerico();
+            while (ases > 0 && total + 10 <= 21) {
+                total += 10;
+                ases--;
+            }
+            return total;
+        } catch (Exception e){
+            System.out.println("Error al calcular el valor de la mano" + e.getMessage());
+            return 0;
         }
-        while (ases > 0 && total + 10 <= 21) {
-            total += 10;
-            ases--;
-        }
-        return total;
     }
 
 }
