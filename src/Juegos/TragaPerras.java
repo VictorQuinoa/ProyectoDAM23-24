@@ -43,19 +43,24 @@ public class TragaPerras {
      * Metodo para jugar a la TragaPerras
      * @param tragaperras vuelta a empezar
      */
-    public void jugar(TragaPerras tragaperras) {
-        Scanner scanner = new Scanner(System.in);
+    public void jugarTragaperras(TragaPerras tragaperras) {
+        try{
+            Scanner scanner = new Scanner(System.in);
 
-        while (true) {
-            System.out.println("\nSaldo actual: " + tragaperras.saldo);
-            System.out.print("Ingrese su apuesta (o 0 para salir): ");
-            int apuesta = scanner.nextInt();
-            if (apuesta == 0) {
-                System.out.println("¡Gracias por jugar!");
-                break;
+            while (true) {
+                System.out.println("\nSaldo actual: " + tragaperras.saldo);
+                System.out.print("Ingrese su apuesta (o 0 para salir): ");
+                int apuesta = scanner.nextInt();
+                if (apuesta == 0) {
+                    System.out.println("¡Gracias por jugar!");
+                    break;
+                }
+                tragaperras.girar(apuesta);
             }
-            tragaperras.girar(apuesta);
+            scanner.close();
+        } catch (Exception e){
+            System.out.println("Error al jugar" + e.getMessage());
         }
-        scanner.close();
+
     }
 }
