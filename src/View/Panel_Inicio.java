@@ -11,10 +11,11 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.LayoutStyle;
 import java.awt.Cursor;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseMotionAdapter;
-
+import java.awt.event.MouseListener;
 
 //librerias externas para poder usar esos Layouts
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -24,9 +25,7 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 public class Panel_Inicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form wawa
-     */
+
 
     int xMouse, yMouse;
     // Variables declaration - do not modify
@@ -53,6 +52,12 @@ public class Panel_Inicio extends javax.swing.JFrame {
 
     public Panel_Inicio() {
         initComponents();
+        panel_boton_registrarse.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new InsertarDatos();
+            }
+        });
     }
 
     private void initComponents() {
@@ -97,7 +102,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
         foto.setHorizontalTextPosition(SwingConstants.CENTER);
         foto.setPreferredSize(new java.awt.Dimension(800, 100));
 
-        javax.swing.GroupLayout panel_fotoLayout = new javax.swing.GroupLayout(panel_foto);
+        javax.swing.GroupLayout panel_fotoLayout = new GroupLayout(panel_foto);
         panel_foto.setLayout(panel_fotoLayout);
         //para definir como colocar horizontalmente los componentes
         panel_fotoLayout.setHorizontalGroup(
@@ -225,6 +230,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
         registrarse.setBorder(new javax.swing.border.LineBorder(new Color(0, 0, 0), 1, true));
         registrarse.setCursor(new Cursor(Cursor.HAND_CURSOR));
         registrarse.setHorizontalTextPosition(SwingConstants.CENTER);
+
 
         GroupLayout panel_boton_registrarseLayout = new GroupLayout(panel_boton_registrarse);
         panel_boton_registrarse.setLayout(panel_boton_registrarseLayout);
