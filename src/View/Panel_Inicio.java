@@ -11,11 +11,10 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.LayoutStyle;
 import java.awt.Cursor;
-import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseListener;
 
 //librerias externas para poder usar esos Layouts
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -28,7 +27,6 @@ public class Panel_Inicio extends javax.swing.JFrame {
 
 
     int xMouse, yMouse;
-    // Variables declaration - do not modify
     private JPanel Fondo;
     private JPanel boton_cerrar;
     private JLabel contraseña;
@@ -47,6 +45,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
     private JPanel panel_foto;
     private JPanel panel_olvido_contraseña;
     private JLabel registrarse;
+    private ImageIcon imagenTaskBar;
     private JLabel simbolo_cerrar;
     private JPanel soporte_boton_cerrar;
 
@@ -81,11 +80,13 @@ public class Panel_Inicio extends javax.swing.JFrame {
         olvido_contraseña = new JLabel();
         soporte_boton_cerrar = new JPanel();
         boton_cerrar = new JPanel();
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Icono.jpg"));
         simbolo_cerrar = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setLocationByPlatform(true);
+        setIconImage(imagenTaskBar.getImage());
         setUndecorated(true);
         setResizable(false);
 

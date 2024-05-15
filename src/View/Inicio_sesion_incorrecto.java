@@ -1,18 +1,14 @@
 package View;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle;
 
 
 public class Inicio_sesion_incorrecto extends JFrame {
 
     private JLabel aviso;
+    private ImageIcon imagenTaskBar;
     private JLabel troste;
     private JLabel texto_reintento;
     private JPanel fondo;
@@ -28,12 +24,15 @@ public class Inicio_sesion_incorrecto extends JFrame {
         fondo = new JPanel();
         aviso = new JLabel();
         troste = new JLabel();
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Icono.jpg"));
         boton_reintento = new JPanel();
         texto_reintento = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setIconImage(imagenTaskBar.getImage());
         setResizable(false);
+        setUndecorated(true);
+
 
         fondo.setBackground(new Color(204, 204, 204));
         fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));

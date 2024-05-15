@@ -2,16 +2,19 @@ package View;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.WindowConstants;
+import javax.swing.SwingConstants;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
+
 public class Inicio_sesion_correcto extends JFrame {
 
     private JLabel aviso;
+    private ImageIcon imagenTaskBar;
     private JPanel boton_continuar;
     private JPanel fondo;
     private JLabel japi;
@@ -22,16 +25,19 @@ public class Inicio_sesion_correcto extends JFrame {
         initComponents();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         fondo = new JPanel();
         aviso = new JLabel();
         japi = new JLabel();
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Icono.jpg"));
         boton_continuar = new JPanel();
         texto_continuar = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(imagenTaskBar.getImage());
+        setUndecorated(true);
+        setResizable(false);
 
         fondo.setBackground(new Color(204, 204, 204));
 

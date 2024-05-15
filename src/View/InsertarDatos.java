@@ -1,22 +1,15 @@
 package View;
 
 import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JLabel;
-import javax.swing.JSeparator;
-import javax.swing.WindowConstants;
+import javax.swing.*;
+
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.Cursor;
 import java.awt.Font;
-import javax.swing.LayoutStyle;
-import javax.swing.SwingConstants;
-import javax.swing.GroupLayout;
+
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 
@@ -51,6 +44,7 @@ public class InsertarDatos {
     private JSeparator linea_nombre_usuario;
     private JPanel panel_del_registro;
     private JPanel panel_foto;
+    private ImageIcon imagenTaskBar;
     private JPanel panel_insertar_datos;
 
     public InsertarDatos() {
@@ -61,6 +55,7 @@ public class InsertarDatos {
     private void initComponents() {
 
         base_de_ventana = new JFrame();
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Icono.jpg"));
         panel_del_registro = new JPanel();
         barra_titulo = new JPanel();
         boton_cerrar = new JPanel();
@@ -93,6 +88,7 @@ public class InsertarDatos {
         base_de_ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         base_de_ventana.setUndecorated(true);
         base_de_ventana.setResizable(false);
+        base_de_ventana.setIconImage(imagenTaskBar.getImage());
         base_de_ventana.setSize(new java.awt.Dimension(400, 400));
         base_de_ventana.setVisible(true);
 
