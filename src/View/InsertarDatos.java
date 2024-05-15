@@ -180,7 +180,7 @@ public class InsertarDatos {
 
         panel_foto.setToolTipText("");
 
-        label_foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/appreciated!.jpg")));
+        label_foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/logo_panel_Insercion_datos.jpg")));
         label_foto.setLabelFor(panel_foto);
 
 

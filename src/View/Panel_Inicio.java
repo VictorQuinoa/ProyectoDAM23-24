@@ -96,12 +96,19 @@ public class Panel_Inicio extends javax.swing.JFrame {
         Fondo.setPreferredSize(new java.awt.Dimension(1200, 618));
         Fondo.setLayout(new AbsoluteLayout());
 
-        panel_foto.setPreferredSize(new java.awt.Dimension(1200, 618));
+        panel_foto.setPreferredSize(new java.awt.Dimension(618, 1200));
 
-        foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Icono.jpg")));
+        foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/logo_Panel_inicio_redimensionado.png")));
         foto.setAlignmentY(0.0F);
         foto.setHorizontalTextPosition(SwingConstants.CENTER);
-        foto.setPreferredSize(new java.awt.Dimension(800, 100));
+        foto.setPreferredSize(new java.awt.Dimension(800, 1200));
+
+        // Ajusta el tamaño del JLabel al tamaño del panel
+        foto.setPreferredSize(panel_foto.getPreferredSize());
+        // Establece el ajuste de la imagen en el JLabel
+        foto.setHorizontalAlignment(SwingConstants.CENTER);
+        foto.setVerticalAlignment(SwingConstants.CENTER);
+
 
         javax.swing.GroupLayout panel_fotoLayout = new GroupLayout(panel_foto);
         panel_foto.setLayout(panel_fotoLayout);
