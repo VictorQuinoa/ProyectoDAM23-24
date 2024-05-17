@@ -89,6 +89,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
         setIconImage(imagenTaskBar.getImage());
         setUndecorated(true);
         setResizable(false);
+        setVisible(true);
 
         setSize(new java.awt.Dimension(780, 280));
 
