@@ -11,14 +11,14 @@ import java.util.Scanner;
 public class Poker {
 
     private List<Cartas> baraja;
-    private List<Cartas> manoJugador;
-    private List<Cartas> manoComputadora;
-    private List<Cartas> manoMesa;
+    private static List<Cartas> manoJugador;
+    private static List<Cartas> manoComputadora;
+    private static List<Cartas> manoMesa;
     private int bote;
-    private int apuestaJugador;
-    private int apuestaComputadora;
+    private static int apuestaJugador;
+    private static int apuestaComputadora;
     private int ronda;
-    private boolean jugadorRetirado = false;
+    private static boolean jugadorRetirado = false;
     Apuestas apuesta = new Apuestas();
 
     public Poker() {
@@ -146,11 +146,7 @@ public class Poker {
 
         }
     }
-
-    /**
-     * Método que termina la ronda
-     */
-    private void terminarRonda() {
+    public static void terminarPartida() {
         // Limpia las manos de los jugadores y la mesa
         manoJugador.clear();
         manoComputadora.clear();
@@ -163,12 +159,23 @@ public class Poker {
         System.out.println("La ronda ha terminado");
     }
 
-    /**
-     * Método que inicia una nueva ronda
-     */
-    private void empezarRonda() {
-        reparto();
-        opciones();
+    private void terminarRonda(){
+        while(ronda<5) {
+            if (apuestaJugador == apuestaComputadora) {
+                ronda++;
+            } else {
+                System.out.println("Para pasar de ronda, debes igualar la apuesta del otro jugador");
+            }
+
+        }
+        if (ronda == 5) {
+            System.out.println("La ronda ha terminado");
+            terminarPartida();
+        }
+
+
+
+
     }
 }
 
