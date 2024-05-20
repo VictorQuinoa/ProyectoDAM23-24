@@ -5,10 +5,12 @@ import javax.swing.*;
 public class Ruleta{
 
     private int numero;
-    String[] colores = {"Rojo","Azul"};
+    String[] colores = {"Rojo","Negro","Verde"};
     String[] paridad = {"Par","Impar"};
     String[] valores = new String[37];
     String[][] tercios = new String[3][12];
+    private int apuesta;
+
 
     public Ruleta() {
         for (int i = 0; i < valores.length; i++) {
@@ -29,6 +31,7 @@ public class Ruleta{
     public void apuestaNumero(int numero){
         if (this.numero == numero){
             JOptionPane.showMessageDialog(null, "Felicidades, has ganado");
+            //cartera= apuesta *36;
         }else{
             JOptionPane.showMessageDialog(null, "Lo siento, has perdido");
         }
@@ -42,7 +45,7 @@ public class Ruleta{
                 JOptionPane.showMessageDialog(null, "Lo siento, has perdido");
             }
         }else{
-            if (color.equals("Azul")){
+            if (color.equals("Negro")){
                 JOptionPane.showMessageDialog(null, "Felicidades, has ganado");
             }else{
                 JOptionPane.showMessageDialog(null, "Lo siento, has perdido");
@@ -52,14 +55,14 @@ public class Ruleta{
 
     public void apuestaTercio(int tercio){
         if (tercio == 1){
-            for (int i = 0; i < 12; i++) {
+            for (int i = 0; i <= 12; i++) {
                 if (this.numero == i){
                     JOptionPane.showMessageDialog(null, "Felicidades, has ganado");
                     return;
                 }
             }
         }else if (tercio == 2){
-            for (int i = 12; i < 24; i++) {
+            for (int i = 12; i <= 24; i++) {
                 if (this.numero == i){
                     JOptionPane.showMessageDialog(null, "Felicidades, has ganado");
                     return;
@@ -69,6 +72,7 @@ public class Ruleta{
             for (int i = 24; i < 37; i++) {
                 if (this.numero == i){
                     JOptionPane.showMessageDialog(null, "Felicidades, has ganado");
+
                     return;
                 }
             }
