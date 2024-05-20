@@ -1,6 +1,7 @@
 public class Usuario {
     private String nombre;
-    private String apellidos;
+    private String apellido_1;
+    private String apellido_2;
     private String dni;
     private String password;
     private String username;
@@ -8,9 +9,10 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellidos, String dni, String password, String username) {
+    public Usuario(String nombre, String apellido_1,String apellido_2 , String dni, String password, String username) {
         this.nombre = nombre;
-        this.apellidos = apellidos;
+        this.apellido_1 = apellido_1;
+        this.apellido_2 = apellido_2;
         this.dni = dni;
         this.password = password;
         this.username = username;
@@ -24,12 +26,20 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido_1() {
+        return apellido_1;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido_1(String apellido_1) {
+        this.apellido_1 = apellido_1;
+    }
+
+    public String getApellido_2() {
+        return apellido_2;
+    }
+
+    public void setApellido_2(String apellido_2) {
+        this.apellido_2 = apellido_2;
     }
 
     public String getDni() {
