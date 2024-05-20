@@ -30,7 +30,7 @@ public class Inicio_sesion_correcto extends JFrame {
         fondo = new JPanel();
         aviso = new JLabel();
         japi = new JLabel();
-        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Icono.jpg"));
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
         boton_continuar = new JPanel();
         texto_continuar = new JLabel();
 

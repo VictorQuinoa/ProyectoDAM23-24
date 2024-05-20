@@ -55,7 +55,7 @@ public class InsertarDatos {
     private void initComponents() {
 
         base_de_ventana = new JFrame();
-        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Icono.jpg"));
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
         panel_del_registro = new JPanel();
         barra_titulo = new JPanel();
         boton_cerrar = new JPanel();
@@ -180,7 +180,7 @@ public class InsertarDatos {
 
         panel_foto.setToolTipText("");
 
-        label_foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/logo_panel_Insercion_datos.jpg")));
+        label_foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/logo_panel_Insercion_datos.jpg")));
         label_foto.setLabelFor(panel_foto);
 
 
@@ -204,7 +204,7 @@ public class InsertarDatos {
         linea_nombre.setForeground(new Color(51, 51, 51));
 
         label_contraseña.setFont(new Font("MathJax_SansSerif", 0, 12));
-        label_contraseña.setText("Contrasenha");
+        label_contraseña.setText("Contraseña");
 
         label_DNI.setFont(new Font("MathJax_SansSerif", 0, 12));
         label_DNI.setText("DNI ");
