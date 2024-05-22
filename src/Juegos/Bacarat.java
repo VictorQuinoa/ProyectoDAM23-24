@@ -1,6 +1,9 @@
 package Juegos;
 import JuegoDeCartas.Cartas;
 import JuegoDeCartas.Baraja;
+
+import java.util.Scanner;
+
 public class Bacarat {
     private Baraja baraja;
     private Cartas cartaJugador;
@@ -40,24 +43,30 @@ public class Bacarat {
 
     /**
      * Juega una partida de Bacarat y devuelve el resultado.
-     * @return Resultado de la partida
      */
-    public String jugarBacarat() {
-        try{
-            repartirCartas();
-            int valorJugador = valorCarta(this.cartaJugador);
-            int valorBanca = valorCarta(this.cartaBanca);
+    public void jugarBacarat() {
+        Scanner scanner = new Scanner(System.in);
+        String continuar;
+        do {
+            try{
+                repartirCartas();
+                int valorJugador = valorCarta(this.cartaJugador);
+                int valorBanca = valorCarta(this.cartaBanca);
 
-            if (valorJugador > valorBanca) {
-                return "El jugador gana con " + valorJugador + " contra " + valorBanca;
-            } else if (valorJugador < valorBanca) {
-                return "La banca gana con " + valorBanca + " contra " + valorJugador;
-            } else {
-                return "Es un empate con " + valorJugador;
+                if (valorJugador > valorBanca) {
+                    System.out.println("El jugador gana con " + valorJugador + " contra " + valorBanca);
+                } else if (valorJugador < valorBanca) {
+                    System.out.println("La banca gana con " + valorBanca + " contra " + valorJugador);
+                } else {
+                    System.out.println("Es un empate con " + valorJugador);
+                }
+            } catch (Exception e){
+                System.out.println("Error al jugar" + e.getMessage());
             }
-        } catch (Exception e){
-            System.out.println("Error al jugar" + e.getMessage());
-            return "";
-        }
+
+            System.out.println("¿Deseas jugar otra vez? (S/N)");
+            continuar=scanner.nextLine().toUpperCase();
+        } while (continuar.equalsIgnoreCase("S"));
+
     }
 }
