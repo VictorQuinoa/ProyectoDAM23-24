@@ -2,7 +2,7 @@ package Bases;
 
 public interface Apuestas {
 
-    int apuesta=0;
+
     int apuestaJugador = 0;
     int apuestaCrupier = 0;
     int subidaJugador = 0;
