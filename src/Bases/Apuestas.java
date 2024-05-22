@@ -1,60 +1,20 @@
 package Bases;
 
-public class Apuestas {
+public interface Apuestas {
 
-    private int apuesta;
-    private int apuestaJugador;
-    private int apuestaCrupier;
-    private int subidaJugador;
-    private int subidaCrupier;
-    public Apuestas() {
-        this.apuesta = 0;
-    }
+    int apuesta=0;
+    int apuestaJugador = 0;
+    int apuestaCrupier = 0;
+    int subidaJugador = 0;
+    int subidaCrupier = 0;
 
-    /**
-     * @return the apuestaJugador
-     */
-
-    public int getApuesta() {
-        return apuesta;
-    }
+    int getApuesta();
+    void setApuesta();
+    void apuestaInicial();
+    void subirApuesta();
+    void igualarApuesta();
+    void pasarApuesta();
 
 
-    public void setApuesta() {
-        this.apuesta = apuesta;
 
-    }
-
-    /**
-     * @return the apuestaJugador
-     */
-    public void apuestaInicial() {
-        apuesta = apuestaJugador + apuestaCrupier;
-        this.apuesta = apuesta;
-
-    }
-
-    /**
-     * @return the apuestaJugador
-     */
-    public void subirApuesta() {
-        apuesta = subidaCrupier + subidaJugador;
-        this.apuesta += apuesta;
-    }
-
-    /**
-     * @return the apuestaJugador
-     */
-    public void igualarApuesta() {
-        if (apuestaJugador == apuestaCrupier) {
-
-        } else {
-            apuesta = apuestaCrupier;
-        }
-        this.apuesta = apuesta;
-    }
-
-    public void pasarApuesta() {
-
-    }
 }

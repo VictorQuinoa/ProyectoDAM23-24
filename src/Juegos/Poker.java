@@ -1,5 +1,6 @@
 package Juegos;
 
+import Bases.Economia;
 import JuegoDeCartas.Cartas;
 import JuegoDeCartas.ManosPoker;
 import Bases.Apuestas;
@@ -8,18 +9,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class Poker {
-
+public class Poker extends Economia implements Apuestas{
+Scanner sc = new Scanner(System.in);
     private List<Cartas> baraja;
     private static List<Cartas> manoJugador;
     private static List<Cartas> manoComputadora;
     private static List<Cartas> manoMesa;
-    private int bote;
+    private static int bote;
     private static int apuestaJugador;
     private static int apuestaComputadora;
     private int ronda;
     private static boolean jugadorRetirado = false;
-    Apuestas apuesta = new Apuestas();
+
+    private static boolean ganador = false;
+    private static Economia economia;
+    private static int cartera = economia.getCarteraJugador();
+    private static int carteraComputadora = economia.getCarteraComputadora();
 
     public Poker() {
         this.baraja = new ArrayList<>();
@@ -103,13 +108,12 @@ public class Poker {
         switch (opcion) {
             case 1:
                 terminarRonda();
-                break;
             case 2:
-                apuesta.subirApuesta();
+              subirApuesta();
             case 3:
-                apuesta.igualarApuesta();
+                igualarApuesta();
             case 4:
-                apuesta.pasarApuesta();
+                pasarApuesta();
             case 5:
                 retirarse();
             default:
@@ -146,6 +150,10 @@ public class Poker {
 
         }
     }
+
+    /**
+     * Método que termina la partida.
+     */
     public static void terminarPartida() {
         // Limpia las manos de los jugadores y la mesa
         manoJugador.clear();
@@ -154,13 +162,23 @@ public class Poker {
         // Resetea las apuestas
         apuestaJugador = 0;
         apuestaComputadora = 0;
+        //Bote al ganador
+
+        if(ganador = true) {
+            System.out.println("El jugador se lleva el bote");
+            cartera = cartera + bote;
+        }else{
+            System.out.println("La computadora se lleva el bote");
+            carteraComputadora = carteraComputadora + bote;
+        }
+
         // Resetea el estado de retirado del jugador
         jugadorRetirado = false;
         System.out.println("La ronda ha terminado");
     }
 
-    private void terminarRonda(){
-        while(ronda<5) {
+    private void terminarRonda() {
+        while (ronda < 5) {
             if (apuestaJugador == apuestaComputadora) {
                 ronda++;
             } else {
@@ -172,11 +190,52 @@ public class Poker {
             System.out.println("La ronda ha terminado");
             terminarPartida();
         }
+    }
 
 
+    @Override
+    public int getApuesta() {
+        return 0;
+    }
+
+    @Override
+    public void setApuesta() {
+
+    }
+
+    @Override
+    public void apuestaInicial() {
+        apuesta = sc.nextInt();
+        bote =  apuesta;
+    }
+
+    @Override
+    public void subirApuesta() {
+        apuesta = apuesta + sc.nextInt();
+
+    }
+
+    @Override
+    public void igualarApuesta() {
+        apuestaJugador = apuestaComputadora;
+        bote = bote + apuestaJugador;
+    }
+
+    @Override
+    public void pasarApuesta() {
+     if (apuestaJugador == apuestaComputadora) {
+            System.out.println("Pasa");
+        } else if (apuestaJugador < apuestaComputadora) {
+            System.out.println("Debes igualar la apuesta");
+        } else if (apuestaJugador > apuestaComputadora) {
+          //apuestaComputador= toma decision
+        }
+     }
 
 
     }
-}
+
+
+
 
 
