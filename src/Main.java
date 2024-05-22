@@ -1,15 +1,20 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import Juegos.Bacarat;
+import Juegos.BlackJack;
+import Juegos.TragaPerras;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+//        Bacarat bacarat = new Bacarat();
+//        bacarat.jugarBacarat();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            //
-        }
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("¡Bienvenido al juego de Blackjack!");
+//        BlackJack.jugarBlackjack(scanner);
+//        System.out.println("Gracias por jugar al Blackjack. ¡Hasta luego!");
+        TragaPerras tragaperras = new TragaPerras();
+        tragaperras.jugarTragaperras(tragaperras);
     }
+
 }

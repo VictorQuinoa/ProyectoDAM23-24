@@ -1,3 +1,5 @@
+package Juegos;
+
 public class Ruleta {
 
     private int numero;
