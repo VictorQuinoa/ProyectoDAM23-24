@@ -1,3 +1,4 @@
+package Bases;
 public class Panel_Inicio {
 
     public void registro(){

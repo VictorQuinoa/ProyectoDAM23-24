@@ -1,5 +1,6 @@
 import Juegos.Bacarat;
 import Juegos.BlackJack;
+import Juegos.Ruleta;
 import Juegos.TragaPerras;
 
 import java.util.Scanner;
@@ -15,6 +16,9 @@ public class Main {
 //        System.out.println("Gracias por jugar al Blackjack. ¡Hasta luego!");
         TragaPerras tragaperras = new TragaPerras();
         tragaperras.jugarTragaperras(tragaperras);
+        Ruleta rul = new Ruleta();
+        rul.girarRuleta();
+        rul.apuestaColor("Rojo");
     }
 
 }

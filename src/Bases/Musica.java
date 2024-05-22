@@ -1,6 +1,6 @@
 package Bases;
 
-public class Musica extends Main {
+public class Musica {
 
     public void reproducir(){
 

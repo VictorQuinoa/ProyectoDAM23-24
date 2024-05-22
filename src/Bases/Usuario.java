@@ -1,3 +1,4 @@
+package Bases;
 public class Usuario {
     private String nombre;
     private String apellido_1;
