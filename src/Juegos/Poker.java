@@ -20,7 +20,7 @@ Scanner sc = new Scanner(System.in);
     private static int apuestaComputadora;
     private int ronda;
     private static boolean jugadorRetirado = false;
-
+    private static int apuesta;
     private static boolean ganador = false;
     private static Economia economia;
     private static int cartera = economia.getCarteraJugador();
@@ -155,6 +155,7 @@ Scanner sc = new Scanner(System.in);
      * Método que termina la partida.
      */
     public static void terminarPartida() {
+
         // Limpia las manos de los jugadores y la mesa
         manoJugador.clear();
         manoComputadora.clear();
