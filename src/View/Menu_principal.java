@@ -50,19 +50,18 @@ public class Menu_principal extends JFrame {
         texto_user.setText("Bienvenido ");
         texto_user.setFont(new Font("DejaVu Math TeX Gyre",2,18));
 
-        foto.setIcon(new ImageIcon(getClass().getResource("/ejem/wawa/appreciaiuyitituyted!(1).png")));
+        foto.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/foto_menu_principal.png")));
 
         boton_ruleta.setBackground(new java.awt.Color(255, 255, 255));
         boton_ruleta.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        boton_ruleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/ruletaButton.png")));
-        boton_ruleta.setText("jLabel1");
+        boton_ruleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/ruletaButton.png")));
         boton_ruleta.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 boton_ruletaMouseClicked(evt);
             }
         });
 
-        boton_baccarat.setIcon(new ImageIcon(getClass().getResource("/ejem/wawa/bacaButton.jpg")));
+        boton_baccarat.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/bacaButton.jpg")));
         boton_baccarat.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_baccarat.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
@@ -72,7 +71,7 @@ public class Menu_principal extends JFrame {
 
         boton_poker.setBackground(new Color(255, 255, 255));
         boton_poker.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        boton_poker.setIcon(new ImageIcon(getClass().getResource("/ejem/wawa/pokerButton.jpg")));
+        boton_poker.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/pokerButton.jpg")));
         boton_poker.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 boton_pokerMouseClicked(evt);
@@ -81,7 +80,7 @@ public class Menu_principal extends JFrame {
 
         boton_tragaperras.setBackground(new Color(255, 255, 255));
         boton_tragaperras.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        boton_tragaperras.setIcon(new ImageIcon(getClass().getResource("/ejem/wawa/tragaButton.jpg")));
+        boton_tragaperras.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/tragaButton.jpg")));
         boton_tragaperras.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 boton_tragaperrasMouseClicked(evt);
@@ -90,14 +89,14 @@ public class Menu_principal extends JFrame {
 
         boton_blackjack.setBackground(new Color(255, 255, 255));
         boton_blackjack.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        boton_blackjack.setIcon(new ImageIcon(getClass().getResource("/ejem/wawa/blackButton.png")));
+        boton_blackjack.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/blackButton.png")));
         boton_blackjack.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 boton_blackjackMouseClicked(evt);
             }
         });
 
-        cerrar_sesion_label.setIcon(new ImageIcon(getClass().getResource("/ejem/wawa/cerrar_sesion.png")));
+        cerrar_sesion_label.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/cerrar_sesion.png")));
         cerrar_sesion_label.setCursor(new Cursor(Cursor.HAND_CURSOR));
         cerrar_sesion_label.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent evt) {
@@ -167,7 +166,7 @@ public class Menu_principal extends JFrame {
         );
 
         pack();
-    }// </editor-fold>
+    }
 
     private void cerrar_sesion_labelMousePressed(MouseEvent evt) {
 
@@ -182,11 +181,11 @@ public class Menu_principal extends JFrame {
     }
 
     private void boton_pokerMouseClicked(MouseEvent evt) {
-        // TODO add your handling code here:
+
     }
 
     private void boton_ruletaMouseClicked(MouseEvent evt) {
-        // TODO add your handling code here:
+
     }
 
     private void boton_tragaperrasMouseClicked(MouseEvent evt) {
