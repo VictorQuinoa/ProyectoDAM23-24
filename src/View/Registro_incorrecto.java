@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
 
-public class Registro_incorrecto extends javax.swing.JFrame {
+public class Registro_incorrecto extends JFrame {
     private JLabel aviso;
     private JPanel boton;
     private JLabel label_boton;

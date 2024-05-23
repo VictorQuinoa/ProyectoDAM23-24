@@ -51,6 +51,11 @@ public class Insertar_nueva_contraseña extends javax.swing.JFrame {
         boton.setBackground(new java.awt.Color(255, 255, 255));
         boton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton.addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent evt) {
+                botonMouseClicked(evt);
+            }
+        });
 
         label_boton.setBackground(new java.awt.Color(255, 255, 255));
         label_boton.setFont(new java.awt.Font("MathJax_Math", 2, 13)); // NOI18N
@@ -139,6 +144,11 @@ public class Insertar_nueva_contraseña extends javax.swing.JFrame {
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse,y - yMouse);
+    }
+    private void botonMouseClicked(java.awt.event.MouseEvent evt) {
+        //aquí tendría que ir un método para ver si este campo está con una contraseña
+
+        dispose();
     }
 
 

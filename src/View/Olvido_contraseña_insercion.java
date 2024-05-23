@@ -166,7 +166,7 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
 
     private void label_botonMouseClicked(java.awt.event.MouseEvent evt) {
         //aquí tendría que ir un método para buscar el nombre y el dni y que abra una ventana u otra
-        new contraseña_cambiada();
+        new Insertar_nueva_contraseña();
     }
 
     private void fondoMousePressed(MouseEvent evt) {
