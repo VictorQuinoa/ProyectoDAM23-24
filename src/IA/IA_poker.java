@@ -71,8 +71,39 @@ public class IA_poker extends Economia implements Apuestas {
         }
     }
 
+    private int evaluarMejorMano(List<Cartas> mano, List<Cartas> mesa) {
+        List<Cartas> combinacion = new ArrayList<>(mano);
+        combinacion.addAll(mesa);
+
+        int mejorValor = 0;
+
+        // Generar todas las combinaciones de 5 cartas
+        for (int i = 0; i < combinacion.size(); i++) {
+            for (int j = i + 1; j < combinacion.size(); j++) {
+                for (int k = j + 1; k < combinacion.size(); k++) {
+                    for (int l = k + 1; l < combinacion.size(); l++) {
+                        for (int m = l + 1; m < combinacion.size(); m++) {
+                            List<Cartas> manoEvaluada = new ArrayList<>();
+                            manoEvaluada.add(combinacion.get(i));
+                            manoEvaluada.add(combinacion.get(j));
+                            manoEvaluada.add(combinacion.get(k));
+                            manoEvaluada.add(combinacion.get(l));
+                            manoEvaluada.add(combinacion.get(m));
+                            int valor = evaluarMano(manoEvaluada);
+                            if (valor > mejorValor) {
+                                mejorValor = valor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return mejorValor;
+
+    }
     /**
      * Método que evalúa la fuerza de la mano de la computadora
+     *
      * @param mano
      * @return
      */

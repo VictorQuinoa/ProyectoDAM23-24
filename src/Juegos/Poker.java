@@ -12,19 +12,19 @@ import java.util.Scanner;
 public class Poker extends Economia implements Apuestas{
 Scanner sc = new Scanner(System.in);
     private List<Cartas> baraja;
-    private static List<Cartas> manoJugador;
-    private static List<Cartas> manoComputadora;
-    private static List<Cartas> manoMesa;
-    private static int bote;
-    private static int apuestaJugador;
-    private static int apuestaComputadora;
+    private  List<Cartas> manoJugador;
+    private  List<Cartas> manoComputadora;
+    private  List<Cartas> manoMesa;
+    private  int bote;
+    private  int apuestaJugador;
+    private  int apuestaComputadora;
     private int ronda;
-    private static boolean jugadorRetirado = false;
-    private static int apuesta;
-    private static boolean ganador = false;
-    private static Economia economia;
-    private static int cartera = economia.getCarteraJugador();
-    private static int carteraComputadora = economia.getCarteraComputadora();
+    private  boolean jugadorRetirado = false;
+    private  int apuesta;
+    private  boolean ganador = false;
+    private Economia economia;
+    private  int cartera = economia.getCarteraJugador();
+    private  int carteraComputadora = economia.getCarteraComputadora();
 
     public Poker() {
         this.baraja = new ArrayList<>();
@@ -108,14 +108,19 @@ Scanner sc = new Scanner(System.in);
         switch (opcion) {
             case 1:
                 terminarRonda();
+                break;
             case 2:
               subirApuesta();
+              break;
             case 3:
                 igualarApuesta();
+                break;
             case 4:
                 pasarApuesta();
+                break;
             case 5:
                 retirarse();
+                break;
             default:
                 System.out.println("Opción inválida");
         }
@@ -154,7 +159,7 @@ Scanner sc = new Scanner(System.in);
     /**
      * Método que termina la partida.
      */
-    public static void terminarPartida() {
+    public void terminarPartida() {
 
         // Limpia las manos de los jugadores y la mesa
         manoJugador.clear();
@@ -165,7 +170,7 @@ Scanner sc = new Scanner(System.in);
         apuestaComputadora = 0;
         //Bote al ganador
 
-        if(ganador = true) {
+        if(ganador) {
             System.out.println("El jugador se lleva el bote");
             cartera = cartera + bote;
         }else{
@@ -188,7 +193,7 @@ Scanner sc = new Scanner(System.in);
 
         }
         if (ronda == 5) {
-            System.out.println("La ronda ha terminado");
+            System.out.println("La partida ha terminado");
             terminarPartida();
         }
     }
