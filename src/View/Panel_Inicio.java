@@ -56,16 +56,13 @@ public class Panel_Inicio extends javax.swing.JFrame {
         panel_boton_registrarse.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                MusicaFondo.statusApp = 0;
                 new InsertarDatos();
-
             }
         });
         panel_olvido_contraseña.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 new Olvido_contraseña_insercion();
-
             }
         });
     }

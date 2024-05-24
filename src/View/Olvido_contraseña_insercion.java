@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 public class Olvido_contraseña_insercion extends javax.swing.JFrame {
+
     private int xMouse;
     private int yMouse;
     private javax.swing.JPanel fondo;
@@ -56,12 +57,12 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
                 fondoMouseDragged(evt);
             }
         });
-        label_dni.setFont(new java.awt.Font("MathJax_Math", 2, 14)); // NOI18N
+        label_dni.setFont(new java.awt.Font("MathJax_Math", 2, 14));
         label_dni.setText("DNI de la cuenta olvidada");
 
-        insertar_dni.setFont(new java.awt.Font("MathJax_Math", 2, 14)); // NOI18N
-        insertar_dni.setForeground(new java.awt.Color(244, 244, 244));
-        insertar_dni.setText("..");
+        insertar_dni.setFont(new java.awt.Font("MathJax_Math", 2, 14));
+        insertar_dni.setForeground(new java.awt.Color(214, 214, 214));
+
         insertar_dni.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         insertar_dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,9 +74,9 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
 
         linea_nombre.setForeground(new java.awt.Color(0, 0, 0));
 
-        insertar_nombre.setFont(new java.awt.Font("MathJax_Math", 2, 14)); // NOI18N
-        insertar_nombre.setForeground(new java.awt.Color(244, 244, 244));
-        insertar_nombre.setText("..");
+        insertar_nombre.setFont(new java.awt.Font("MathJax_Math", 2, 14));
+        insertar_nombre.setForeground(new java.awt.Color(214, 214, 214));
+
         insertar_nombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         insertar_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +90,7 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
         apoyo.setBackground(new java.awt.Color(255, 255, 255));
         apoyo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        label_boton.setFont(new java.awt.Font("MathJax_Math", 0, 13)); // NOI18N
+        label_boton.setFont(new java.awt.Font("MathJax_Math", 0, 13));
         label_boton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_boton.setText("Buscar");
         label_boton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,7 +167,8 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
 
     private void label_botonMouseClicked(java.awt.event.MouseEvent evt) {
         //aquí tendría que ir un método para buscar el nombre y el dni y que abra una ventana u otra
-        new Insertar_nueva_contraseña();
+
+
     }
 
     private void fondoMousePressed(MouseEvent evt) {
