@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 
 
-public class Economia{
+public abstract class Economia{
 
     Scanner sc = new Scanner(System.in);
     private int pago = 0;
@@ -21,4 +21,6 @@ public class Economia{
     public int getCarteraComputadora() {
         return carteraComputadora;
     }
+
+    public abstract void opciones();
 }
