@@ -48,6 +48,10 @@ public class IA_poker extends Economia implements Apuestas {
 
     // Resto del código...
 
+    /**
+     * Método que toma la decisión de la computadora en función de la fuerza de su mano
+     *
+     */
     private void tomarDecisionIA() {
         int fuerzaMano = evaluarMano(manoComputadora);
         if (fuerzaMano > 80) {  // Mano fuerte
@@ -67,6 +71,11 @@ public class IA_poker extends Economia implements Apuestas {
         }
     }
 
+    /**
+     * Método que evalúa la fuerza de la mano de la computadora
+     * @param mano
+     * @return
+     */
     private int evaluarMano(List<Cartas> mano) {
         // Método simplificado para evaluar la fuerza de la mano de la computadora
         if (ManosPoker.esEscaleraReal(mano)) {
@@ -91,13 +100,19 @@ public class IA_poker extends Economia implements Apuestas {
             return 10;
         }
     }
-
+/**
+     * Método que iguala la apuesta con el jugador
+     *
+     */
     private void igualarApuestaComputadora() {
         apuestaComputadora = apuestaJugador;
         bote += apuestaComputadora;
         System.out.println("La computadora iguala la apuesta.");
     }
 
+    /**
+     * Método que sube la apuesta de la computadora
+     */
     private void subirApuestaComputadora() {
         int subida = random.nextInt(10) + 1;
         apuestaComputadora += subida;
@@ -105,14 +120,25 @@ public class IA_poker extends Economia implements Apuestas {
         System.out.println("La computadora sube la apuesta en " + subida);
     }
 
+    /**
+     * Método que pasa la apuesta de la computadora
+     */
     private void pasarApuestaComputadora() {
         System.out.println("La computadora pasa.");
     }
+/**
+     * Método que retira a la computadora de la partida
+     */
 
     private void retirarseComputadora() {
         jugadorRetirado = true;
         System.out.println("La computadora se retira.");
     }
+
+    /**
+     * Metodo que permite la toma de decisiones
+     *
+     */
 
     @Override
     public void opciones() {
@@ -139,33 +165,52 @@ public class IA_poker extends Economia implements Apuestas {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getApuesta() {
         return 0;
     }
 
+    /**
+     *
+     */
     @Override
     public void setApuesta() {
 
     }
 
+    /**
+     * Metodo que establece una apuesta inicial
+     */
     @Override
     public void apuestaInicial() {
         apuesta = sc.nextInt();
         bote = apuesta;
     }
 
+    /**
+     * Metodo que permite subir la apuesta
+     */
     @Override
     public void subirApuesta() {
         apuesta += sc.nextInt();
     }
 
+    /**
+     * Metodo que permite igualar la apuesta
+     */
     @Override
     public void igualarApuesta() {
         apuestaJugador = apuestaComputadora;
         bote += apuestaJugador;
     }
 
+    /**
+     * Metodo que permite pasar la apuesta
+     */
     @Override
     public void pasarApuesta() {
         if (apuestaJugador == apuestaComputadora) {
