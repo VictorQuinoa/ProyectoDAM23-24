@@ -78,7 +78,8 @@ public class Bacarat {
                 valorBanca = valorBanca % 10;
 
                 String respuesta;
-                do {
+                boolean cartaAdicionalPedida = false;
+                if (!cartaAdicionalPedida) {
                     System.out.println("¿Deseas pedir otra carta? (S/N)");
                     while (true) {
                         respuesta = scanner.nextLine().toUpperCase();
@@ -93,8 +94,9 @@ public class Bacarat {
                         valorJugador = (valorJugador + valorCarta(this.cartaJugador)) % 10;
                         System.out.println("Tu nueva carta es: " + this.cartaJugador);
                         System.out.println("Tu nuevo total es: " + valorJugador);
+                        cartaAdicionalPedida = true;
                     }
-                } while (respuesta.equals("S") && valorJugador < 9);
+                }
 
                 if (valorJugador > valorBanca) {
                     System.out.println("El jugador gana con " + valorJugador + " contra " + valorBanca);
