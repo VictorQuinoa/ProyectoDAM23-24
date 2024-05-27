@@ -43,33 +43,14 @@ public class MusicaFondo {
         initListSongFast();
         //vemos si está dentro de un juego
         if(statusApp == 1){
-            if(AdminMusic.musicClip != null && AdminMusic.musicClip.isRunning()) {
-                for (int i = 0; i < 3; i++){
-                    adm.setdB(adm.getdB()-0.2f);
-                    try {
-                        wait(500);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                adm.stopMusic();
-            }
+            adm.stopMusic();
             adm.playMusic(listSongFast.get(rm.nextInt(listSongFast.size())));
         }
         if(statusApp == 0){
-            if(AdminMusic.musicClip != null && AdminMusic.musicClip.isRunning()){
-                for (int i = 0; i <3; i++){
-                    adm.setdB(adm.getdB()-0.2f);
-                    try {
-                        wait(500);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                adm.stopMusic();
-            }
+            adm.stopMusic();
+            adm.playMusic(listSongChill.get(rm.nextInt(listSongChill.size())));
         }
-      //  else()
+      
 
     }
 
