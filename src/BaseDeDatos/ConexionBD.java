@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 public class ConexionBD {
     private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/postgres";
-    private static final String DATABASE_USER = "";
-    private static final String DATABASE_PASSWORD = "";
+    private static final String DATABASE_USER = "postgres";
+    private static final String DATABASE_PASSWORD = "debian";
 
     public Connection conectar() {
         Connection connection = null;
