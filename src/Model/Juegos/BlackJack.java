@@ -1,7 +1,7 @@
-package Juegos;
+package Model.Juegos;
 
-import JuegoDeCartas.Baraja;
-import JuegoDeCartas.Cartas;
+import Model.JuegoDeCartas.Baraja;
+import Model.JuegoDeCartas.Cartas;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,5 @@
 package IA;
-import  Juegos.Poker;
+import Model.Juegos.Poker;
 
 public class IA_poker extends Poker {
 

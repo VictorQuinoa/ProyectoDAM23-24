@@ -1,15 +1,16 @@
-package JuegoDeCartas;
+package Model.JuegoDeCartas;
 
 public class Cartas {
     private String palo;
     private String valor;
     private int valorNumerico;
+    private String imagePath;
 
-    public Cartas(String palo, String valor,int valorNumerico) {
+    public Cartas(String palo, String valor,int valorNumerico, String imagePath) {
         this.palo = palo;
         this.valor = valor;
         this.valorNumerico=valorNumerico;
-
+        this.imagePath = imagePath;
     }
 
     /**

@@ -1,8 +1,8 @@
-package Juegos;
+package Model.Juegos;
 
 import Bases.Economia;
-import JuegoDeCartas.Cartas;
-import JuegoDeCartas.ManosPoker;
+import Model.JuegoDeCartas.Cartas;
+import Model.JuegoDeCartas.ManosPoker;
 import Bases.Apuestas;
 import java.util.ArrayList;
 import java.util.Collections;

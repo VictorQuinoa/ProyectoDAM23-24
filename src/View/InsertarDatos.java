@@ -3,14 +3,12 @@ package View;
 import java.awt.Color;
 import javax.swing.*;
 
-import Model.MusicaFondo;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.event.MouseListener;
 
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 

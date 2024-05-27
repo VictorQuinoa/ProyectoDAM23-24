@@ -1,18 +1,11 @@
-package JuegoDeCartas;
+package Model.JuegoDeCartas;
 
-import Juegos.Poker;
-
-import java.util.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 public class ManosPoker {
     /**
      * Método que evalúa la mano de poker si tiene la carta mas alta
