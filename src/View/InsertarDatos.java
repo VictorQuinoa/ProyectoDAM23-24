@@ -382,7 +382,15 @@ public class InsertarDatos {
         int y = evt.getYOnScreen();
         base_de_ventana.setLocation(x-xMouse,y-yMouse);
     }
+    private void label_registroMouseClicked(MouseEvent evt) {
+        if(insertar_nombre.getText().isEmpty() || insertar_apellido1.getText().isEmpty() || insertar_apellido2.getText().isEmpty() || insertar_DNI.getText().isEmpty() || insertar_nombre_usuario.getText().isEmpty() || insertar_contraseña.getText().isEmpty()){
+            new Registro_incorrecto();
+        }
+        else{
 
+            new Registro_correcto();
+        }
+    }
     private void boton_cerrarMouseEntered(MouseEvent evt) {
         boton_cerrar.setBackground(Color.red);
         label_cerrar.setForeground(Color.white);
