@@ -3,12 +3,14 @@ package View;
 import java.awt.Color;
 import javax.swing.*;
 
+import Model.MusicaFondo;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.MouseListener;
 
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
@@ -49,6 +51,7 @@ public class InsertarDatos {
 
     public InsertarDatos() {
         initComponents();
+
     }
 
 
@@ -84,6 +87,7 @@ public class InsertarDatos {
         insertar_contraseña = new JPasswordField();
         label_apellido2 = new JLabel();
         insertar_apellido1 = new JTextField();
+
 
         base_de_ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         base_de_ventana.setUndecorated(true);
@@ -156,6 +160,7 @@ public class InsertarDatos {
         boton_registro.setBackground(new Color(255, 255, 255));
         boton_registro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, Color.black, null, null));
         boton_registro.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
 
         label_registro.setHorizontalAlignment(SwingConstants.CENTER);
         label_registro.setText("Registrarme");
@@ -392,5 +397,7 @@ public class InsertarDatos {
         base_de_ventana.dispose();
     }
 
+
 }
+
 

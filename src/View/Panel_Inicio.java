@@ -1,4 +1,5 @@
 package View;
+import Model.MusicaFondo;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -25,7 +26,7 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 public class Panel_Inicio extends javax.swing.JFrame {
 
 
-
+    MusicaFondo mf = new MusicaFondo();
     int xMouse, yMouse;
     private JPanel Fondo;
     private JPanel boton_cerrar;
@@ -51,10 +52,17 @@ public class Panel_Inicio extends javax.swing.JFrame {
 
     public Panel_Inicio() {
         initComponents();
+        mf.musicaDeFondo();
         panel_boton_registrarse.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 new InsertarDatos();
+            }
+        });
+        panel_olvido_contraseña.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new Olvido_contraseña_insercion();
             }
         });
     }
@@ -85,6 +93,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setLocation(500,300);
         setLocationByPlatform(true);
         setIconImage(imagenTaskBar.getImage());
         setUndecorated(true);
