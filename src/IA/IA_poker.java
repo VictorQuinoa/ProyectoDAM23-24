@@ -30,7 +30,7 @@ public class IA_poker extends Economia implements Apuestas {
     private Random random;
      boolean ciegaG;
 
-    public IA_poker(Economia economia) {
+    public IA_poker() {
         this.baraja = new ArrayList<>();
         this.manoJugador = new ArrayList<>();
         this.manoComputadora = new ArrayList<>();
@@ -53,7 +53,7 @@ public class IA_poker extends Economia implements Apuestas {
      * Método que toma la decisión de la computadora en función de la fuerza de su mano
      *
      */
-    private void tomarDecisionIA() {
+    public void tomarDecisionIA() {
         int fuerzaMano = evaluarMano(manoComputadora);
         if (fuerzaMano > 80) {  // Mano fuerte
             subirApuestaComputadora();
@@ -108,7 +108,7 @@ public class IA_poker extends Economia implements Apuestas {
      * @param mano
      * @return
      */
-    private int evaluarMano(List<Cartas> mano) {
+    public int evaluarMano(List<Cartas> mano) {
         // Método simplificado para evaluar la fuerza de la mano de la computadora
         if (ManosPoker.esEscaleraReal(mano)) {
             return 100;

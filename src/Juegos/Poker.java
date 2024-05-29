@@ -185,7 +185,7 @@ Scanner sc = new Scanner(System.in);
         System.out.println("La ronda ha terminado");
     }
 
-    private void terminarRonda() {
+    public void terminarRonda() {
         while (ronda < 5) {
             if (apuestaJugador == apuestaComputadora) {
                 ronda++;
