@@ -32,6 +32,7 @@ public class Inicio_sesion_incorrecto extends JFrame {
         setIconImage(imagenTaskBar.getImage());
         setResizable(false);
         setUndecorated(true);
+        setVisible(true);
 
 
         fondo.setBackground(new Color(204, 204, 204));

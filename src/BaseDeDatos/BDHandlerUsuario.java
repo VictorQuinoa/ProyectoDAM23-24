@@ -88,6 +88,27 @@ public class BDHandlerUsuario {
             e.printStackTrace();
         }
     }
+    public boolean doesRowExist(String tableName, String usernameColumnName, String username, String dniColumnName, String dni) {
+        String SQL_SELECT = "SELECT 1 FROM " + tableName + " WHERE " + usernameColumnName + " = ? AND " + dniColumnName + " = ?";
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL_SELECT)) {
 
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, dni);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return true; // La fila existe
+            } else {
+                return false; // La fila no existe
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al realizar la consulta: " + e.getMessage());
+            return false;
+        }
+    }
 
 }
+
+
+

@@ -1,4 +1,5 @@
 package View;
+import BaseDeDatos.BDHandlerUsuario;
 import Model.MusicaFondo;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
@@ -63,6 +64,30 @@ public class Panel_Inicio extends javax.swing.JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 new Olvido_contraseña_insercion();
+            }
+        });
+        panel_boton_inicio_sesion.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                char[] contraseña = insertar_contraseña.getPassword();
+                String passw = new String(contraseña);
+                String nombre = insertar_nombre.getText();
+                if(insertar_nombre.getText().isEmpty() || contraseña.equals("")){
+                    insertar_nombre.setText("");
+                    insertar_contraseña.setText("");
+                    new Registro_incorrecto();
+                }
+                else{
+                    BDHandlerUsuario bdHandlerUsuario = new BDHandlerUsuario();
+                    boolean doesExist= bdHandlerUsuario.doesRowExist("usuario","nombre_usuario",nombre,"contrasenha",contraseña.toString());
+                    if(doesExist){
+                        new Menu_principal();
+                    }
+                    else{
+                        new Registro_incorrecto();
+                    }
+                }
             }
         });
     }
