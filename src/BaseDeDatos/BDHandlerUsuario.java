@@ -62,4 +62,32 @@ public class BDHandlerUsuario {
         }
         return password;
     }
+    public void insercionNuevoUsuario(String nombre, String apellido1, String apellido2, String DNI, String nombre_usuario, String contrasenha){
+
+        Usuario usuario = new Usuario();
+        usuario.setNombre(nombre);
+        usuario.setApellido_1(apellido1);
+        usuario.setApellido_2(apellido2);
+        usuario.setUsername(nombre_usuario);
+        usuario.setDni(DNI);
+        usuario.setPassword(contrasenha);
+
+        String sql = "INSERT INTO usuario (dni, nombre, apellido_1, apellido_2, nombre_usuario, contrasenha) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try(Connection conn = DriverManager.getConnection(DATABASE_URL,DATABASE_USER,DATABASE_PASSWORD);
+            PreparedStatement ptms = conn.prepareStatement(sql)){
+            ptms.setString(1, usuario.getDni());
+            ptms.setString(2,usuario.getNombre());
+            ptms.setString(3,usuario.getApellido_1());
+            ptms.setString(4,usuario.getApellido_2());
+            ptms.setString(5,usuario.getUsername());
+            ptms.setString(6,usuario.getPassword());
+
+            ptms.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
