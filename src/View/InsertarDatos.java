@@ -3,6 +3,7 @@ package View;
 import java.awt.Color;
 import javax.swing.*;
 
+import BaseDeDatos.BDHandlerUsuario;
 import Model.MusicaFondo;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import java.awt.event.MouseMotionAdapter;
@@ -160,7 +161,11 @@ public class InsertarDatos {
         boton_registro.setBackground(new Color(255, 255, 255));
         boton_registro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, Color.black, null, null));
         boton_registro.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
+        boton_registro.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent evt) {
+                boton_registroMousePressed(evt);
+            }
+        });
 
         label_registro.setHorizontalAlignment(SwingConstants.CENTER);
         label_registro.setText("Registrarme");
@@ -405,6 +410,31 @@ public class InsertarDatos {
         base_de_ventana.dispose();
     }
 
+    private void boton_registroMousePressed(MouseEvent evt) {
+        char[] passwordChars = insertar_contraseña.getPassword();
+        String contraseña = new String(passwordChars);
+        if(insertar_nombre.getText().isEmpty() || insertar_nombre_usuario.getText().isEmpty() || insertar_apellido1.getText().isEmpty() || insertar_apellido2.getText().isEmpty() || insertar_DNI.getText().isEmpty() || contraseña.isEmpty()){
+            insertar_nombre.setText("");
+            insertar_nombre_usuario.setText("");
+            insertar_apellido1.setText("");
+            insertar_apellido2.setText("");
+            insertar_contraseña.setText("");
+            insertar_DNI.setText("");
+            new Registro_incorrecto();
+        }
+        else{
+            BDHandlerUsuario BDHu = new BDHandlerUsuario();
+            BDHu.insercionNuevoUsuario(insertar_nombre.getText(),insertar_apellido1.getText(),insertar_apellido2.getText(),insertar_DNI.getText(),insertar_nombre_usuario.getText(),contraseña);
+            insertar_nombre.setText("");
+            insertar_DNI.setText("");
+            insertar_contraseña.setText("");
+            insertar_apellido1.setText("");
+            insertar_apellido2.setText("");
+            insertar_nombre_usuario.setText("");
+            new Registro_correcto();
+
+        }
+    }
 
 }
 
