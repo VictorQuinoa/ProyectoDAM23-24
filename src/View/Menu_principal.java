@@ -21,7 +21,6 @@ public class Menu_principal extends JFrame {
     private JLabel boton_tragaperras;
     private JLabel cerrar_sesion_label;
     private JPanel fondo;
-    private JLabel foto;
     private JLabel texto_user;
 
     public Menu_principal() {
@@ -32,7 +31,6 @@ public class Menu_principal extends JFrame {
 
         fondo = new JPanel();
         texto_user = new JLabel();
-        foto = new JLabel();
         boton_ruleta = new JLabel();
         boton_baccarat = new JLabel();
         boton_poker = new JLabel();
@@ -50,7 +48,6 @@ public class Menu_principal extends JFrame {
         texto_user.setText("Bienvenido ");
         texto_user.setFont(new Font("DejaVu Math TeX Gyre",2,18));
 
-        foto.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/foto_menu_principal.png")));
 
         boton_ruleta.setBackground(new java.awt.Color(255, 255, 255));
         boton_ruleta.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -130,7 +127,6 @@ public class Menu_principal extends JFrame {
                                                 .addContainerGap())
                                         .addGroup(fondoLayout.createSequentialGroup()
                                                 .addGap(76, 76, 76)
-                                                .addComponent(foto)
                                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         fondoLayout.setVerticalGroup(
@@ -143,7 +139,7 @@ public class Menu_principal extends JFrame {
                                                 .addGap(12, 12, 12)
                                                 .addComponent(texto_user)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(foto)))
+                                                ))
                                 .addGap(49, 49, 49)
                                 .addGroup(fondoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                         .addComponent(boton_ruleta, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
@@ -169,7 +165,7 @@ public class Menu_principal extends JFrame {
     }
 
     private void cerrar_sesion_labelMousePressed(MouseEvent evt) {
-
+        System.exit(0);
     }
 
     private void boton_baccaratMouseClicked(MouseEvent evt) {
