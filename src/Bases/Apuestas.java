@@ -14,6 +14,7 @@ public interface Apuestas {
     void subirApuesta();
     void igualarApuesta();
     void pasarApuesta();
+    void Apuesta();
 
 
 

@@ -28,6 +28,7 @@ public class IA_poker extends Economia implements Apuestas {
     private int cartera;
     private int carteraComputadora;
     private Random random;
+     boolean ciegaG;
 
     public IA_poker(Economia economia) {
         this.baraja = new ArrayList<>();
@@ -218,8 +219,13 @@ public class IA_poker extends Economia implements Apuestas {
      */
     @Override
     public void apuestaInicial() {
-        apuesta = sc.nextInt();
-        bote = apuesta;
+        if (ciegaG = false) {
+            apuestaComputadora = 50;
+            bote = 50;
+        } else {
+            apuestaComputadora = 100;
+            bote = 100;
+        }
     }
 
     /**
@@ -227,8 +233,33 @@ public class IA_poker extends Economia implements Apuestas {
      */
     @Override
     public void subirApuesta() {
-        apuesta += sc.nextInt();
-    }
+
+            int inc = 0;
+
+            switch (inc) {
+                case 1:
+                    apuestaComputadora += 50;
+                    bote = bote + apuestaComputadora;
+                    break;
+                case 2:
+                    apuestaComputadora += 100;
+                    bote = bote + apuestaComputadora;
+                    break;
+                case 3:
+                    apuestaComputadora += 150;
+                    bote = bote + apuestaComputadora;
+                    break;
+                case 4:
+                    apuestaComputadora += 250;
+                    bote = bote + apuestaComputadora;
+                default:
+                    System.out.println("Opción inválida");
+            }
+
+
+
+        }
+
 
     /**
      * Metodo que permite igualar la apuesta
@@ -252,6 +283,12 @@ public class IA_poker extends Economia implements Apuestas {
             evaluarMano(manoComputadora);
             tomarDecisionIA();
         }
+    }
+
+    @Override
+    public void Apuesta() {
+        apuestaComputadora= 50;
+        bote = apuestaComputadora + 50;
     }
 }
 

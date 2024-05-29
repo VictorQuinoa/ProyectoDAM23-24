@@ -16,6 +16,7 @@ Scanner sc = new Scanner(System.in);
     private  List<Cartas> manoComputadora;
     private  List<Cartas> manoMesa;
     private  int bote;
+
     private  int apuestaJugador;
     private  int apuestaComputadora;
     private int ronda;
@@ -25,14 +26,15 @@ Scanner sc = new Scanner(System.in);
     private Economia economia;
     private  int cartera = economia.getCarteraJugador();
     private  int carteraComputadora = economia.getCarteraComputadora();
-
+    boolean ciegaG = false;
     public Poker() {
         this.baraja = new ArrayList<>();
         this.manoJugador = new ArrayList<>();
         this.manoComputadora = new ArrayList<>();
         this.manoMesa = new ArrayList<>();
-        this.apuestaJugador = 0;
-        this.apuestaComputadora = 0;
+
+
+
         // Aquí deberías inicializar tu baraja de cartas
     }
 
@@ -211,13 +213,42 @@ Scanner sc = new Scanner(System.in);
 
     @Override
     public void apuestaInicial() {
-        apuesta = sc.nextInt();
+        if (ciegaG = false) {
+            apuestaJugador = 50;
+            bote = 50;
+        } else {
+            apuestaJugador = 100;
+            bote = 100;
+        }
+
         bote =  apuesta;
     }
 
     @Override
     public void subirApuesta() {
-        apuesta = apuesta + sc.nextInt();
+        int inc = 0;
+
+        switch (inc) {
+            case 1:
+                apuestaJugador += 50;
+                bote = bote + apuestaJugador;
+                break;
+            case 2:
+                apuesta += 100;
+                bote = bote + apuestaJugador;
+                break;
+            case 3:
+                apuesta += 150;
+                bote = bote + apuestaJugador;
+                break;
+            case 4:
+                apuesta += 250;
+                bote = bote + apuestaJugador;
+            default:
+                System.out.println("Opción inválida");
+        }
+
+
 
     }
 
@@ -238,8 +269,13 @@ Scanner sc = new Scanner(System.in);
         }
      }
 
-
+    @Override
+    public void Apuesta() {
+       bote = apuestaJugador + 50;
     }
+
+
+}
 
 
 
