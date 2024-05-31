@@ -1,4 +1,6 @@
 package View;
+import View.Juegos.View_tragaperras;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -185,6 +187,8 @@ public class Menu_principal extends JFrame {
     }
 
     private void boton_tragaperrasMouseClicked(MouseEvent evt) {
+        new View_tragaperras();
+        dispose();
 
     }
 

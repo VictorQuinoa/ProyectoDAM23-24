@@ -2,10 +2,12 @@ package View.Juegos;
 
 import View.Menu_principal;
 
+import javax.swing.*;
+
 public class View_tragaperras extends javax.swing.JFrame {
 
     private javax.swing.JPanel boton_girar;
-    private int i;
+    private Thread thread;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel cerrar_juego;
     private javax.swing.JLabel primer_hueco;
@@ -28,6 +30,11 @@ public class View_tragaperras extends javax.swing.JFrame {
         label_boton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+        setLocation(new java.awt.Point(600, 600));
+        setResizable(false);
+        setSize(new java.awt.Dimension(500, 319));
+
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -127,25 +134,38 @@ public class View_tragaperras extends javax.swing.JFrame {
                                         .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         //este do-while se usa para ir poniendo imagenes mientras no le des al boton
-        do{
-            if(i == 6)
-                i = 1 ;
-            primer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras" + i)));
-            segundo_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras" + i+1)));
-            tercer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras" + i+2)));
 
-        }while (bool != true);
+        // Inicializa el hilo
+         thread = new Thread(() -> {
+            int i = 1;
+            while (true) {
+                if (i == 6)
+                    i = 1;
+                primer_hueco.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + i + ".png")));
+                segundo_hueco.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + (i + 1) + ".png")));
+                tercer_hueco.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + (i + 2) + ".png")));
+                i++;
+                try {
+                    Thread.sleep(1000); // Pausa por un segundo
+                } catch (InterruptedException e) {
+                    break; // Salir del bucle si el hilo es interrumpido
+                }
+            }
+        });
+        thread.start(); // Inicia el hilo
 
         pack();
     }
 
     private void label_Boton_cerrarMouseClicked(java.awt.event.MouseEvent evt) {
+        thread.interrupt(); // Interrumpe el hilo cuando se cierra el juego
         dispose();
         new Menu_principal();
     }
 
     private void label_boton_pararMouseClicked(java.awt.event.MouseEvent evt) {
-        bool = true;
+        thread.interrupt(); // Interrumpe el hilo cuando se presiona el botón
     }
+
 
 }

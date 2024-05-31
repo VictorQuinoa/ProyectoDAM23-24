@@ -82,6 +82,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
                     BDHandlerUsuario bdHandlerUsuario = new BDHandlerUsuario();
                     boolean doesExist= bdHandlerUsuario.doesRowExist(nombre_usuario,passw);
                     if(doesExist){
+                        dispose();
                         new Menu_principal();
                     }
                     else{
