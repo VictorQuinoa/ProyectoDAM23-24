@@ -24,7 +24,7 @@ public class Inicio_sesion_incorrecto extends JFrame {
         fondo = new JPanel();
         aviso = new JLabel();
         troste = new JLabel();
-        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
         boton_reintento = new JPanel();
         texto_reintento = new JLabel();
 

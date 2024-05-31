@@ -50,7 +50,7 @@ public class Menu_principal extends JFrame {
         texto_user.setText("Bienvenido ");
         texto_user.setFont(new Font("DejaVu Math TeX Gyre",2,18));
 
-        foto.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/foto_menu_principal.png")));
+        foto.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/foto_menu_principal.png")));
 
         boton_ruleta.setBackground(new java.awt.Color(255, 255, 255));
         boton_ruleta.setCursor(new Cursor(Cursor.HAND_CURSOR));

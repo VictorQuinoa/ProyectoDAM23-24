@@ -18,7 +18,7 @@ public class nueva_contraseña_vacia extends javax.swing.JFrame {
     }
 
     private void initComponents() {
-        ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
+        ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
         fondo = new javax.swing.JPanel();
         aviso = new javax.swing.JLabel();
         boton = new javax.swing.JPanel();

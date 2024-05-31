@@ -88,7 +88,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
         olvido_contraseña = new JLabel();
         soporte_boton_cerrar = new JPanel();
         boton_cerrar = new JPanel();
-        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
         simbolo_cerrar = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
