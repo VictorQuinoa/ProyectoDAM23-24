@@ -107,6 +107,26 @@ public class BDHandlerUsuario {
             return false;
         }
     }
+    public String forgotPassword(String dn1, String nombre) {
+        String SQL_SELECT = "SELECT contrasenha FROM usuario WHERE dni = ? AND nombre = ?";
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL_SELECT)) {
+
+            preparedStatement.setString(1, dn1);
+            preparedStatement.setString(2, nombre);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getString("contrasenha"); // Retorna la contraseña
+            } else {
+                return null; // No se encontró el usuario
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al realizar la consulta: " + e.getMessage());
+            return null;
+        }
+    }
+
 
 }
 

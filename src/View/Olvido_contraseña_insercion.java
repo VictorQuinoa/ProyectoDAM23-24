@@ -1,6 +1,8 @@
 package View;
 
 
+import BaseDeDatos.BDHandlerUsuario;
+
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,6 +11,7 @@ import java.awt.event.MouseMotionAdapter;
 public class Olvido_contraseña_insercion extends javax.swing.JFrame {
 
     private int xMouse;
+    protected static String passw;
     private int yMouse;
     private javax.swing.JPanel fondo;
     private javax.swing.JTextField insertar_dni;
@@ -57,11 +60,11 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
                 fondoMouseDragged(evt);
             }
         });
-        label_dni.setFont(new java.awt.Font("MathJax_Math", 2, 14));
+        label_dni.setFont(new java.awt.Font("Arial", 2, 14));
         label_dni.setText("DNI de la cuenta olvidada");
 
-        insertar_dni.setFont(new java.awt.Font("MathJax_Math", 2, 14));
-        insertar_dni.setForeground(new java.awt.Color(214, 214, 214));
+        insertar_dni.setFont(new java.awt.Font("Arial", 2, 14));
+        insertar_dni.setForeground(new java.awt.Color(194, 194, 194));
 
         insertar_dni.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         insertar_dni.addActionListener(new java.awt.event.ActionListener() {
@@ -74,8 +77,8 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
 
         linea_nombre.setForeground(new java.awt.Color(0, 0, 0));
 
-        insertar_nombre.setFont(new java.awt.Font("MathJax_Math", 2, 14));
-        insertar_nombre.setForeground(new java.awt.Color(214, 214, 214));
+        insertar_nombre.setFont(new java.awt.Font("Arial", 2, 14));
+        insertar_nombre.setForeground(new java.awt.Color(194, 194, 194));
 
         insertar_nombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         insertar_nombre.addActionListener(new java.awt.event.ActionListener() {
@@ -84,13 +87,13 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
             }
         });
 
-        label_nombre.setFont(new java.awt.Font("MathJax_Math", 2, 14)); // NOI18N
+        label_nombre.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         label_nombre.setText("Nombre de la cuenta olvidada");
 
         apoyo.setBackground(new java.awt.Color(255, 255, 255));
         apoyo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        label_boton.setFont(new java.awt.Font("MathJax_Math", 0, 13));
+        label_boton.setFont(new java.awt.Font("Arial", 0, 13));
         label_boton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_boton.setText("Buscar");
         label_boton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -167,6 +170,23 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
 
     private void label_botonMouseClicked(java.awt.event.MouseEvent evt) {
         //aquí tendría que ir un método para buscar el nombre y el dni y que abra una ventana u otra
+        if(insertar_dni.getText().isEmpty() || insertar_nombre.getText().isEmpty()){
+            insertar_dni.setText("");
+            insertar_nombre.setText("");
+            new mal_puesto();
+        } else {
+            BDHandlerUsuario bd = new BDHandlerUsuario();
+            String dni = insertar_dni.getText();
+            String nombre = insertar_nombre.getText();
+            bd.forgotPassword(dni, nombre);
+            if(bd.forgotPassword(dni, nombre) != null){
+                passw = bd.forgotPassword(dni, nombre);
+                new contraseña_mostrada();
+                dispose();
+            } else {
+                new mal_puesto();
+            }
+        }
 
 
     }

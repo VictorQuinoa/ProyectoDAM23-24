@@ -5,7 +5,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-public class contraseña_cambiada extends javax.swing.JFrame {
+public class contraseña_mostrada extends javax.swing.JFrame {
     private int xMouse;
     private int yMouse;
     private javax.swing.JLabel aviso;
@@ -13,7 +13,7 @@ public class contraseña_cambiada extends javax.swing.JFrame {
     private javax.swing.JPanel apoyo;
     private javax.swing.JLabel label_boton;
 
-    public contraseña_cambiada() {
+    public contraseña_mostrada() {
         initComponents();
     }
 
@@ -44,9 +44,9 @@ public class contraseña_cambiada extends javax.swing.JFrame {
             }
         });
 
-        aviso.setFont(new java.awt.Font("MathJax_Math", 0, 13)); // NOI18N
+        aviso.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         aviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        aviso.setText("Contraseña cambiada, ya puede volver al inicio de sesión (cierre las ventanas)");
+        aviso.setText("Contraseña: " + Olvido_contraseña_insercion.passw);
 
         apoyo.setBackground(new java.awt.Color(255, 255, 255));
         apoyo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

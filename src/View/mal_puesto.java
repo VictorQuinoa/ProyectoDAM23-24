@@ -6,14 +6,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-public class nueva_contraseña_vacia extends javax.swing.JFrame {
+public class mal_puesto extends javax.swing.JFrame {
     private int xMouse;
     private int yMouse;
     private javax.swing.JPanel boton;
     private javax.swing.JLabel aviso;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel label_boton;
-    public nueva_contraseña_vacia() {
+    public mal_puesto() {
         initComponents();
     }
 
@@ -43,7 +43,7 @@ public class nueva_contraseña_vacia extends javax.swing.JFrame {
         });
 
         aviso.setFont(new java.awt.Font("MathJax_Math", 0, 13)); // NOI18N
-        aviso.setText("Tienes que poner una contraseña");
+        aviso.setText("Pusiste algo mal, revisa tu nombre de usuario o el dni");
 
         boton.setBackground(new java.awt.Color(255, 255, 255));
         boton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
