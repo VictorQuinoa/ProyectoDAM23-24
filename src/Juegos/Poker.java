@@ -199,6 +199,9 @@ Scanner sc = new Scanner(System.in);
             terminarPartida();
         }
     }
+public int getRonda(){
+        return ronda;
+    }
 
 
     @Override
