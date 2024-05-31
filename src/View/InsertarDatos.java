@@ -4,7 +4,7 @@ import java.awt.Color;
 import javax.swing.*;
 
 import BaseDeDatos.BDHandlerUsuario;
-import Model.MusicaFondo;
+import Model.Musica.MusicaFondo;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;

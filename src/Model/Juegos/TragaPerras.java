@@ -1,4 +1,4 @@
-package Juegos;
+package Model.Juegos;
 import java.util.Random;
 import java.util.Scanner;
 

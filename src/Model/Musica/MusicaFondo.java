@@ -1,4 +1,4 @@
-package Model;
+package Model.Musica;
 
 import java.util.ArrayList;
 import java.util.Random;
