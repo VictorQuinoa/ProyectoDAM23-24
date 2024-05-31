@@ -40,8 +40,8 @@ public class Menu_principal extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setVisible(true);
         setLocation(new java.awt.Point(600, 600));
-        setUndecorated(true);
 
         fondo.setBackground(new Color(204, 204, 204));
 

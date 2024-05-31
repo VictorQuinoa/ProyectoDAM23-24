@@ -66,13 +66,13 @@ public class Panel_Inicio extends javax.swing.JFrame {
                 new Olvido_contraseña_insercion();
             }
         });
-        panel_boton_inicio_sesion.addMouseListener(new MouseAdapter() {
+        inicio_sesion.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mousePressed(MouseEvent e) {
                 char[] contraseña = insertar_contraseña.getPassword();
                 String passw = new String(contraseña);
-                String nombre = insertar_nombre.getText();
+                String nombre_usuario = insertar_nombre.getText();
                 if(insertar_nombre.getText().isEmpty() || contraseña.equals("")){
                     insertar_nombre.setText("");
                     insertar_contraseña.setText("");
@@ -80,7 +80,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
                 }
                 else{
                     BDHandlerUsuario bdHandlerUsuario = new BDHandlerUsuario();
-                    boolean doesExist= bdHandlerUsuario.doesRowExist("usuario","nombre_usuario",nombre,"contrasenha",contraseña.toString());
+                    boolean doesExist= bdHandlerUsuario.doesRowExist(nombre_usuario,passw);
                     if(doesExist){
                         new Menu_principal();
                     }

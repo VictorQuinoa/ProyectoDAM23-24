@@ -88,13 +88,13 @@ public class BDHandlerUsuario {
             e.printStackTrace();
         }
     }
-    public boolean doesRowExist(String tableName, String usernameColumnName, String username, String dniColumnName, String dni) {
-        String SQL_SELECT = "SELECT 1 FROM " + tableName + " WHERE " + usernameColumnName + " = ? AND " + dniColumnName + " = ?";
+    public boolean doesRowExist(String username, String password) {
+        String SQL_SELECT = "SELECT 1 FROM usuario WHERE nombre_usuario = ? AND contrasenha = ?";
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(SQL_SELECT)) {
 
             preparedStatement.setString(1, username);
-            preparedStatement.setString(2, dni);
+            preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
