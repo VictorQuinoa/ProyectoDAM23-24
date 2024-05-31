@@ -1,5 +1,6 @@
 package Bases;
 
+import Juegos.JuegoPoker;
 import Juegos.Ruleta;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -7,7 +8,9 @@ import Juegos.Ruleta;
 public class Main {
     public static void main(String[] args) {
      Ruleta rul = new Ruleta();
-     rul.girarRuleta();
-     rul.apuestaColor("Rojo");
+        JuegoPoker jp = new JuegoPoker();
+    // rul.girarRuleta();
+     //rul.apuestaColor("Rojo");
+        jp.jugarPoker();
         }
     }

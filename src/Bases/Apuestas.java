@@ -10,7 +10,7 @@ public interface Apuestas {
 
     int getApuesta();
     void setApuesta();
-    void apuestaInicial();
+    int apuestaInicial();
     void subirApuesta();
     void igualarApuesta();
     void pasarApuesta();

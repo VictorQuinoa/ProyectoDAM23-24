@@ -15,7 +15,7 @@ public class IA_poker extends Economia implements Apuestas {
     private Scanner sc = new Scanner(System.in);
     private List<Cartas> baraja;
     private List<Cartas> manoJugador;
-    private List<Cartas> manoComputadora;
+    public List<Cartas> manoComputadora;
     private List<Cartas> manoMesa;
     private int bote;
     private int apuestaJugador;
@@ -162,9 +162,10 @@ public class IA_poker extends Economia implements Apuestas {
      * Método que retira a la computadora de la partida
      */
 
-    private void retirarseComputadora() {
+    public boolean retirarseComputadora() {
         jugadorRetirado = true;
         System.out.println("La computadora se retira.");
+        return jugadorRetirado;
     }
 
     /**
@@ -175,6 +176,9 @@ public class IA_poker extends Economia implements Apuestas {
     @Override
     public void opciones() {
         int opcion = sc.nextInt();
+        evaluarMano(manoComputadora);
+        evaluarMejorMano(manoComputadora, manoMesa);
+        tomarDecisionIA();
         switch (opcion) {
             case 1:
                 poker.retirarse();
@@ -216,9 +220,11 @@ public class IA_poker extends Economia implements Apuestas {
 
     /**
      * Metodo que establece una apuesta inicial
+     *
+     * @return
      */
     @Override
-    public void apuestaInicial() {
+    public int apuestaInicial() {
         if (ciegaG = false) {
             apuestaComputadora = 50;
             bote = 50;
@@ -226,6 +232,7 @@ public class IA_poker extends Economia implements Apuestas {
             apuestaComputadora = 100;
             bote = 100;
         }
+        return 0;
     }
 
     /**

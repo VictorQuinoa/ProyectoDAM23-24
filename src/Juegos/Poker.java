@@ -212,7 +212,7 @@ Scanner sc = new Scanner(System.in);
     }
 
     @Override
-    public void apuestaInicial() {
+    public int apuestaInicial() {
         if (ciegaG = false) {
             apuestaJugador = 50;
             bote = 50;
@@ -222,6 +222,7 @@ Scanner sc = new Scanner(System.in);
         }
 
         bote =  apuesta;
+        return 0;
     }
 
     @Override
