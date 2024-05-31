@@ -10,7 +10,6 @@ import java.util.Collections;
 public class Baraja {
     private ArrayList<Cartas> cartas;
     private int indiceCartaActual;
-    private int apoyoFor = 0;
 
     /**
      * Constructor de la clase Baraja

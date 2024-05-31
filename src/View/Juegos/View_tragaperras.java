@@ -2,17 +2,17 @@ package View.Juegos;
 
 import View.Menu_principal;
 
-import java.awt.*;
-
 public class View_tragaperras extends javax.swing.JFrame {
 
     private javax.swing.JPanel boton_girar;
+    private int i;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel cerrar_juego;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel primer_hueco;
+    private javax.swing.JLabel segundo_hueco;
+    private javax.swing.JLabel tercer_hueco;
     private javax.swing.JLabel label_boton;
+    private Boolean bool;
 
     public View_tragaperras() {
         initComponents();
@@ -21,9 +21,9 @@ public class View_tragaperras extends javax.swing.JFrame {
 
         fondo = new javax.swing.JPanel();
         cerrar_juego = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        primer_hueco = new javax.swing.JLabel();
+        segundo_hueco = new javax.swing.JLabel();
+        tercer_hueco = new javax.swing.JLabel();
         boton_girar = new javax.swing.JPanel();
         label_boton = new javax.swing.JLabel();
 
@@ -31,21 +31,21 @@ public class View_tragaperras extends javax.swing.JFrame {
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));
 
-        cerrar_juego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/cerrar_sesion.png"))); // NOI18N
+        cerrar_juego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/cerrar_sesion.png"))); // NOI18N
         cerrar_juego.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label_Boton_cerrarMouseClicked(evt);
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/pokerButton.jpg"))); // NOI18N
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        //primer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/pokerButton.jpg"))); // NOI18N
+        primer_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/blackButton.png"))); // NOI18N
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        //segundo_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/blackButton.png"))); // NOI18N
+        segundo_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/bacaButton.jpg"))); // NOI18N
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        //tercer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/bacaButton.jpg"))); // NOI18N
+        tercer_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         boton_girar.setBackground(new java.awt.Color(153, 255, 153));
         boton_girar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -88,11 +88,11 @@ public class View_tragaperras extends javax.swing.JFrame {
                                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(boton_girar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(fondoLayout.createSequentialGroup()
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tercer_hueco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(41, 41, 41)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(primer_hueco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(39, 39, 39)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(segundo_hueco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(63, 63, 63))
         );
         fondoLayout.setVerticalGroup(
@@ -102,9 +102,9 @@ public class View_tragaperras extends javax.swing.JFrame {
                                 .addComponent(cerrar_juego, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42)
                                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(primer_hueco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(segundo_hueco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tercer_hueco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                                 .addComponent(boton_girar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
@@ -126,6 +126,15 @@ public class View_tragaperras extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+        //este do-while se usa para ir poniendo imagenes mientras no le des al boton
+        do{
+            if(i == 6)
+                i = 1 ;
+            primer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras" + i)));
+            segundo_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras" + i+1)));
+            tercer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras" + i+2)));
+
+        }while (bool != true);
 
         pack();
     }
@@ -136,6 +145,7 @@ public class View_tragaperras extends javax.swing.JFrame {
     }
 
     private void label_boton_pararMouseClicked(java.awt.event.MouseEvent evt) {
+        bool = true;
     }
 
 }
