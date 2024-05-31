@@ -27,7 +27,7 @@ public class Registro_correcto extends JFrame {
         Aviso = new JLabel();
         boton = new JPanel();
         label_boton = new JLabel();
-        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
 
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

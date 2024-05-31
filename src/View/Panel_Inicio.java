@@ -114,7 +114,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
         olvido_contraseña = new JLabel();
         soporte_boton_cerrar = new JPanel();
         boton_cerrar = new JPanel();
-        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
         simbolo_cerrar = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -134,7 +134,7 @@ public class Panel_Inicio extends javax.swing.JFrame {
 
         panel_foto.setPreferredSize(new java.awt.Dimension(618, 1200));
 
-        foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/logo_Panel_inicio_redimensionado.png")));
+        foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/logo_Panel_inicio_redimensionado.png")));
         foto.setAlignmentY(0.0F);
         foto.setHorizontalTextPosition(SwingConstants.CENTER);
         foto.setPreferredSize(new java.awt.Dimension(800, 1200));

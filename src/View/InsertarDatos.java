@@ -59,7 +59,7 @@ public class InsertarDatos {
     private void initComponents() {
 
         base_de_ventana = new JFrame();
-        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
         panel_del_registro = new JPanel();
         barra_titulo = new JPanel();
         boton_cerrar = new JPanel();
@@ -190,7 +190,7 @@ public class InsertarDatos {
 
         panel_foto.setToolTipText("");
 
-        label_foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/logo_panel_Insercion_datos.jpg")));
+        label_foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/logo_panel_Insercion_datos.jpg")));
         label_foto.setLabelFor(panel_foto);
 
 
