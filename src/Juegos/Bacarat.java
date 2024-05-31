@@ -67,15 +67,21 @@ public class Bacarat {
 
                 // Repartir la segunda carta y mostrarla
                 repartirCartas();
-                valorJugador += valorCarta(this.cartaJugador);
+//                valorJugador += valorCarta(this.cartaJugador);
+                valorJugador =(valorJugador + valorCarta(this.cartaJugador))%10;
                 System.out.println("Segunda carta: " + this.cartaJugador);
-                System.out.println("Total hasta ahora: " + valorJugador);
+                System.out.println("Total del jugador: " + valorJugador);
 
-                int valorBanca = valorCarta(this.cartaBanca) + valorCarta(this.baraja.dealCard());
+                // Repartir la carta de la banca y mostrarla
+                repartirCartas();
+                int valorBanca = valorCarta(this.cartaBanca) ;
+                repartirCartas();
+                valorBanca = (valorBanca + valorCarta(this.cartaBanca)) % 10;
+                System.out.println("Total de la banca: " + valorBanca);
 
                 // Si la suma es de dos dígitos, nos quedamos con el segundo dígito
-                valorJugador = valorJugador % 10;
-                valorBanca = valorBanca % 10;
+//                valorJugador = valorJugador % 10;
+//                valorBanca = valorBanca % 10;
 
                 String respuesta;
                 boolean cartaAdicionalPedida = false;
