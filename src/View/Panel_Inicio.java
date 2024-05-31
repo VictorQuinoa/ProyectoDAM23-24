@@ -1,6 +1,6 @@
 package View;
 import BaseDeDatos.BDHandlerUsuario;
-import Model.MusicaFondo;
+import Model.Musica.MusicaFondo;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import javax.swing.JLabel;

@@ -1,4 +1,4 @@
-package Model;
+package Bases;
 
 public class Usuario {
     private String nombre;

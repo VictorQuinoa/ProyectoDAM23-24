@@ -1,6 +1,6 @@
-package Juegos;
-import JuegoDeCartas.Cartas;
-import JuegoDeCartas.Baraja;
+package Model.Juegos;
+import Model.JuegoDeCartas.Cartas;
+import Model.JuegoDeCartas.Baraja;
 
 import java.util.Scanner;
 
