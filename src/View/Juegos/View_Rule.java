@@ -3,7 +3,7 @@ package View.Juegos;
 
 import Model.Musica.MusicaFondo;
 import View.Menu_principal;
-import View.mal_puesto;
+import View.Olvido_De_Contraseña.mal_puesto;
 
 import javax.swing.*;
 

@@ -1,11 +1,11 @@
-package View;
+package View.Inicios_de_Sesion;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class Derrota extends JFrame {
+public class Inicio_sesion_incorrecto extends JFrame {
 
     private JLabel aviso;
     private ImageIcon imagenTaskBar;
@@ -15,7 +15,7 @@ public class Derrota extends JFrame {
     private JPanel boton_reintento;
 
 
-    public Derrota() {
+    public Inicio_sesion_incorrecto() {
         initComponents();
     }
 
@@ -28,22 +28,20 @@ public class Derrota extends JFrame {
         boton_reintento = new JPanel();
         texto_reintento = new JLabel();
 
-        ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
-        setIconImage(imagenTaskBar.getImage());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(imagenTaskBar.getImage());
         setResizable(false);
         setVisible(true);
-        setLocation(new Point(400,400));
+        setLocation(new Point(600,600));
 
 
-        fondo.setBackground(new Color(224, 224, 224));
+        fondo.setBackground(new Color(204, 204, 204));
         fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
         aviso.setFont(new Font("MathJax_Fraktur", 0, 13));
-        aviso.setText("                           Has perdido");
+        aviso.setText("El nombre de usuario o la contraseña son incorrectas");
 
-        troste.setText("D:");
+        troste.setText(";(");
 
         boton_reintento.setBackground(new Color(204, 255, 255));
         boton_reintento.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -55,7 +53,7 @@ public class Derrota extends JFrame {
         });
 
         texto_reintento.setFont(new Font("MathJax_Fraktur", 0, 13)); // NOI18N
-        texto_reintento.setText(" Volver a jugar");
+        texto_reintento.setText("Volver a intentar");
 
         GroupLayout jPanel2Layout = new GroupLayout(boton_reintento);
         boton_reintento.setLayout(jPanel2Layout);

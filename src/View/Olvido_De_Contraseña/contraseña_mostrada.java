@@ -1,4 +1,4 @@
-package View;
+package View.Olvido_De_Contraseña;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;

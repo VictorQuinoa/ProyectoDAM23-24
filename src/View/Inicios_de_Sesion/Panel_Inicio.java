@@ -1,4 +1,4 @@
-package View;
+package View.Inicios_de_Sesion;
 import BaseDeDatos.BDHandlerUsuario;
 import Model.Musica.MusicaFondo;
 import javax.swing.SwingConstants;
@@ -19,6 +19,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseMotionAdapter;
 
 //librerias externas para poder usar esos Layouts
+import View.Olvido_De_Contraseña.Olvido_contraseña_insercion;
+import View.Registros.InsertarDatos;
+import View.Registros.Registro_incorrecto;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
