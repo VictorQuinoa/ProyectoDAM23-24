@@ -1,11 +1,14 @@
 package View.Juegos;
 
 
+import Model.Musica.MusicaFondo;
 import View.Menu_principal;
+import View.mal_puesto;
 
 import javax.swing.*;
 
 public class View_Rule extends javax.swing.JFrame {
+    MusicaFondo mf = new MusicaFondo();
     private javax.swing.JLabel aviso_inserciones;
     private String colores[] = {"negro", "rojo", "verde"};
     private javax.swing.JLabel boton_salir;
@@ -173,11 +176,19 @@ public class View_Rule extends javax.swing.JFrame {
     }
 
     private void label_apostarMouseClicked(java.awt.event.MouseEvent evt) {
+        try{
+            if(insercion_numero.getText().isEmpty() || Integer.valueOf(insercion_numero.getText()) < 0 || Integer.valueOf(insercion_numero.getText()) > 36 ){
+
+            }
+        }catch (NumberFormatException e){
+            new mal_puesto();
+        }
         int nApostado = Integer.valueOf(insercion_numero.getText());
 
     }
 
     private void boton_salirMouseClicked(java.awt.event.MouseEvent evt) {
+        mf.musicaDeFondo(0);
         dispose();
         new Menu_principal();
     }

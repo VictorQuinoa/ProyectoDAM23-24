@@ -1,4 +1,5 @@
 package View;
+import Model.Musica.MusicaFondo;
 import View.Juegos.View_Rule;
 import View.Juegos.View_tragaperras;
 
@@ -17,6 +18,7 @@ import java.awt.Font;
 
 public class Menu_principal extends JFrame {
 
+    MusicaFondo mf = new MusicaFondo();
     private JLabel boton_baccarat;
     private JLabel boton_blackjack;
     private JLabel boton_ruleta;
@@ -172,12 +174,14 @@ public class Menu_principal extends JFrame {
 
 
     private void boton_ruletaMouseClicked(MouseEvent evt) {
+        mf.musicaDeFondo(1);
         new View_Rule();
         dispose();
     }
 
     private void boton_tragaperrasMouseClicked(MouseEvent evt) {
         new View_tragaperras();
+        mf.musicaDeFondo(1);
         dispose();
 
     }

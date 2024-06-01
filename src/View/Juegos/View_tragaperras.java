@@ -1,11 +1,13 @@
 package View.Juegos;
 
+import Model.Musica.MusicaFondo;
 import View.Menu_principal;
 
 import javax.swing.*;
 
 public class View_tragaperras extends javax.swing.JFrame {
 
+    MusicaFondo mf = new MusicaFondo();
     private javax.swing.JPanel boton_girar;
     private Thread thread;
     private javax.swing.JPanel fondo;
@@ -160,6 +162,7 @@ public class View_tragaperras extends javax.swing.JFrame {
     }
 
     private void label_Boton_cerrarMouseClicked(java.awt.event.MouseEvent evt) {
+        mf.musicaDeFondo(0);
         thread.interrupt(); // Interrumpe el hilo cuando se cierra el juego
         dispose();
         new Menu_principal();
