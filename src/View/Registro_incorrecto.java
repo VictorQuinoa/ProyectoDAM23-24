@@ -9,6 +9,8 @@ import javax.swing.LayoutStyle;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Registro_incorrecto extends JFrame {
     private JLabel aviso;
@@ -36,6 +38,12 @@ public class Registro_incorrecto extends JFrame {
         label_boton.setFont(new Font("MathJax_Math", 0, 13));
         label_boton.setHorizontalAlignment(SwingConstants.CENTER);
         label_boton.setText("OK");
+        label_boton.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                label_botonMouseClicked(evt);
+            }
+        });
+
 
         GroupLayout botonLayout = new GroupLayout(boton);
         boton.setLayout(botonLayout);
@@ -78,5 +86,7 @@ public class Registro_incorrecto extends JFrame {
 
         pack();
     }
-
+    private void label_botonMouseClicked(MouseEvent evt) {
+        dispose();
+    }
 }

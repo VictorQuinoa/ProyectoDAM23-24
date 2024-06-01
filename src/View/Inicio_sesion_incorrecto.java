@@ -31,6 +31,8 @@ public class Inicio_sesion_incorrecto extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(imagenTaskBar.getImage());
         setResizable(false);
+        setVisible(true);
+        setLocation(new Point(600,600));
         setUndecorated(true);
 
 

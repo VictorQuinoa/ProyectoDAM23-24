@@ -32,6 +32,7 @@ public class Registro_correcto extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setVisible(true);
         setResizable(false);
         setIconImage(imagenTaskBar.getImage());
 
