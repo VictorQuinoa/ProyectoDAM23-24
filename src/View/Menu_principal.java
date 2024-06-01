@@ -1,4 +1,7 @@
 package View;
+import View.Juegos.View_Rule;
+import View.Juegos.View_tragaperras;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,7 +19,6 @@ public class Menu_principal extends JFrame {
 
     private JLabel boton_baccarat;
     private JLabel boton_blackjack;
-    private JLabel boton_poker;
     private JLabel boton_ruleta;
     private JLabel boton_tragaperras;
     private JLabel cerrar_sesion_label;
@@ -33,23 +35,22 @@ public class Menu_principal extends JFrame {
         texto_user = new JLabel();
         boton_ruleta = new JLabel();
         boton_baccarat = new JLabel();
-        boton_poker = new JLabel();
         boton_tragaperras = new JLabel();
         boton_blackjack = new JLabel();
         cerrar_sesion_label = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
+        setIconImage(imagenTaskBar.getImage());
         setAlwaysOnTop(true);
         setVisible(true);
         setLocation(new java.awt.Point(600, 600));
-        setUndecorated(true);
 
         fondo.setBackground(new Color(204, 204, 204));
 
         texto_user.setText("Bienvenido ");
         texto_user.setFont(new Font("DejaVu Math TeX Gyre",2,18));
 
-        foto.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/foto_menu_principal.png")));
 
         boton_ruleta.setBackground(new java.awt.Color(255, 255, 255));
         boton_ruleta.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -68,14 +69,7 @@ public class Menu_principal extends JFrame {
             }
         });
 
-        boton_poker.setBackground(new Color(255, 255, 255));
-        boton_poker.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        boton_poker.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/pokerButton.jpg")));
-        boton_poker.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-                boton_pokerMouseClicked(evt);
-            }
-        });
+
 
         boton_tragaperras.setBackground(new Color(255, 255, 255));
         boton_tragaperras.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -113,7 +107,6 @@ public class Menu_principal extends JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(boton_blackjack, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                                .addComponent(boton_poker, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                 .addGap(88, 88, 88)
                                 .addComponent(boton_ruleta, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                 .addGap(50, 50, 50)
@@ -148,9 +141,8 @@ public class Menu_principal extends JFrame {
                                         .addComponent(boton_baccarat, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(boton_tragaperras, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(boton_blackjack, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(boton_poker, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
                                 .addGap(15, 15, 15))
-        );
+        ));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,12 +170,10 @@ public class Menu_principal extends JFrame {
 
     }
 
-    private void boton_pokerMouseClicked(MouseEvent evt) {
-
-    }
 
     private void boton_ruletaMouseClicked(MouseEvent evt) {
-
+        new View_Rule();
+        dispose();
     }
 
     private void boton_tragaperrasMouseClicked(MouseEvent evt) {

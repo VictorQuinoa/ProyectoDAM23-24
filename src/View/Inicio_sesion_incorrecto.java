@@ -33,8 +33,6 @@ public class Inicio_sesion_incorrecto extends JFrame {
         setResizable(false);
         setVisible(true);
         setLocation(new Point(600,600));
-        setUndecorated(true);
-        setVisible(true);
 
 
         fondo.setBackground(new Color(204, 204, 204));

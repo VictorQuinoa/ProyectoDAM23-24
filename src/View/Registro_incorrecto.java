@@ -28,6 +28,8 @@ public class Registro_incorrecto extends JFrame {
         boton = new JPanel();
         label_boton = new JLabel();
 
+        ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
+        setIconImage(imagenTaskBar.getImage());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);

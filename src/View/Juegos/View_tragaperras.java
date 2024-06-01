@@ -29,6 +29,8 @@ public class View_tragaperras extends javax.swing.JFrame {
         boton_girar = new javax.swing.JPanel();
         label_boton = new javax.swing.JLabel();
 
+        ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
+        setIconImage(imagenTaskBar.getImage());
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         setLocation(new java.awt.Point(600, 600));
@@ -146,7 +148,7 @@ public class View_tragaperras extends javax.swing.JFrame {
                 tercer_hueco.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + (i + 2) + ".png")));
                 i++;
                 try {
-                    Thread.sleep(1000); // Pausa por un segundo
+                    Thread.sleep(50); // Pausa por medio segundo
                 } catch (InterruptedException e) {
                     break; // Salir del bucle si el hilo es interrumpido
                 }

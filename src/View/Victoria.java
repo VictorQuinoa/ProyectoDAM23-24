@@ -28,6 +28,8 @@ public class Victoria extends JFrame {
         boton_reintento = new JPanel();
         texto_reintento = new JLabel();
 
+        ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
+        setIconImage(imagenTaskBar.getImage());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(imagenTaskBar.getImage());
         setResizable(false);

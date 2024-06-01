@@ -36,12 +36,10 @@ public class Inicio_sesion_correcto extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(imagenTaskBar.getImage());
-        setUndecorated(true);
         setAlwaysOnTop(true);
         setVisible(true);
         setLocation(new Point(600,600));
         setResizable(false);
-        setVisible(true);
 
         fondo.setBackground(new Color(204, 204, 204));
 

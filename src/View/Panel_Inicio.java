@@ -57,7 +57,6 @@ public class Panel_Inicio extends javax.swing.JFrame {
         panel_boton_registrarse.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                dispose();
                 new InsertarDatos();
             }
         });
@@ -84,10 +83,12 @@ public class Panel_Inicio extends javax.swing.JFrame {
                     boolean doesExist= bdHandlerUsuario.doesRowExist(nombre_usuario,passw);
                     if(doesExist){
                         dispose();
-                        new Menu_principal();
+                        new Inicio_sesion_correcto();
                     }
                     else{
-                        new Registro_incorrecto();
+                        insertar_nombre.setText("");
+                        insertar_contraseña.setText("");
+                        new Inicio_sesion_incorrecto();
                     }
                 }
             }

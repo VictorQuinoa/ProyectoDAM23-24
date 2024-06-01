@@ -1,8 +1,13 @@
-package View;
+package View.Juegos;
 
+
+import View.Menu_principal;
+
+import javax.swing.*;
 
 public class View_Rule extends javax.swing.JFrame {
     private javax.swing.JLabel aviso_inserciones;
+    private String colores[] = {"negro", "rojo", "verde"};
     private javax.swing.JLabel boton_salir;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel imagen_de_rule;
@@ -16,7 +21,6 @@ public class View_Rule extends javax.swing.JFrame {
         initComponents();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         fondo = new javax.swing.JPanel();
@@ -29,11 +33,14 @@ public class View_Rule extends javax.swing.JFrame {
         label_boton_parar = new javax.swing.JPanel();
         labelApostar = new javax.swing.JLabel();
 
+        ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
+        setIconImage(imagenTaskBar.getImage());
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));
 
-        boton_salir.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        boton_salir.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/cerrar_sesion.png")));
         boton_salir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 boton_salirMouseClicked(evt);
@@ -137,14 +144,37 @@ public class View_Rule extends javax.swing.JFrame {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+        Thread thread = new Thread(() -> {
+            int i = 0;
+            int j = 0;
+            String[] colores = {"Rojo", "Negro", "Verde"};
+            while (true) {
+                if (j == 18) {
+                    imagen_de_rule.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Ruleta/" + colores[2] + ".png")));
+                    j = 0; // la pone a 0 para que vuelva a empezar el ciclo
+                } else {
+                    imagen_de_rule.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Ruleta/" + colores[i] + ".png")));
+                    i = (i + 1) % 2; // permite alternar entre rojo y negro
+                    j++;
+                }
+                try {
+                    Thread.sleep(100); // Pausa por 0,2 segundo
+                } catch (InterruptedException e) {
+                    break; // Salir del bucle si el hilo es interrumpido
+                }
+            }
+        });
+        thread.start();
 
         pack();
-    }// </editor-fold>
+    }
 
     private void insercion_numeroActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
     private void label_apostarMouseClicked(java.awt.event.MouseEvent evt) {
+        int nApostado = Integer.valueOf(insercion_numero.getText());
+
     }
 
     private void boton_salirMouseClicked(java.awt.event.MouseEvent evt) {

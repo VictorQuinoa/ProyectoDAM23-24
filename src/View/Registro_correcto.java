@@ -94,6 +94,7 @@ public class Registro_correcto extends JFrame {
 
     private void label_botonMouseClicked(MouseEvent evt) {
         dispose();
+
     }
 
 
