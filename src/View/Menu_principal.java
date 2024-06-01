@@ -1,6 +1,4 @@
 package View;
-import View.Juegos.View_tragaperras;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -44,12 +42,14 @@ public class Menu_principal extends JFrame {
         setAlwaysOnTop(true);
         setVisible(true);
         setLocation(new java.awt.Point(600, 600));
+        setUndecorated(true);
 
         fondo.setBackground(new Color(204, 204, 204));
 
         texto_user.setText("Bienvenido ");
         texto_user.setFont(new Font("DejaVu Math TeX Gyre",2,18));
 
+        foto.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/foto_menu_principal.png")));
 
         boton_ruleta.setBackground(new java.awt.Color(255, 255, 255));
         boton_ruleta.setCursor(new Cursor(Cursor.HAND_CURSOR));

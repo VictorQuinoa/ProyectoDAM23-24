@@ -38,7 +38,7 @@ public class MusicaFondo {
         listSongFast.add("Decorativos/pistasAudio/Fast/Yakuza 0 OST - 57 Breeze Time.wav");
         listSongFast.add("Decorativos/pistasAudio/Fast/Yakuza 0 OST - 80 Queen of the passion.wav");
     }
-    public void musicaDeFondo(){
+    public void musicaDeFondo(int statusApp){
         initListSongChill();
         initListSongFast();
         //vemos si está dentro de un juego

@@ -27,11 +27,12 @@ public class Registro_correcto extends JFrame {
         Aviso = new JLabel();
         boton = new JPanel();
         label_boton = new JLabel();
-        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
+        imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
 
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setVisible(true);
         setResizable(false);
         setVisible(true);
         setIconImage(imagenTaskBar.getImage());

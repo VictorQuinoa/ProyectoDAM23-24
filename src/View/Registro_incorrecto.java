@@ -46,6 +46,12 @@ public class Registro_incorrecto extends JFrame {
                 label_botonMouseClicked(evt);
             }
         });
+        label_boton.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                label_botonMouseClicked(evt);
+            }
+        });
+
 
         GroupLayout botonLayout = new GroupLayout(boton);
         boton.setLayout(botonLayout);

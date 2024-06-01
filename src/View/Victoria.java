@@ -5,7 +5,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class Inicio_sesion_incorrecto extends JFrame {
+public class Victoria extends JFrame {
 
     private JLabel aviso;
     private ImageIcon imagenTaskBar;
@@ -15,7 +15,7 @@ public class Inicio_sesion_incorrecto extends JFrame {
     private JPanel boton_reintento;
 
 
-    public Inicio_sesion_incorrecto() {
+    public Victoria() {
         initComponents();
     }
 
@@ -33,17 +33,15 @@ public class Inicio_sesion_incorrecto extends JFrame {
         setResizable(false);
         setVisible(true);
         setLocation(new Point(600,600));
-        setUndecorated(true);
-        setVisible(true);
 
 
-        fondo.setBackground(new Color(204, 204, 204));
+        fondo.setBackground(new Color(224, 224, 224));
         fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
         aviso.setFont(new Font("MathJax_Fraktur", 0, 13));
-        aviso.setText("El nombre de usuario o la contraseña son incorrectas");
+        aviso.setText("                           Has ganado");
 
-        troste.setText(";(");
+        troste.setText(":D");
 
         boton_reintento.setBackground(new Color(204, 255, 255));
         boton_reintento.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -55,7 +53,7 @@ public class Inicio_sesion_incorrecto extends JFrame {
         });
 
         texto_reintento.setFont(new Font("MathJax_Fraktur", 0, 13)); // NOI18N
-        texto_reintento.setText("Volver a intentar");
+        texto_reintento.setText(" Volver a jugar");
 
         GroupLayout jPanel2Layout = new GroupLayout(boton_reintento);
         boton_reintento.setLayout(jPanel2Layout);

@@ -22,7 +22,7 @@ public class Olvido_contraseña_insercion extends javax.swing.JFrame {
     private javax.swing.JLabel label_nombre;
     private javax.swing.JSeparator linea_dni;
     private javax.swing.JSeparator linea_nombre;
-    private ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus|Iconos/Icono.jpg"));
+    private ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
 
     public Olvido_contraseña_insercion() {
         initComponents();
