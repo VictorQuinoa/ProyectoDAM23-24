@@ -1,4 +1,6 @@
-package View.Resultado_Juegos;
+package View.Resultado_Juegos.ConThreads;
+import View.Juegos.View_Rule;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -13,7 +15,7 @@ public class Derrota extends JFrame {
     private JLabel texto_reintento;
     private JPanel fondo;
     private JPanel boton_reintento;
-
+    private View_Rule viewRule;
 
     public Derrota() {
         initComponents();
@@ -122,6 +124,7 @@ public class Derrota extends JFrame {
     }
 
     private void boton_reinicioMouseClicked(MouseEvent evt) {
+        View_Rule.reiniciarHilo();
         dispose();
     }
 }
