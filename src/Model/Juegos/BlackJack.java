@@ -33,8 +33,8 @@ public class BlackJack {
             for (Cartas carta : mano) {
                 if (carta.getValorNumerico() == 1) {
                     ases++;
-                }
-                total += carta.getValorNumerico();
+                }else
+                total += (carta.getValorNumerico()>10)?10: carta.getValorNumerico();
             }
             while (ases > 0 && total + 10 <= 21) {
                 total += 10;
