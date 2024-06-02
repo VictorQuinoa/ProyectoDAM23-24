@@ -23,11 +23,6 @@ public class BlackJack {
         }
     }
 
-    public void sumarValorCarta(Cartas carta){
-        valorJugador += (carta.getValorNumerico()>10)?10:carta.getValorNumerico();
-
-    }
-
     public void darCartaCrupier(){
         try{
             this.cartaBanca = this.baraja.dealCard();

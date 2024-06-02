@@ -1,13 +1,12 @@
 package View.Juegos;
 
 import Model.JuegoDeCartas.Baraja;
-import Model.Juegos.Bacarat;
 import Model.Juegos.BlackJack;
 import Model.Musica.MusicaFondo;
 import View.Menu_principal;
-import View.Resultado_Juegos.ConCartas.Bacarat.Derrota;
-import View.Resultado_Juegos.ConCartas.Bacarat.Empate;
-import View.Resultado_Juegos.ConCartas.Bacarat.Victoria;
+import View.Resultado_Juegos.ConCartas.BlackJack.Derrota;
+import View.Resultado_Juegos.ConCartas.BlackJack.Empate;
+import View.Resultado_Juegos.ConCartas.BlackJack.Victoria;
 
 import javax.swing.*;
 import java.net.URL;
