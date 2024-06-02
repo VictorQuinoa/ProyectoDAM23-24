@@ -5,9 +5,14 @@ import Model.JuegoDeCartas.Cartas;
 import Model.Juegos.Bacarat;
 import Model.Musica.MusicaFondo;
 import View.Menu_principal;
+import View.Resultado_Juegos.ConCartas.Bacarat.Derrota;
+import View.Resultado_Juegos.ConCartas.Bacarat.Empate;
+import View.Resultado_Juegos.ConCartas.Bacarat.Victoria;
 
 import javax.swing.*;
 import java.net.URL;
+import java.util.Scanner;
+
 public class View_Bacarat extends javax.swing.JFrame {
     private Bacarat bacarat;
     MusicaFondo mf = new MusicaFondo();
@@ -30,6 +35,9 @@ public class View_Bacarat extends javax.swing.JFrame {
     private javax.swing.JPanel mano_jugador;
     private javax.swing.JLabel valor_mano_crupier;
     private javax.swing.JLabel valor_mano_jugador;
+    private static int transpasojugador;
+    private static int transpasocrupier;
+
 
     private void cargarImagenesReverso() {
         manoC_1.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Cartas/Reverso.png")));
@@ -70,7 +78,6 @@ public class View_Bacarat extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
-
 
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));
@@ -295,8 +302,40 @@ public class View_Bacarat extends javax.swing.JFrame {
             System.err.println("No se ha encontrado la imagen");
         }
     }
+
+    public void actualizarImagenCartaCrupier1(String rutaImagen){
+        URL url = getClass().getResource(rutaImagen);
+        if(url != null){
+            manoC_1.setIcon(new ImageIcon(url));
+
+        }else{
+            System.err.println("No se ha encontrado la imagen");
+        }
+    }
+    public void actualizarImagenCartaCrupier2(String rutaImagen){
+        URL url = getClass().getResource(rutaImagen);
+        if(url != null){
+            manoC_2.setIcon(new ImageIcon(url));
+
+        }else{
+            System.err.println("No se ha encontrado la imagen");
+        }
+    }
+    public void actualizarImagenCartaCrupier3(String rutaImagen){
+        URL url = getClass().getResource(rutaImagen);
+        if(url != null){
+            manoC_3.setIcon(new ImageIcon(url));
+
+        }else{
+            System.err.println("No se ha encontrado la imagen");
+        }
+    }
+
+
+    private int contador=0;
     private void label_pedirMouseClicked(java.awt.event.MouseEvent evt) {
-         int contador = 0;
+        transpasojugador=0;
+        transpasocrupier=0;
         if(contador==0){
             bacarat.darCartaJugador();
             String rutaImagen1 = bacarat.getRutaImagenCartaJugador();
@@ -305,20 +344,72 @@ public class View_Bacarat extends javax.swing.JFrame {
             bacarat.darCartaJugador();
             String rutaImagen2 = bacarat.getRutaImagenCartaJugador();
             actualizarImagenCartaJugador2(rutaImagen2);
+
+            bacarat.darCartaCrupier();
+            String rutaImagenC1 = bacarat.getRutaImagenCartaBanca();
+            actualizarImagenCartaCrupier1(rutaImagenC1);
+
+            bacarat.darCartaCrupier();
+            String rutaImagenC2 = bacarat.getRutaImagenCartaBanca();
+            actualizarImagenCartaCrupier2(rutaImagenC2);
+
+            bacarat.redondearValorCarta(bacarat.getValorJugador(),bacarat.getValorBanca());
+            valor_mano_jugador.setText(String.valueOf(bacarat.getValorJugador()));
+            valor_mano_crupier.setText(String.valueOf(bacarat.getValorBanca()));
+
         } else if(contador==1){
             bacarat.darCartaJugador();
+            bacarat.redondearValorCarta(bacarat.getValorJugador(),bacarat.getValorBanca());
             String rutaImagen3 = bacarat.getRutaImagenCartaJugador();
             actualizarImagenCartaJugador3(rutaImagen3);
 
+            if(bacarat.getValorBanca()<6){
+                bacarat.darCartaCrupier();
+                bacarat.redondearValorCarta(bacarat.getValorJugador(),bacarat.getValorBanca());
+
+            }
+            valor_mano_jugador.setText(String.valueOf(bacarat.getValorJugador()));
+            valor_mano_crupier.setText(String.valueOf(bacarat.getValorBanca()));
+
         }
         contador++;
+        transpasojugador=bacarat.getValorJugador();
+        transpasocrupier=bacarat.getValorBanca();
         if(contador==2){
-            Boton_pedir.setVisible(false); //Desaparece el boton de pedir
+            if(bacarat.getValorJugador()>bacarat.getValorBanca()){
+
+                  dispose();
+                    new Victoria();
+            }else if(bacarat.getValorJugador()<bacarat.getValorBanca()){
+                    dispose();
+                    new Derrota();
+            }else{
+                 dispose();
+                 new Empate();
+            }
         }
 
     }
 
     private void label_retirarseMouseClicked(java.awt.event.MouseEvent evt) {
+            if(bacarat.getValorBanca()<6){
+                bacarat.darCartaCrupier();
+                bacarat.redondearValorCarta(bacarat.getValorJugador(),bacarat.getValorBanca());
+                String rutaImagenC3 = bacarat.getRutaImagenCartaBanca();
+                actualizarImagenCartaCrupier3(rutaImagenC3);
+                valor_mano_crupier.setText(String.valueOf(bacarat.getValorBanca()));
+            }
+        if(bacarat.getValorJugador()>bacarat.getValorBanca()){
+
+            dispose();
+            new Victoria();
+        }else if(bacarat.getValorJugador()<bacarat.getValorBanca()){
+            dispose();
+            new Derrota();
+        }else{
+            dispose();
+            new Empate();
+        }
 
     }
 
@@ -326,5 +417,13 @@ public class View_Bacarat extends javax.swing.JFrame {
         mf.musicaDeFondo(0);
         dispose();
         new Menu_principal();
+    }
+
+    public static int getTranspasojugador() {
+        return transpasojugador;
+    }
+
+    public static int getTranspasocrupier() {
+        return transpasocrupier;
     }
 }

@@ -2,9 +2,9 @@ package Model.Juegos;
 import Model.JuegoDeCartas.Cartas;
 import Model.JuegoDeCartas.Baraja;
 
-import java.util.Scanner;
 /**
- * Clase Bacarat
+ * Clase que representa el juego de Bacarat
+
  */
 public class Bacarat {
     private Baraja baraja;
@@ -15,7 +15,7 @@ public class Bacarat {
 
     /**
      * Constructor de la clase Bacarat
-     * @param baraja Baraja con la que se va a jugar
+     * @param baraja baraja
      */
     public Bacarat(Baraja baraja) {
         this.baraja = baraja;
@@ -23,29 +23,44 @@ public class Bacarat {
     }
 
     /**
-     * Método para dar una carta al jugador
+     * Metodo de dar carta al jugador
      */
     public void darCartaJugador(){
         try{
             this.cartaJugador = this.baraja.dealCard();
+            valorJugador += valorCarta(this.cartaJugador);
+
         }catch(Exception e){
             System.out.println("Error al repartir");
         }
     }
+    public void redondearValorCarta(int valorJugador,int valorBanca){
+        if(valorJugador>9){
+            this.valorJugador = valorJugador%10;
+        }
+        if(valorBanca>9){
+            this.valorBanca = valorBanca%10;
+        }
+
+    }
     /**
-     * Método para dar una carta al crupier
+     * Metodo de dar carta al crupier
      */
     public void darCartaCrupier(){
         try{
             this.cartaBanca = this.baraja.dealCard();
+            valorBanca += valorCarta(this.cartaBanca);
+
+
         }catch (Exception e){
             System.out.println("Error al repartir");
         }
     }
+
     /**
-     * Método para obtener el valor de una carta
-     * @param carta Carta de la que se quiere obtener el valor
-     * @return Valor de la carta
+     * Metodo veirifca el valor de la carta
+     * @param carta carta
+     * @return valor de la carta
      */
     public int valorCarta(Cartas carta) {
         String valor = carta.getValor();
@@ -54,8 +69,11 @@ public class Bacarat {
                 case "Ace":
                     return 1;
                 case "Jack":
+                    return 0;
                 case "Queen":
+                    return 0;
                 case "King":
+                    return 0;
                 case "10":
                     return 0;
                 default:
@@ -66,182 +84,132 @@ public class Bacarat {
             return 0;
         }
     }
-    /**
-     * Método para jugar al Bacarat
-     * @param scanner Scanner para leer la entrada del usuario
-     */
-    public void jugarBacarat(Scanner scanner) {
-        String continuar;
-        do {
-            try{
-                jugarRonda(scanner);
-            } catch (Exception e){
-                System.out.println("Error al jugar: " + e.getMessage());
-            }
 
-            continuar = preguntarContinuar(scanner);
-        } while (continuar.equalsIgnoreCase("S"));
-    }
     /**
-     * Método para jugar una ronda de Bacarat
-     * @param scanner Scanner para leer la entrada del usuario
+     * Metodo que juega una ronda de Bacarat
+     * @param jugadorPideCarta jugador pide carta
+     * @param bancaPideCarta  banca pide carta
      */
-    public void jugarRonda(Scanner scanner) {
-        repartirCartas();
-        decidirCartaBanca();
-        decidirCartaJugador(scanner);
-        determinarGanador();
+    public void jugarRonda(boolean jugadorPideCarta, boolean bancaPideCarta) {
+        if (bancaPideCarta) {
+            decidirCartaBanca();
+        }
+        if (jugadorPideCarta) {
+            decidirCartaJugador();
+        }
     }
+
+    public boolean tomarCartaBanca(){
+        if(valorBanca<5){
+            return true;
+        }
+        return false;
+    }
+
     /**
-     * Método para repartir las cartas iniciales
+     * Metodo que reparte las cartas
      */
     public void repartirCartas() {
         darCartaJugador();
         valorJugador = valorCarta(this.cartaJugador);
-        System.out.println("Primera carta: " + this.cartaJugador);
-        System.out.println("Total hasta ahora: " + valorJugador);
 
         darCartaJugador();
         valorJugador =(valorJugador + valorCarta(this.cartaJugador))%10;
-        System.out.println("Segunda carta: " + this.cartaJugador);
-        System.out.println("Total del jugador: " + valorJugador);
 
         darCartaCrupier();
         valorBanca = valorCarta(this.cartaBanca) ;
-        System.out.println("Primera carta de la banca: " + this.cartaBanca);
-        System.out.println("Total de la banca: " + valorBanca);
 
         darCartaCrupier();
         valorBanca = (valorBanca + valorCarta(this.cartaBanca))%10;
-        System.out.println("Segunda carta de la banca: " + this.cartaBanca);
-        System.out.println("Total de la banca: " + valorBanca);
     }
+
     /**
-     * Método para decidir si la banca pide otra carta
+     * Metodo que decide la carta de la banca
      */
     public void decidirCartaBanca() {
         if(valorBanca<5){
-            System.out.println("La banca debe pedir otra carta");
             this.cartaBanca = this.baraja.dealCard();
             valorBanca = (valorBanca + valorCarta(this.cartaBanca)) % 10;
-            System.out.println("La nueva carta de la banca es: " + this.cartaBanca);
-            System.out.println("El nuevo total de la banca es: " + valorBanca);
-        }else{
-            System.out.println("La banca no pide carta");
         }
     }
+
     /**
-     * Método para decidir si el jugador pide otra carta
-     * @param scanner Scanner para leer la entrada del usuario
+     * Metodo que decide la carta del jugador
      */
-    public void decidirCartaJugador(Scanner scanner) {
-        String respuesta;
-        boolean cartaAdicionalPedida = false;
-        if (!cartaAdicionalPedida) {
-            System.out.println("¿Deseas pedir otra carta? (S/N)");
-            while (true) {
-                respuesta = scanner.nextLine().toUpperCase();
-                if (respuesta.equals("S") || respuesta.equals("N")) {
-                    break;
-                } else {
-                    System.out.println("Entrada inválida. Por favor, ingresa 'S' o 'N'.");
-                }
-            }
-            if (respuesta.equals("S")) {
-                this.cartaJugador = this.baraja.dealCard();
-                valorJugador = (valorJugador + valorCarta(this.cartaJugador)) % 10;
-                System.out.println("Tu nueva carta es: " + this.cartaJugador);
-                System.out.println("Tu nuevo total es: " + valorJugador);
-            }
-        }
+    public void decidirCartaJugador() {
+        this.cartaJugador = this.baraja.dealCard();
+        valorJugador = (valorJugador + valorCarta(this.cartaJugador)) % 10;
     }
+
     /**
-     * Método para determinar el ganador de la ronda
-     */
-    public void determinarGanador() {
-        if (valorJugador > valorBanca) {
-            System.out.println("El jugador gana con " + valorJugador + " contra " + valorBanca);
-        } else if (valorJugador < valorBanca) {
-            System.out.println("La banca gana con " + valorBanca + " contra " + valorJugador);
-        } else {
-            System.out.println("Es un empate con " + valorJugador);
-        }
-    }
-    /**
-     * Método para preguntar al usuario si desea continuar jugando
-     * @param scanner Scanner para leer la entrada del usuario
-     * @return Respuesta del usuario
-     */
-    public String preguntarContinuar(Scanner scanner) {
-        System.out.println("¿Deseas jugar otra vez? (S/N)");
-        while (true) {
-            String continuar = scanner.nextLine().toUpperCase();
-            if (continuar.equals("S") || continuar.equals("N")) {
-                return continuar;
-            } else {
-                System.out.println("Entrada inválida. Por favor, ingresa 'S' o 'N'.");
-            }
-        }
-    }
-    /**
-     * Método para obtener el valor de la banca
-     * @return Valor de la banca
+     * Metodo que devuelve el valor de la banca
+     * @return valor de la banca
      */
     public int getValorBanca() {
         return valorBanca;
     }
+
     /**
-     * Método para asignar el valor de la banca
-     * @param valorBanca Valor de la banca
+     * Metodo que asigna el valor de la banca
+     * @param valorBanca valor de la banca
      */
     public void setValorBanca(int valorBanca) {
         this.valorBanca = valorBanca;
     }
     /**
-     * Método para obtener la carta del jugador
-     * @return Carta del jugador
+     * Metodo que devuelve el valor del jugador
+     * @return valor del jugador
      */
     public int getValorJugador() {
         return valorJugador;
     }
     /**
-     * Método para asignar el valor del jugador
-     * @param valorJugador Valor del jugador
+     * Metodo que asigna el valor del jugador
+     * @param valorJugador valor del jugador
      */
     public void setValorJugador(int valorJugador) {
         this.valorJugador = valorJugador;
     }
-/**
-     * Método para obtener la carta de la banca
-     * @return Carta de la banca
+    /**
+     * Metodo que devuelve la carta de la banca
+     * @return carta de la banca
      */
     public Cartas getCartaBanca() {
         return cartaBanca;
     }
     /**
-     * Método para asignar la carta de la banca
-     * @param cartaBanca Carta de la banca
+     * Metodo que asigna la carta de la banca
+     * @param cartaBanca carta de la banca
      */
     public void setCartaBanca(Cartas cartaBanca) {
         this.cartaBanca = cartaBanca;
     }
     /**
-     * Método para obtener la carta del jugador
-     * @return Carta del jugador
+     * Metodo que devuelve la carta del jugador
+     * @return carta del jugador
      */
     public Cartas getCartaJugador() {
         return cartaJugador;
     }
     /**
-     * Método para asignar la carta del jugador
-     * @param cartaJugador Carta del jugador
+     * Metodo que asigna la carta del jugador
+     * @param cartaJugador carta del jugador
      */
     public void setCartaJugador(Cartas cartaJugador) {
         this.cartaJugador = cartaJugador;
     }
+    /**
+     * Metodo que devuelve la baraja
+     * @return baraja
+     */
     public String getRutaImagenCartaJugador(){
         return this.cartaJugador.getImagePaths();
     }
+    /**
+     * Metodo que devuelve la baraja
+     * @return baraja
+     */
+    public String getRutaImagenCartaBanca(){
+        return this.cartaBanca.getImagePaths();
+    }
 }
-
-

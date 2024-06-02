@@ -89,7 +89,7 @@ public class Cartas {
             case "Treboles":
                 return pathBase + "trebol/" + valor + "trebol.png";
             case "Picas":
-                return pathBase + "picas/" + valor + "pica.png";
+                return pathBase + "picas/" + valor + "picas.png";
             default:
                 return "";
         }

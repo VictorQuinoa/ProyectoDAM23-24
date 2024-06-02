@@ -18,7 +18,7 @@ public class Baraja {
         this.cartas = new ArrayList<Cartas>();
         String[] palos = {"Corazones", "Diamantes", "Treboles", "Picas"};
         String[] valores = {"Ace","2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
-        int[] valoresNumericos = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
+        int[] valoresNumericos = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 
         for (String palo : palos) {
             for (int i = 0; i < valores.length; i++) {
