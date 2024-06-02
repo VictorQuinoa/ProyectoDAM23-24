@@ -56,6 +56,23 @@ public class Cartas {
     public void setValorNumerico(int valorNumerico) {
         this.valorNumerico = valorNumerico;
     }
+
+    /**
+     * Método para obtener la ruta de imagen de una carta
+     * @return ruta de la imagen
+     */
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    /**
+     * Método para poner el path de una imagen
+     * @param imagePath ruta de la imagen
+     */
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
     /**
      * Metodo que devuelve la carta
      * @return carta
