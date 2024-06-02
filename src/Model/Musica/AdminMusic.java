@@ -11,7 +11,7 @@ public class AdminMusic {
      * Método para poner música
      * @param pathFile url del archivo
      */
-    public void playSound(String pathFile ) {
+    public void playSound(String pathFile) {
         try {
             // Abrir un audio input stream
             URL url = this.getClass().getClassLoader().getResource(pathFile);
@@ -57,27 +57,12 @@ public class AdminMusic {
         }
     }
 
-    //para parar la música cuando esté lo suficiente baja
+    //para parar la música
     public void stopMusic() {
         if (musicClip != null && musicClip.isRunning()) {
             musicClip.stop();
         }
     }
 
-    /**
-     *
-     * @return db para poder manejarlo mejor
-     */
-    public float getdB() {
-        return dB;
-    }
-
-    /**
-     *
-     * @param dB para poder modificar gradualmente el volumen
-     */
-    public void setdB(float dB) {
-        this.dB = dB;
-    }
 
 }

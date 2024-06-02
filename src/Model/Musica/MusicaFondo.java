@@ -9,7 +9,6 @@ import java.util.List;
 public class MusicaFondo {
     Random rm = new Random();
 
-    public static int statusApp = 0;
     private AdminMusic adm = new AdminMusic();
     List <String> listSongChill;
     List <String> listSongFast;
@@ -39,6 +38,7 @@ public class MusicaFondo {
         listSongFast.add("Decorativos/pistasAudio/Fast/Yakuza 0 OST - 80 Queen of the passion.wav");
     }
     public void musicaDeFondo(int statusApp){
+        //inicializa las canciones
         initListSongChill();
         initListSongFast();
         //vemos si está dentro de un juego
