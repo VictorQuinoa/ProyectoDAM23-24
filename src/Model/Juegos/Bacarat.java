@@ -239,6 +239,9 @@ public class Bacarat {
     public void setCartaJugador(Cartas cartaJugador) {
         this.cartaJugador = cartaJugador;
     }
+    public String getRutaImagenCartaJugador(){
+        return this.cartaJugador.getImagePaths();
+    }
 }
 
 

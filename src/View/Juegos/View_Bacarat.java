@@ -7,9 +7,9 @@ import Model.Musica.MusicaFondo;
 import View.Menu_principal;
 
 import javax.swing.*;
-
+import java.net.URL;
 public class View_Bacarat extends javax.swing.JFrame {
-
+    private Bacarat bacarat;
     MusicaFondo mf = new MusicaFondo();
     private javax.swing.JPanel Boton_pedir;
     private javax.swing.JLabel aviso_mano_C;
@@ -43,6 +43,7 @@ public class View_Bacarat extends javax.swing.JFrame {
     public View_Bacarat() {
         initComponents();
         cargarImagenesReverso();
+        this.bacarat = new Bacarat(new Baraja());
     }
 
 
@@ -267,8 +268,53 @@ public class View_Bacarat extends javax.swing.JFrame {
 
         pack();
     }
+    public void actualizarImagenCartaJugador1(String rutaImagen){
+        URL url = getClass().getResource(rutaImagen);
+        if(url != null){
+            manoJ_1.setIcon(new ImageIcon(url));
 
+        }else{
+            System.err.println("No se ha encontrado la imagen");
+        }
+    }
+    public void actualizarImagenCartaJugador2(String rutaImagen){
+        URL url = getClass().getResource(rutaImagen);
+        if(url != null){
+            manoJ_2.setIcon(new ImageIcon(url));
+
+        }else{
+            System.err.println("No se ha encontrado la imagen");
+        }
+    }
+    public void actualizarImagenCartaJugador3(String rutaImagen){
+        URL url = getClass().getResource(rutaImagen);
+        if(url != null){
+            manoJ_3.setIcon(new ImageIcon(url));
+
+        }else{
+            System.err.println("No se ha encontrado la imagen");
+        }
+    }
+    private int contador = 0;
     private void label_pedirMouseClicked(java.awt.event.MouseEvent evt) {
+        if(contador==0){
+            bacarat.darCartaJugador();
+            String rutaImagen1 = bacarat.getRutaImagenCartaJugador();
+            actualizarImagenCartaJugador1(rutaImagen1);
+
+            bacarat.darCartaJugador();
+            String rutaImagen2 = bacarat.getRutaImagenCartaJugador();
+            actualizarImagenCartaJugador2(rutaImagen2);
+        } else if(contador==1){
+            bacarat.darCartaJugador();
+            String rutaImagen3 = bacarat.getRutaImagenCartaJugador();
+            actualizarImagenCartaJugador3(rutaImagen3);
+
+        }
+        contador++;
+        if(contador==2){
+            Boton_pedir.setVisible(false); //Desaparece el boton de pedir
+        }
 
     }
 

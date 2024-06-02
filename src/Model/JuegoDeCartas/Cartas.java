@@ -74,6 +74,32 @@ public class Cartas {
     }
 
     /**
+     *
+     * @param palo dado en el for cuando va pasando los palo para darle el palo al path
+     * @param valor valor que tiene el nombre del archivo de la imagen para
+     * @return path deseado para asociarlo en el hashMap
+     */
+    private String generacionDePaths(String palo, int valor){
+        String pathBase = "/Decorativos/Imagenes/Cartas/";
+        switch (palo){
+            case "Corazones":
+                return pathBase + "corazones/" + valor + "corazon.png";
+            case "Diamantes":
+                return pathBase + "diamantes/" + valor + "diamante.png";
+            case "Treboles":
+                return pathBase + "trebol/" + valor + "trebol.png";
+            case "Picas":
+                return pathBase + "picas/" + valor + "pica.png";
+            default:
+                return "";
+        }
+    }
+
+    public String getImagePaths(){
+        return generacionDePaths(this.palo, this.valorNumerico);
+    }
+
+    /**
      * Metodo que devuelve la carta
      * @return carta
      */

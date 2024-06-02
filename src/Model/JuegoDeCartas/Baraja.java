@@ -59,7 +59,7 @@ public class Baraja {
      * @return path deseado para asociarlo en el hashMap
      */
     private String generacionDePaths(String palo, int valor){
-        String pathBase = "Decorativos/Imagenes/Cartas/";
+        String pathBase = "/Decorativos/Imagenes/Cartas/";
         switch (palo){
             case "Corazones":
                 return pathBase + "corazones/" + valor + "corazon.png";

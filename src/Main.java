@@ -10,9 +10,9 @@ public class Main {
         SwingUtilities.invokeLater(View_Bacarat::new);
         //Bacarat bacarat = new Bacarat(new Baraja());
        // bacarat.jugarBacarat(new Scanner(System.in));
-        Scanner scanner = new Scanner(System.in);
-        Bacarat bacarat = new Bacarat(new Baraja());
-        bacarat.jugarBacarat(scanner);
+//        Scanner scanner = new Scanner(System.in);
+//        Bacarat bacarat = new Bacarat(new Baraja());
+//        bacarat.jugarBacarat(scanner);
 
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("¡Bienvenido al juego de Blackjack!");
