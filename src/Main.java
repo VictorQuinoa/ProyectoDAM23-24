@@ -1,11 +1,15 @@
+import Model.JuegoDeCartas.Baraja;
+import Model.Juegos.Bacarat;
 import View.Juegos.View_Black_Bacarat;
 
 import javax.swing.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Bacarat bacarat = new Bacarat();
-//        bacarat.jugarBacarat();
+        Scanner scanner = new Scanner(System.in);
+        Bacarat bacarat = new Bacarat(new Baraja());
+        bacarat.jugarBacarat(scanner);
 
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("¡Bienvenido al juego de Blackjack!");
@@ -15,7 +19,7 @@ public class Main {
 //        tragaperras.jugarTragaperras(tragaperras);
 //        ConexionBD conexionBD = new ConexionBD();
 //        conexionBD.conectar();
-        SwingUtilities.invokeLater(View_Black_Bacarat::new);
+//        SwingUtilities.invokeLater(View_Black_Bacarat::new);
     }
 
 }
