@@ -57,29 +57,38 @@ public class BlackJack {
      * @param scanner Scanner para leer la entrada del usuario
      */
     public static void jugarBlackjack(Scanner scanner){
-        try {
-            Baraja baraja = new Baraja();
-            baraja.barajar();
+        String jugarOtraVez;
+        do {
+            try {
+                Baraja baraja = new Baraja();
+                baraja.barajar();
 
-            Jugador jugador = new Jugador();
-            Jugador crupier = new Jugador();
+                Jugador jugador = new Jugador();
+                Jugador crupier = new Jugador();
 
-            jugador.recibirCarta(baraja.tomarCarta());
-            crupier.recibirCarta(baraja.tomarCarta());
-            jugador.recibirCarta(baraja.tomarCarta());
-            crupier.recibirCarta(baraja.tomarCarta());
+                jugador.recibirCarta(baraja.tomarCarta());
+                crupier.recibirCarta(baraja.tomarCarta());
+                jugador.recibirCarta(baraja.tomarCarta());
+                crupier.recibirCarta(baraja.tomarCarta());
 
-            System.out.println("Tu mano: ");
-            jugador.mostrarMano();
-            System.out.println("\nLa carta visible del crupier es: " + crupier.mano.get(0));
+                System.out.println("Tu mano: ");
+                jugador.mostrarMano();
+                System.out.println("\nLa carta visible del crupier es: " + crupier.mano.get(0));
 
-            pedirCartas(jugador, scanner, baraja);
-            pedirCartasCrupier(crupier, baraja);
+                pedirCartas(jugador, scanner, baraja);
+                if(jugador.valorMano() > 21){
+                    System.out.println("¡Has perdido!");
+                } else {
+                    pedirCartasCrupier(crupier, baraja);
+                    determinarGanador(jugador, crupier);
+                }
 
-            determinarGanador(jugador, crupier);
-        } catch (Exception e){
-            System.out.println("Error al jugar al Blackjack" + e.getMessage());
-        }
+                jugarOtraVez = pedirEntrada(scanner, "\n¿Quieres jugar otra vez? (s/n)");
+            } catch (Exception e){
+                System.out.println("Error al jugar al Blackjack" + e.getMessage());
+                jugarOtraVez = "n";
+            }
+        } while (jugarOtraVez.equalsIgnoreCase("s"));
     }
 
     /**
@@ -89,21 +98,29 @@ public class BlackJack {
      * @param baraja Baraja de la que se toman las cartas
      */
     private static void pedirCartas(Jugador jugador, Scanner scanner, Baraja baraja) {
-        while (true) {
-            System.out.println("\n¿Quieres pedir otra carta? (s/n)");
-            String eleccion = scanner.nextLine();
+        boolean jugadorPerdio = false;
+        while (!jugadorPerdio) {
+            String eleccion = pedirEntrada(scanner, "\n¿Quieres pedir otra carta? (s/n)");
             if (eleccion.equalsIgnoreCase("s")) {
                 jugador.recibirCarta(baraja.tomarCarta());
                 System.out.println("Tu mano: ");
                 jugador.mostrarMano();
                 if (jugador.valorMano() > 21) {
                     System.out.println("Te has pasado de 21. ¡Has perdido!");
-                    System.exit(0);
+                    jugadorPerdio = true;
                 }
             } else {
                 break;
             }
         }
+    }
+    private static String pedirEntrada(Scanner scanner, String mensaje) {
+        String entrada;
+        do{
+            System.out.println(mensaje);
+            entrada = scanner.nextLine().toLowerCase();
+        } while (!entrada.equals("s") && !entrada.equals("n"));
+        return entrada;
     }
 
     /**
