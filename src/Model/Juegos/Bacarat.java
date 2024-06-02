@@ -47,7 +47,7 @@ public class Bacarat {
      * @param carta Carta de la que se quiere obtener el valor
      * @return Valor de la carta
      */
-    private int valorCarta(Cartas carta) {
+    public int valorCarta(Cartas carta) {
         String valor = carta.getValor();
         try{
             switch (valor){
@@ -86,7 +86,7 @@ public class Bacarat {
      * Método para jugar una ronda de Bacarat
      * @param scanner Scanner para leer la entrada del usuario
      */
-    private void jugarRonda(Scanner scanner) {
+    public void jugarRonda(Scanner scanner) {
         repartirCartas();
         decidirCartaBanca();
         decidirCartaJugador(scanner);
@@ -95,7 +95,7 @@ public class Bacarat {
     /**
      * Método para repartir las cartas iniciales
      */
-    private void repartirCartas() {
+    public void repartirCartas() {
         darCartaJugador();
         valorJugador = valorCarta(this.cartaJugador);
         System.out.println("Primera carta: " + this.cartaJugador);
@@ -119,7 +119,7 @@ public class Bacarat {
     /**
      * Método para decidir si la banca pide otra carta
      */
-    private void decidirCartaBanca() {
+    public void decidirCartaBanca() {
         if(valorBanca<5){
             System.out.println("La banca debe pedir otra carta");
             this.cartaBanca = this.baraja.dealCard();
@@ -134,7 +134,7 @@ public class Bacarat {
      * Método para decidir si el jugador pide otra carta
      * @param scanner Scanner para leer la entrada del usuario
      */
-    private void decidirCartaJugador(Scanner scanner) {
+    public void decidirCartaJugador(Scanner scanner) {
         String respuesta;
         boolean cartaAdicionalPedida = false;
         if (!cartaAdicionalPedida) {
@@ -158,7 +158,7 @@ public class Bacarat {
     /**
      * Método para determinar el ganador de la ronda
      */
-    private void determinarGanador() {
+    public void determinarGanador() {
         if (valorJugador > valorBanca) {
             System.out.println("El jugador gana con " + valorJugador + " contra " + valorBanca);
         } else if (valorJugador < valorBanca) {
@@ -172,7 +172,7 @@ public class Bacarat {
      * @param scanner Scanner para leer la entrada del usuario
      * @return Respuesta del usuario
      */
-    private String preguntarContinuar(Scanner scanner) {
+    public String preguntarContinuar(Scanner scanner) {
         System.out.println("¿Deseas jugar otra vez? (S/N)");
         while (true) {
             String continuar = scanner.nextLine().toUpperCase();
@@ -210,6 +210,34 @@ public class Bacarat {
      */
     public void setValorJugador(int valorJugador) {
         this.valorJugador = valorJugador;
+    }
+/**
+     * Método para obtener la carta de la banca
+     * @return Carta de la banca
+     */
+    public Cartas getCartaBanca() {
+        return cartaBanca;
+    }
+    /**
+     * Método para asignar la carta de la banca
+     * @param cartaBanca Carta de la banca
+     */
+    public void setCartaBanca(Cartas cartaBanca) {
+        this.cartaBanca = cartaBanca;
+    }
+    /**
+     * Método para obtener la carta del jugador
+     * @return Carta del jugador
+     */
+    public Cartas getCartaJugador() {
+        return cartaJugador;
+    }
+    /**
+     * Método para asignar la carta del jugador
+     * @param cartaJugador Carta del jugador
+     */
+    public void setCartaJugador(Cartas cartaJugador) {
+        this.cartaJugador = cartaJugador;
     }
 }
 
