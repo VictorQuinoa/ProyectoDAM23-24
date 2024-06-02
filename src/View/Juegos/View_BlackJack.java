@@ -401,7 +401,9 @@ public class View_BlackJack extends javax.swing.JFrame {
     }
 
     private void label_retirarseMouseClicked(java.awt.event.MouseEvent evt) {
-
+        if(blackJack.getValorBanca()<17) {
+            blackJack.darCartaCrupier();
+        }
         if(blackJack.getValorJugador()> blackJack.getValorBanca()){
             transpasojugador= blackJack.getValorJugador();
             transpasocrupier= blackJack.getValorBanca();
