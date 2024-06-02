@@ -7,91 +7,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Clase BlackJack
+ */
 public class BlackJack {
     /**
-     * Método para jugar al Blackjack
-     * @param scanner Scanner para leer la entrada del usuario
+     * Clase Jugador
      */
-    public static void jugarBlackjack(Scanner scanner){
-        try {
-            Baraja baraja = new Baraja();
-            baraja.barajar();
-
-            List<Cartas> manoJugador = new ArrayList<>();
-            List<Cartas> manoCrupier = new ArrayList<>();
-
-            // Inicia el juego repartiendo cartas
-            manoJugador.add(baraja.tomarCarta());
-            manoCrupier.add(baraja.tomarCarta());
-            manoJugador.add(baraja.tomarCarta());
-            manoCrupier.add(baraja.tomarCarta());
-
-            // Mostrar la mano del jugador y la carta visible del crupier
-            System.out.println("Tu mano: ");
-            for (Cartas carta : manoJugador) {
-                System.out.println(carta);
-            }
-            System.out.println("Total: " + valorMano(manoJugador));
-            System.out.println("\nLa carta visible del crupier es: " + manoCrupier.get(0));
-
-            // Turno del jugador
-            while (true) {
-                System.out.println("\n¿Quieres pedir otra carta? (s/n)");
-                String eleccion = scanner.nextLine();
-                if (eleccion.equalsIgnoreCase("s")) {
-                    manoJugador.add(baraja.tomarCarta());
-                    System.out.println("Tu mano: ");
-                    for (Cartas carta : manoJugador) {
-                        System.out.println(carta);
-                    }
-                    System.out.println("Total: " + valorMano(manoJugador));
-                    if (valorMano(manoJugador) > 21) {
-                        System.out.println("Te has pasado de 21. ¡Has perdido!");
-                        return;
-                    }
-                } else {
-                    break;
-                }
-            }
-
-            // Turno del crupier
-            System.out.println("\nTurno del crupier:");
-            System.out.println("Mano del crupier: ");
-            for (Cartas carta : manoCrupier) {
-                System.out.println(carta);
-            }
-            while (valorMano(manoCrupier) < 17) {
-                manoCrupier.add(baraja.tomarCarta());
-                System.out.println("Total del crupier: " + valorMano(manoCrupier));
-            }
-
-            // Determinar ganador
-            int totalJugador = valorMano(manoJugador);
-            int totalCrupier = valorMano(manoCrupier);
-            System.out.println("\nTu total: " + totalJugador);
-            System.out.println("Total del crupier: " + totalCrupier);
-
-            if (totalJugador > 21) {
-                System.out.println("¡Has perdido!");
-            } else if (totalCrupier > 21 || totalJugador > totalCrupier) {
-                System.out.println("¡Has ganado!");
-            } else if (totalJugador < totalCrupier) {
-                System.out.println("¡Has perdido!");
-            } else {
-                System.out.println("Es un empate.");
-            }
-        } catch (Exception e){
-            System.out.println("Error al jugar al Blackjack" + e.getMessage());
+    private static class Jugador {
+        private final List<Cartas> mano = new ArrayList<>();
+        /**
+         * Método para recibir una carta
+         * @param carta Carta que recibe el jugador
+         */
+        public void recibirCarta(Cartas carta) {
+            mano.add(carta);
         }
-    }
-
-    /**
-     * Método para calcular el valor total de la mano
-     * @param mano Lista de cartas
-     * @return Valor total de la mano
-     */
-    private static int valorMano(List<Cartas> mano) {
-        try{
+        /**
+         * Método para obtener el valor de la mano
+         * @return Valor de la mano
+         */
+        public int valorMano() {
             int total = 0;
             int ases = 0;
             for (Cartas carta : mano) {
@@ -105,10 +41,105 @@ public class BlackJack {
                 ases--;
             }
             return total;
+        }
+        /**
+         * Método para mostrar la mano del jugador
+         */
+        public void mostrarMano() {
+            for (Cartas carta : mano) {
+                System.out.println(carta);
+            }
+            System.out.println("Total: " + valorMano());
+        }
+    }
+    /**
+     * Método para jugar al Blackjack
+     * @param scanner Scanner para leer la entrada del usuario
+     */
+    public static void jugarBlackjack(Scanner scanner){
+        try {
+            Baraja baraja = new Baraja();
+            baraja.barajar();
+
+            Jugador jugador = new Jugador();
+            Jugador crupier = new Jugador();
+
+            jugador.recibirCarta(baraja.tomarCarta());
+            crupier.recibirCarta(baraja.tomarCarta());
+            jugador.recibirCarta(baraja.tomarCarta());
+            crupier.recibirCarta(baraja.tomarCarta());
+
+            System.out.println("Tu mano: ");
+            jugador.mostrarMano();
+            System.out.println("\nLa carta visible del crupier es: " + crupier.mano.get(0));
+
+            pedirCartas(jugador, scanner, baraja);
+            pedirCartasCrupier(crupier, baraja);
+
+            determinarGanador(jugador, crupier);
         } catch (Exception e){
-            System.out.println("Error al calcular el valor de la mano" + e.getMessage());
-            return 0;
+            System.out.println("Error al jugar al Blackjack" + e.getMessage());
         }
     }
 
+    /**
+     * Método para pedir cartas al jugador
+     * @param jugador Jugador al que se le piden cartas
+     * @param scanner Scanner para leer la entrada del usuario
+     * @param baraja Baraja de la que se toman las cartas
+     */
+    private static void pedirCartas(Jugador jugador, Scanner scanner, Baraja baraja) {
+        while (true) {
+            System.out.println("\n¿Quieres pedir otra carta? (s/n)");
+            String eleccion = scanner.nextLine();
+            if (eleccion.equalsIgnoreCase("s")) {
+                jugador.recibirCarta(baraja.tomarCarta());
+                System.out.println("Tu mano: ");
+                jugador.mostrarMano();
+                if (jugador.valorMano() > 21) {
+                    System.out.println("Te has pasado de 21. ¡Has perdido!");
+                    System.exit(0);
+                }
+            } else {
+                break;
+            }
+        }
+    }
+
+    /**
+     * Método para pedir cartas al crupier
+     * @param crupier Crupier al que se le piden cartas
+     * @param baraja Baraja de la que se toman las cartas
+     */
+    private static void pedirCartasCrupier(Jugador crupier, Baraja baraja) {
+        System.out.println("\nTurno del crupier:");
+        System.out.println("Mano del crupier: ");
+        crupier.mostrarMano();
+        while (crupier.valorMano() < 17) {
+            crupier.recibirCarta(baraja.tomarCarta());
+            System.out.println("Total del crupier: " + crupier.valorMano());
+        }
+    }
+
+    /**
+     * Método para determinar el ganador
+     * @param jugador Jugador
+     * @param crupier Crupier
+     */
+    private static void determinarGanador(Jugador jugador, Jugador crupier) {
+        int totalJugador = jugador.valorMano();
+        int totalCrupier = crupier.valorMano();
+        System.out.println("\nTu total: " + totalJugador);
+        System.out.println("Total del crupier: " + totalCrupier);
+
+        if (totalJugador > 21) {
+            System.out.println("¡Has perdido!");
+        } else if (totalCrupier > 21 || totalJugador > totalCrupier) {
+            System.out.println("¡Has ganado!");
+        } else if (totalJugador < totalCrupier) {
+            System.out.println("¡Has perdido!");
+        } else {
+            System.out.println("Es un empate.");
+        }
+    }
 }
