@@ -9,8 +9,8 @@ public class Bacarat {
     private Cartas cartaJugador;
     private Cartas cartaBanca;
 
-    public Bacarat() {
-        this.baraja = new Baraja();
+    public Bacarat(Baraja baraja) {
+        this.baraja = baraja;
     }
 
     /**
@@ -20,6 +20,7 @@ public class Bacarat {
         try{
             this.cartaJugador = this.baraja.dealCard();
             this.cartaBanca = this.baraja.dealCard();
+
         } catch (Exception e){
             System.out.println("Error al repartir cartas");
         }
@@ -54,8 +55,8 @@ public class Bacarat {
     /**
      * Juega una partida de Bacarat y devuelve el resultado.
      */
-    public void jugarBacarat() {
-        Scanner scanner = new Scanner(System.in);
+    public void jugarBacarat(Scanner scanner) {
+
         String continuar;
         do {
             try{

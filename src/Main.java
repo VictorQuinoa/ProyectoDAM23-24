@@ -1,5 +1,4 @@
-import BaseDeDatos.ConexionBD;
-import View.Panel_Inicio;
+import View.Juegos.View_Black_Bacarat;
 
 import javax.swing.*;
 
@@ -16,7 +15,7 @@ public class Main {
 //        tragaperras.jugarTragaperras(tragaperras);
 //        ConexionBD conexionBD = new ConexionBD();
 //        conexionBD.conectar();
-        SwingUtilities.invokeLater(Panel_Inicio::new);
+        SwingUtilities.invokeLater(View_Black_Bacarat::new);
     }
 
 }
