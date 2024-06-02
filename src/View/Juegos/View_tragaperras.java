@@ -55,15 +55,6 @@ public class View_tragaperras extends javax.swing.JFrame {
             }
         });
 
-        //primer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/pokerButton.jpg"))); // NOI18N
-        primer_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        //segundo_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/blackButton.png"))); // NOI18N
-        segundo_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        //tercer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/bacaButton.jpg"))); // NOI18N
-        tercer_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         boton_girar.setBackground(new java.awt.Color(153, 255, 153));
         boton_girar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
