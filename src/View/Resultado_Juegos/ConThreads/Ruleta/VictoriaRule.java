@@ -1,4 +1,4 @@
-package View.Resultado_Juegos.ConThreads;
+package View.Resultado_Juegos.ConThreads.Ruleta;
 import View.Juegos.View_Rule;
 
 import javax.swing.*;
@@ -7,7 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class Derrota extends JFrame {
+public class VictoriaRule extends JFrame {
 
     private JLabel aviso;
     private ImageIcon imagenTaskBar;
@@ -17,7 +17,7 @@ public class Derrota extends JFrame {
     private JPanel boton_reintento;
     private View_Rule viewRule;
 
-    public Derrota() {
+    public VictoriaRule() {
         initComponents();
     }
 
@@ -36,16 +36,16 @@ public class Derrota extends JFrame {
         setIconImage(imagenTaskBar.getImage());
         setResizable(false);
         setVisible(true);
-        setLocation(new Point(400,400));
+        setLocation(new Point(600,600));
 
 
         fondo.setBackground(new Color(224, 224, 224));
         fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
         aviso.setFont(new Font("MathJax_Fraktur", 0, 13));
-        aviso.setText("                           Has perdido");
+        aviso.setText("                           Has ganado");
 
-        troste.setText("D:");
+        troste.setText(":D");
 
         boton_reintento.setBackground(new Color(204, 255, 255));
         boton_reintento.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -126,6 +126,7 @@ public class Derrota extends JFrame {
     private void boton_reinicioMouseClicked(MouseEvent evt) {
         View_Rule.reiniciarHilo();
         dispose();
+
     }
 }
 

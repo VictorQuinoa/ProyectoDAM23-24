@@ -4,8 +4,8 @@ package View.Juegos;
 import Model.Juegos.Ruleta;
 import Model.Musica.MusicaFondo;
 import View.Menu_principal;
-import View.Resultado_Juegos.ConThreads.Derrota;
-import View.Resultado_Juegos.ConThreads.Victoria;
+import View.Resultado_Juegos.ConThreads.Ruleta.DerrotaRule;
+import View.Resultado_Juegos.ConThreads.Ruleta.VictoriaRule;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -14,7 +14,7 @@ public class View_Rule extends javax.swing.JFrame {
 
     //los atributos estáticos son necesarios para poder implementar un método que está más adelante
     MusicaFondo mf = new MusicaFondo();
-    private static Thread thread;
+    private static Thread threadR;
     private static volatile boolean detenerHilo = false;
     private javax.swing.JComboBox<String> apuestas_por_color;
     private javax.swing.JLabel aviso_inserciones;
@@ -202,7 +202,7 @@ public class View_Rule extends javax.swing.JFrame {
                         .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     // hilo que hace que se mueva el número y la imagen
-         thread = new Thread(() -> {
+         threadR = new Thread(() -> {
             int i = 0;
             int j = 0;
             String[] colores = {"Rojo", "Negro", "Verde"};
@@ -230,7 +230,7 @@ public class View_Rule extends javax.swing.JFrame {
                 }
             }
         });
-        thread.start();
+        threadR.start();
 
         pack();
     }
@@ -240,7 +240,7 @@ public class View_Rule extends javax.swing.JFrame {
         detenerHilo = true;
         try{
             //método para parar el cíclo del hilo
-            thread.join();
+            threadR.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -259,9 +259,9 @@ public class View_Rule extends javax.swing.JFrame {
             imagen_de_rule.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Ruleta/rojo.png")));
         //condición que mira si el color es igual o no
         if(rule.getColor().equals(apuestaColor))
-            new Victoria();
+            new VictoriaRule();
         else
-            new Derrota();
+            new DerrotaRule();
     }
 
     private void boton_numeroMouseClicked(java.awt.event.MouseEvent evt) {
@@ -280,7 +280,7 @@ public class View_Rule extends javax.swing.JFrame {
         detenerHilo = true;
         //nos aseguramos que el hilo se detiene
         try{
-            thread.join();
+            threadR.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -302,9 +302,9 @@ public class View_Rule extends javax.swing.JFrame {
 
         //condición final que compara si ganas o pierdes y determina que ventana se tiene que abrir
         if(rule.getNumero() == numeroDeApuesta){
-            new Victoria();
+            new VictoriaRule();
         }else{
-            new Derrota();
+            new DerrotaRule();
         }
     }
 
@@ -331,18 +331,19 @@ public class View_Rule extends javax.swing.JFrame {
         } while (numero == 0 || numero % 2 != 0); // repite si es 0 o impar
         return numero;
     }
+
     // Método para reiniciar (y pararlo cuando la ventana está abierta) el hilo
     public static void reiniciarHilo() {
         detenerHilo = true; // Detener el hilo actual
 
         // Esperar a que el hilo actual termine
         try {
-            thread.join();
+            threadR.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         //inicia un nuevo hilo
-        thread = new Thread(() -> {
+        threadR = new Thread(() -> {
             int i = 0;
             int j = 0;
             String[] colores = {"Rojo", "Negro", "Verde"};
@@ -371,6 +372,6 @@ public class View_Rule extends javax.swing.JFrame {
             }
         });
         detenerHilo = false;
-        thread.start();
+        threadR.start();
 }
 }
