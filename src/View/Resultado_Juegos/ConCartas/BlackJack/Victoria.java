@@ -48,7 +48,6 @@ public class Victoria extends JFrame {
         fondo.setBackground(new Color(224, 224, 224));
         fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
         aviso.setFont(new Font("MathJax_Fraktur", 0, 13));
-        String ganador = (Math.abs(21- View_BlackJack.getTranspasojugador())<Math.abs(21- View_BlackJack.getTranspasocrupier()))?" TU ":" Banca";
 
         aviso.setText("                           Has ganado\n "+ View_BlackJack.getTranspasojugador()+ " TU\n "+ View_BlackJack.getTranspasocrupier()+ " BANCA");
 

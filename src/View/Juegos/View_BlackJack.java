@@ -361,14 +361,13 @@ public class View_BlackJack extends javax.swing.JFrame {
                 String rutaImagen3 = blackJack.getRutaImagenCartaJugador();
                 actualizarImagenCartaJugador3(rutaImagen3);
 
-                if (blackJack.getValorBanca() < 17) {
+                if (contador==1 && blackJack.getValorBanca() < 17) {
                     blackJack.darCartaCrupier();
                 }
                 valor_mano_jugador.setText(String.valueOf(blackJack.getValorJugador()));
                 valor_mano_crupier.setText(String.valueOf(blackJack.getValorBanca()));
             }
         } else {
-            // Sobrescribir la primera carta y sumar su valor al total
             blackJack.darCartaJugador();
             String rutaImagen = blackJack.getRutaImagenCartaJugador();
             actualizarImagenCartaJugador1(rutaImagen);
@@ -377,6 +376,12 @@ public class View_BlackJack extends javax.swing.JFrame {
         contador++;
         transpasojugador = blackJack.getValorJugador();
         transpasocrupier = blackJack.getValorBanca();
+
+        if (transpasojugador > 21 || transpasocrupier > 21) {
+            dispose();
+            new Derrota();
+            return;
+        }
         if (contador == 4) {
             if (blackJack.getValorJugador() > blackJack.getValorBanca()) {
                 transpasojugador = blackJack.getValorJugador();
