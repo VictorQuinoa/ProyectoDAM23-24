@@ -335,8 +335,8 @@ public class View_BlackJack extends javax.swing.JFrame {
     private void label_pedirMouseClicked(java.awt.event.MouseEvent evt) {
         transpasojugador = 0;
         transpasocrupier = 0;
-        if (contador < 3) {
-            if (contador == 0) {
+        if (contador < 4) {
+            if (contador == 0 || contador == 2) {
                 blackJack.darCartaJugador();
                 String rutaImagen1 = blackJack.getRutaImagenCartaJugador();
                 actualizarImagenCartaJugador1(rutaImagen1);
@@ -356,7 +356,7 @@ public class View_BlackJack extends javax.swing.JFrame {
                 valor_mano_jugador.setText(String.valueOf(blackJack.getValorJugador()));
                 valor_mano_crupier.setText(String.valueOf(blackJack.getValorBanca()));
 
-            } else if (contador == 1) {
+            } else if (contador == 1 || contador == 3) {
                 blackJack.darCartaJugador();
                 String rutaImagen3 = blackJack.getRutaImagenCartaJugador();
                 actualizarImagenCartaJugador3(rutaImagen3);
@@ -377,7 +377,7 @@ public class View_BlackJack extends javax.swing.JFrame {
         contador++;
         transpasojugador = blackJack.getValorJugador();
         transpasocrupier = blackJack.getValorBanca();
-        if (contador == 3) {
+        if (contador == 4) {
             if (blackJack.getValorJugador() > blackJack.getValorBanca()) {
                 transpasojugador = blackJack.getValorJugador();
                 transpasocrupier = blackJack.getValorBanca();
