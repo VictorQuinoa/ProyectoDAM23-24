@@ -1,7 +1,12 @@
 package View.Juegos;
 
+import Model.Juegos.TragaPerras;
 import Model.Musica.MusicaFondo;
 import View.Menu_principal;
+import View.Resultado_Juegos.ConThreads.Ruleta.DerrotaRule;
+import View.Resultado_Juegos.ConThreads.Ruleta.VictoriaRule;
+import View.Resultado_Juegos.ConThreads.Tragaperras.DerrotaSlot;
+import View.Resultado_Juegos.ConThreads.Tragaperras.VictoriaSlot;
 
 import javax.swing.*;
 
@@ -9,12 +14,13 @@ public class View_tragaperras extends javax.swing.JFrame {
 
     MusicaFondo mf = new MusicaFondo();
     private javax.swing.JPanel boton_girar;
-    private Thread thread;
+    private static volatile boolean pararGiro;
+    private static Thread threadT;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel cerrar_juego;
-    private javax.swing.JLabel primer_hueco;
-    private javax.swing.JLabel segundo_hueco;
-    private javax.swing.JLabel tercer_hueco;
+    private static javax.swing.JLabel primer_hueco;
+    private static javax.swing.JLabel segundo_hueco;
+    private static javax.swing.JLabel tercer_hueco;
     private javax.swing.JLabel label_boton;
     private Boolean bool;
 
@@ -48,15 +54,6 @@ public class View_tragaperras extends javax.swing.JFrame {
                 label_Boton_cerrarMouseClicked(evt);
             }
         });
-
-        //primer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/pokerButton.jpg"))); // NOI18N
-        primer_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        //segundo_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/blackButton.png"))); // NOI18N
-        segundo_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        //tercer_hueco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ejem/wawa/bacaButton.jpg"))); // NOI18N
-        tercer_hueco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         boton_girar.setBackground(new java.awt.Color(153, 255, 153));
         boton_girar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -140,9 +137,9 @@ public class View_tragaperras extends javax.swing.JFrame {
         //este do-while se usa para ir poniendo imagenes mientras no le des al boton
 
         // Inicializa el hilo
-         thread = new Thread(() -> {
+         threadT = new Thread(() -> {
             int i = 1;
-            while (true) {
+            while (!pararGiro) {
                 if (i == 6)
                     i = 1;
                 primer_hueco.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + i + ".png")));
@@ -156,21 +153,92 @@ public class View_tragaperras extends javax.swing.JFrame {
                 }
             }
         });
-        thread.start(); // Inicia el hilo
+        threadT.start(); // Inicia el hilo
 
         pack();
     }
 
     private void label_Boton_cerrarMouseClicked(java.awt.event.MouseEvent evt) {
         mf.musicaDeFondo(0);
-        thread.interrupt(); // Interrumpe el hilo cuando se cierra el juego
+        threadT.interrupt(); // Interrumpe el hilo cuando se cierra el juego
         dispose();
         new Menu_principal();
     }
 
     private void label_boton_pararMouseClicked(java.awt.event.MouseEvent evt) {
-        thread.interrupt(); // Interrumpe el hilo cuando se presiona el botón
+        pararGiro = true;
+        try{
+            threadT.join();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        TragaPerras tp = new TragaPerras();
+        String[] resultado = tp.girar();
+        primer_hueco.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + getImageIndex(resultado[0]) + ".png")));
+        segundo_hueco.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + getImageIndex(resultado[1]) + ".png")));
+        tercer_hueco.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + getImageIndex(resultado[2]) + ".png")));
+
+        if(tp.verificarResultado(resultado))
+            new VictoriaSlot();
+        else
+            new DerrotaSlot();
     }
 
+    // Método para reiniciar (y pararlo cuando la ventana está abierta) el hilo
+    public static void reiniciarHilo() {
+        pararGiro = true; // Detener el hilo actual
 
+        // Esperar a que el hilo actual termine
+        try {
+            threadT.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //inicia un nuevo hilo
+        threadT = new Thread(() -> {
+                int i = 1;
+                while (!pararGiro) {
+                    if (i == 6)
+                        i = 1;
+                    primer_hueco.setIcon(new ImageIcon(View_tragaperras.class.getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + i + ".png")));
+                    segundo_hueco.setIcon(new ImageIcon(View_tragaperras.class.getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + (i + 1) + ".png")));
+                    tercer_hueco.setIcon(new ImageIcon(View_tragaperras.class.getResource("/Decorativos/Imagenes/Tragaperras/Tragaperras" + (i + 2) + ".png")));
+                    i++;
+                try {
+                    Thread.sleep(100); // pausa de 100 milisegundos
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        pararGiro = false;
+        threadT.start();
+    }
+
+    private int getImageIndex(String simbolo) {
+        switch (simbolo) {
+            case "Cereza":
+                return 7;
+            case "Campana":
+                return 1;
+            case "Limón":
+                return 4;
+            case "Siete":
+                return 5;
+            case "Pica":
+                return 6;
+            case "Diamante":
+                return 8;
+            case "Moai":
+                return 2;
+            case "Uva":
+                return 3;
+            default:
+                return Integer.parseInt(null);
+        }
+    }
 }
+
+
+
