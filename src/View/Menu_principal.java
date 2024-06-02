@@ -1,6 +1,6 @@
 package View;
 import Model.Musica.MusicaFondo;
-import View.Juegos.View_Black_Bacarat;
+import View.Juegos.View_Bacarat;
 import View.Juegos.View_Rule;
 import View.Juegos.View_tragaperras;
 
@@ -166,15 +166,15 @@ public class Menu_principal extends JFrame {
     }
 
     private void boton_baccaratMouseClicked(MouseEvent evt) {
-        new View_Black_Bacarat();
+        new View_Bacarat();
         mf.musicaDeFondo(1);
         dispose();
     }
 
     private void boton_blackjackMouseClicked(MouseEvent evt) {
-        new View_Black_Bacarat();
-        mf.musicaDeFondo(1);
-        dispose();
+        //new View_Bacarat();
+        //mf.musicaDeFondo(1);
+        //dispose();
     }
 
 

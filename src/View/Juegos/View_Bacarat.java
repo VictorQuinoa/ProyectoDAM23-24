@@ -1,9 +1,14 @@
 package View.Juegos;
 
+import Model.JuegoDeCartas.Baraja;
+import Model.JuegoDeCartas.Cartas;
+import Model.Juegos.Bacarat;
 import Model.Musica.MusicaFondo;
 import View.Menu_principal;
 
-public class View_Black_Bacarat extends javax.swing.JFrame {
+import javax.swing.*;
+
+public class View_Bacarat extends javax.swing.JFrame {
 
     MusicaFondo mf = new MusicaFondo();
     private javax.swing.JPanel Boton_pedir;
@@ -13,6 +18,7 @@ public class View_Black_Bacarat extends javax.swing.JFrame {
     private javax.swing.JLabel boton_salir;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel label_pedir;
+    private static boolean primeraVez;
     private javax.swing.JLabel label_retirarse;
     private javax.swing.JLabel manoC_1;
     private javax.swing.JLabel manoC_2;
@@ -25,12 +31,21 @@ public class View_Black_Bacarat extends javax.swing.JFrame {
     private javax.swing.JLabel valor_mano_crupier;
     private javax.swing.JLabel valor_mano_jugador;
 
-    public View_Black_Bacarat() {
+    private void cargarImagenesReverso() {
+        manoC_1.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Cartas/Reverso.png")));
+        manoC_2.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Cartas/Reverso.png")));
+        manoC_3.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Cartas/Reverso.png")));
+        manoJ_1.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Cartas/Reverso.png")));
+        manoJ_2.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Cartas/Reverso.png")));
+        manoJ_3.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Cartas/Reverso.png")));
+    }
+
+    public View_Bacarat() {
         initComponents();
+        cargarImagenesReverso();
     }
 
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         fondo = new javax.swing.JPanel();
@@ -55,15 +70,11 @@ public class View_Black_Bacarat extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
+
+
         fondo.setBackground(new java.awt.Color(255, 255, 255));
 
-        mano_crupier.setBackground(new java.awt.Color(25, 203, 0));
-
-        manoC_3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        manoC_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        manoC_2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        mano_crupier.setBackground(new java.awt.Color(170, 255, 166));
 
         javax.swing.GroupLayout mano_crupierLayout = new javax.swing.GroupLayout(mano_crupier);
         mano_crupier.setLayout(mano_crupierLayout);
@@ -89,13 +100,7 @@ public class View_Black_Bacarat extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
-        mano_jugador.setBackground(new java.awt.Color(25, 203, 0));
-
-        manoJ_3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        manoJ_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        manoJ_2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        mano_jugador.setBackground(new java.awt.Color(170, 255, 166));
 
         javax.swing.GroupLayout mano_jugadorLayout = new javax.swing.GroupLayout(mano_jugador);
         mano_jugador.setLayout(mano_jugadorLayout);
@@ -177,13 +182,13 @@ public class View_Black_Bacarat extends javax.swing.JFrame {
 
         valor_mano_jugador.setFont(new java.awt.Font("Lucida Calligraphy", 0, 12)); // NOI18N
         valor_mano_jugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        valor_mano_jugador.setText("jLabel18");
+        valor_mano_jugador.setText("ValorJ");
 
         valor_mano_crupier.setFont(new java.awt.Font("Lucida Calligraphy", 0, 12)); // NOI18N
         valor_mano_crupier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        valor_mano_crupier.setText("jLabel19");
+        valor_mano_crupier.setText("ValorC");
 
-        boton_salir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        boton_salir.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Botones_menu_principal/cerrar_sesion.png")));
         boton_salir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 boton_salirMouseClicked(evt);
