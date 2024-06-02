@@ -295,8 +295,8 @@ public class View_Bacarat extends javax.swing.JFrame {
             System.err.println("No se ha encontrado la imagen");
         }
     }
-    private int contador = 0;
     private void label_pedirMouseClicked(java.awt.event.MouseEvent evt) {
+         int contador = 0;
         if(contador==0){
             bacarat.darCartaJugador();
             String rutaImagen1 = bacarat.getRutaImagenCartaJugador();
