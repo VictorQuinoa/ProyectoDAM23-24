@@ -1,4 +1,6 @@
 package View.Inicios_de_Sesion;
+import View.Menu_principal;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -124,6 +126,7 @@ public class Inicio_sesion_correcto extends JFrame {
     }
 
     private void boton_continuarMouseClicked(MouseEvent evt) {
-
+        new Menu_principal();
+        dispose();
     }
 }

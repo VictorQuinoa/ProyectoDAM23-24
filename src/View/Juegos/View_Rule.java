@@ -205,7 +205,7 @@ public class View_Rule extends javax.swing.JFrame {
          threadR = new Thread(() -> {
             int i = 0;
             int j = 0;
-            String[] colores = {"Rojo", "Negro", "Verde"};
+            String[] colores = {"rojo", "negro", "verde"};
             while (!detenerHilo) {
                 if (j == 18) {
                     imagen_de_rule.setIcon(new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Ruleta/" + colores[2] + ".png")));
@@ -346,7 +346,7 @@ public class View_Rule extends javax.swing.JFrame {
         threadR = new Thread(() -> {
             int i = 0;
             int j = 0;
-            String[] colores = {"Rojo", "Negro", "Verde"};
+            String[] colores = {"rojo", "negro", "verde"};
             while (!detenerHilo) {
                 if (j == 18) {
                     imagen_de_rule.setIcon(new ImageIcon(View_Rule.class.getResource("/Decorativos/Imagenes/Ruleta/" + colores[2] + ".png")));
