@@ -78,6 +78,8 @@ public class View_Bacarat extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+        setSize(new java.awt.Dimension(500, 319));
+
 
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));

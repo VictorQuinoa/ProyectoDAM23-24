@@ -43,7 +43,7 @@ public class View_tragaperras extends javax.swing.JFrame {
         setVisible(true);
         setLocation(new java.awt.Point(600, 600));
         setResizable(false);
-        setSize(new java.awt.Dimension(500, 319));
+        setSize(new java.awt.Dimension(500, 380));
 
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));

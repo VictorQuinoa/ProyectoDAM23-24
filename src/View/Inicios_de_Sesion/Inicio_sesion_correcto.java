@@ -42,6 +42,7 @@ public class Inicio_sesion_correcto extends JFrame {
         setVisible(true);
         setLocation(new Point(600,600));
         setResizable(false);
+        setSize(new java.awt.Dimension(500, 219));
 
         fondo.setBackground(new Color(204, 204, 204));
 

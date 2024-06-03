@@ -8,6 +8,7 @@ import View.Resultado_Juegos.ConThreads.Ruleta.DerrotaRule;
 import View.Resultado_Juegos.ConThreads.Ruleta.VictoriaRule;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class View_Rule extends javax.swing.JFrame {
@@ -55,6 +56,8 @@ public class View_Rule extends javax.swing.JFrame {
         setVisible(true);
         ImageIcon imagenTaskBar = new ImageIcon(getClass().getResource("/Decorativos/Imagenes/Menus_Iconos/Icono.jpg"));
         setIconImage(imagenTaskBar.getImage());
+        setSize(new java.awt.Dimension(500, 319));
+
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));
 

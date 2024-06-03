@@ -34,6 +34,8 @@ public class Registro_incorrecto extends JFrame {
         setUndecorated(true);
         setResizable(false);
         setVisible(true);
+        setSize(new java.awt.Dimension(500, 319));
+
 
         aviso.setFont(new Font("MathJax_Math", 0, 12));
         aviso.setText("Registro incorrecto. Intentelo de nuevo");

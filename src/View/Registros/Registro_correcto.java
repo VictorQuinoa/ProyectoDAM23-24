@@ -34,7 +34,7 @@ public class Registro_correcto extends JFrame {
         setUndecorated(true);
         setVisible(true);
         setResizable(false);
-        setVisible(true);
+        setSize(new java.awt.Dimension(500, 319));
         setIconImage(imagenTaskBar.getImage());
 
         Aviso.setFont(new Font("MathJax_Fraktur", 0, 12)); // NOI18N

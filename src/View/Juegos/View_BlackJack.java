@@ -9,6 +9,7 @@ import View.Resultado_Juegos.ConCartas.BlackJack.Empate;
 import View.Resultado_Juegos.ConCartas.BlackJack.Victoria;
 
 import javax.swing.*;
+import java.awt.*;
 import java.net.URL;
 
 public class View_BlackJack extends javax.swing.JFrame {
@@ -76,6 +77,8 @@ public class View_BlackJack extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+        setSize(new java.awt.Dimension(500, 319));
+
 
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));

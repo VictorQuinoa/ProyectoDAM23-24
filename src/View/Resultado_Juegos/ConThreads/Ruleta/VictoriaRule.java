@@ -37,6 +37,8 @@ public class VictoriaRule extends JFrame {
         setResizable(false);
         setVisible(true);
         setLocation(new Point(600,600));
+        setSize(new java.awt.Dimension(500, 219));
+
 
 
         fondo.setBackground(new Color(224, 224, 224));

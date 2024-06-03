@@ -49,6 +49,8 @@ public class Menu_principal extends JFrame {
         setAlwaysOnTop(true);
         setVisible(true);
         setLocation(new java.awt.Point(600, 600));
+        setSize(new java.awt.Dimension(500, 319));
+
 
         fondo.setBackground(new Color(204, 204, 204));
 

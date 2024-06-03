@@ -39,6 +39,8 @@ public class Derrota extends JFrame {
         setResizable(false);
         setVisible(true);
         setLocation(new Point(400,400));
+        setSize(new java.awt.Dimension(500, 319));
+
 
 
         fondo.setBackground(new Color(224, 224, 224));

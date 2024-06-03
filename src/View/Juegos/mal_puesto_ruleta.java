@@ -29,6 +29,8 @@ public class mal_puesto_ruleta extends javax.swing.JFrame {
         setVisible(true);
         setIconImage(imagenTaskBar.getImage());
         setResizable(false);
+        setSize(new java.awt.Dimension(500, 319));
+
 
         fondo.setBackground(new java.awt.Color(255, 255, 255));
         fondo.addMouseListener(new MouseAdapter() {
